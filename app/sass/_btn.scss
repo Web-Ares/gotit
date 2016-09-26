@@ -1,0 +1,91 @@
+.btn {
+  display: inline-block;
+  vertical-align: top;
+  border: none;
+  width: 10.9em;
+  height: 2.9em;
+  padding: 0 10px;
+  border-radius: 10.9em;
+  color: #fff;
+  font-size: 1.2em;
+  line-height: 1em;
+  background: $btn-back;
+  @include main-font2();
+  -webkit-transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+  transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+
+  span {
+    @include flexbox();
+    @include flex-direction(row);
+    @include align-items(center);
+    @include justify-content(center);
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    color: $btn-color-hover;
+    background: $btn-back-hover;
+  }
+  &:active {
+    color: $btn-color-active;
+    background: $btn-back-active;
+  }
+
+}
+.btn_2 {
+  background: transparent;
+  border: 1px solid #fff;
+  width: 226px;
+  height: 32px;
+  font-size: 14px;
+  line-height: 14px;
+  margin: 0 0 20px;
+
+  &:hover,
+  &.active{
+    color: $btn-color-hover;
+    background: #fff;
+  }
+  &:active {
+    color: $btn-color-active;
+    background: $btn-back-active;
+    border-color: $btn-back-active;
+  }
+
+}
+.btn_3 {
+  background: #fff;
+  color: #9a073a;
+  width: 226px;
+  height: 32px;
+  font-size: 14px;
+  line-height: 14px;
+  margin: 0 0 20px;
+
+  &:hover {
+    color: $btn-color-active;
+    background: $btn-color-hover;
+  }
+  &:active {
+    color: $btn-color-active;
+    background: $btn-back-active;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .btn {
+    width: 10.4em;
+    height: 2.85em;
+    margin: 0 0 0 -8px;
+    border-radius: 10.4em;
+    font-size: 1.17em;
+    line-height: 1.17em;
+  }
+  .btn_2 {
+    width: 12.4em;
+  }
+
+}

@@ -1,0 +1,226 @@
+.main-slider {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  min-height: 635px;
+
+  .swiper-container {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    >.swiper-wrapper {
+
+      .swiper-slide {
+        display: block;
+        background: transparent;
+        height: 100%;
+      }
+
+    }
+
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 46.1%;
+    width: 1.6em;
+    height: 1.6em;
+    background: none;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+  .swiper-button-prev {
+    left: 18px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  .swiper-button-next {
+    right: 18px;
+  }
+
+}
+.main-slider__content {
+  @include flexbox();
+  @include flex-direction(row);
+  @include align-items(center);
+  @include justify-content(center);
+  height: 100%;
+  padding: 9em 40px 2em;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+
+  >div {
+    width: 100%;
+  }
+
+}
+.main-slider__text {
+  position: relative;
+  z-index: 1;
+
+  p {
+    font-size: 0.9em;
+    line-height: 1.4em;
+    margin: 0 0 29px;
+  }
+}
+.main-slider__pic {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: 15.8em;
+  height: 15.8em;
+  margin: 0 0 2px 0;
+
+  img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+
+}
+.main-slider__btn-down {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 2.5em;
+  width: 2em;
+  height: 2em;
+  margin-left: -1em;
+  background: none;
+  text-indent: -9999px;
+  -webkit-animation-name: down;
+  -webkit-animation-duration: 1200ms;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: down;
+  animation-duration: 1200ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:after {
+    position: absolute;
+    top: 70%;
+    left: 40%;
+    width: 75%;
+    height: 75%;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    content: '';
+    -webkit-transform: rotate(-135deg) translateX(100%) translateY(50%);
+    transform: rotate(-135deg) translateX(100%) translateY(50%);
+  }
+
+}
+
+@-webkit-keyframes down {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  25% {
+    -webkit-transform: translateY(-5px);
+  }
+  50% {
+    -webkit-transform: translateY(0);
+  }
+  75% {
+    -webkit-transform: translateY(5px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes down {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  25% {
+    -webkit-transform: translateY(-5px);
+  }
+  50% {
+    -webkit-transform: translateY(0);
+  }
+  75% {
+    -webkit-transform: translateY(5px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .main-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 500px;
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      top: 47.8%;
+      width: 2em;
+      height: 2em;
+    }
+    .swiper-button-prev {
+      left: 48px;
+    }
+    .swiper-button-next {
+      right: 48px;
+    }
+
+  }
+  .main-slider__content {
+    @include align-items(flex-end);
+    @include justify-content(flex-end);
+    padding: 0 18.6% 12.7%;
+    text-align: left;
+
+    >div {
+      width: auto;
+    }
+
+  }
+  .main-slider__text {
+    p {
+      font-size: 1.18em;
+      line-height: 1.1em;
+      margin: 0 0 0.7em;
+    }
+  }
+  .main-slider__pic {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    width: 27.7em;
+    height: 0;
+    margin: 0;
+    padding-bottom: 27.8em;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+}
+@media (min-width: $desktop) {
+
+  .main-slider__btn-down {
+    bottom: 3em;
+    width: 3em;
+    height: 3em;
+    margin-left: -1.5em;
+  }
+
+}

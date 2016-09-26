@@ -1,0 +1,60 @@
+.join {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 2.3em;
+  width: 4em;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+
+  span {
+    display: block;
+    width: 9em;
+    height: 8em;
+    padding: 3px 0 0 14px;
+    white-space: nowrap;
+    font-size: 1.45em;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+    @include main-font3();
+    opacity: 0.5;
+  }
+
+}
+.join__social {
+
+  a {
+    display: block;
+    width: 2.6em;
+    margin: 0 0 2.3em;
+
+    &:hover {
+
+      svg {
+        opacity: 1;
+      }
+
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+      opacity: 0.5;
+      -webkit-transition: opacity 0.3s ease;
+      transition: opacity 0.3s ease;
+    }
+
+  }
+}
+
+@media (min-width: $tablet-portrait) {
+  .join {
+    display: block;
+  }
+}
+
+@media (min-width: $desktop) {
+
+}

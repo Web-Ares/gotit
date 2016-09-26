@@ -1,0 +1,52 @@
+.logo {
+  position: absolute;
+  top: 19px;
+  left: 51%;
+  width: 10.3em;
+  height: 1.9em;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+}
+.logo__inner {
+  top: 16px;
+  width: 6.3em;
+  height: 1.9em;
+}
+
+@media (min-width: $tablet-portrait) {
+  .logo {
+    left: 49%;
+    width: 15.3em;
+    height: 2.9em;
+  }
+  .logo__inner {
+    top: 16px;
+    left: 4.7em;
+    width: 9.3em;
+    height: 2.9em;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: $desktop) {
+  .logo {
+    top: 3em;
+    width: 19.6em;
+    height: 3.5em;
+
+  }
+  .logo__inner {
+    top: 3.3em;
+    left: 3.2em;
+    width: 7.1em;
+    height: 2.15em;
+  }
+}

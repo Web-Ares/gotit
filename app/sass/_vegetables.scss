@@ -1,0 +1,121 @@
+.vegetables {
+  position: absolute;
+  z-index: 2;
+  top: 19px;
+  left: 51%;
+  width: 10.3em;
+  height: 1.9em;
+  background-size: contain;
+  background-position: top left;
+  background-repeat: no-repeat;
+
+  &.vegetable1 {
+    top: -4em;
+    left: auto;
+    right: -21.9em;
+    width: 25.3em;
+    height: 18.2em;
+    background-image: url("../img/vegetable1.png");
+  }
+  &.vegetable2 {
+    left: -6em;
+    top: 0.4em;
+    width: 11.6em;
+    height: 10em;
+    background-image: url("../img/vegetable2.png");
+  }
+  &.vegetable3 {
+    display: none;
+    background-image: url("../img/vegetable3.png");
+  }
+  &.vegetable4 {
+    left: -9.2em;
+    top: auto;
+    bottom: -5.8em;
+    width: 15.5em;
+    height: 18.7em;
+    background-image: url("../img/vegetable4.png");
+  }
+  &.vegetable5 {
+    top: 12.9em;
+    left: 50%;
+    margin-left: -14.8em;
+    width: 12em;
+    height: 6.8em;
+    background-image: url("../img/vegetable5.png");
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .vegetables {
+
+    &.vegetable1 {
+      top: 0;
+      left: auto;
+      right: -16.9em;
+    }
+    &.vegetable2 {
+      left: -3em;
+      top: 2.4em;
+    }
+    &.vegetable4 {
+      left: -5.2em;
+      top: auto;
+      bottom: -6.8em;
+    }
+    &.vegetable5 {
+      top: 12.9em;
+      left: 50%;
+      margin-left: -20.8em;
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .vegetables {
+
+    &.vegetable1 {
+      top: -18em;
+      left: auto;
+      right: -29em;
+      width: 53.3em;
+      height: 38.2em;
+    }
+    &.vegetable2 {
+      left: -8.6em;
+      top: -9.5em;
+      width: 24.6em;
+      height: 21em;
+    }
+    &.vegetable3 {
+      display: block;
+      top: auto;
+      bottom: -2.3em;
+      left: auto;
+      right: -12.6em;
+      width: 21.3em;
+      height: 22.8em;
+    }
+    &.vegetable4 {
+      left: -5.6em;
+      top: auto;
+      bottom: -6.5em;
+      width: 34em;
+      height: 30.7em;
+    }
+    &.vegetable5 {
+      top: 8.5em;
+      left: 4.4em;
+      width: 27em;
+      height: 13.8em;
+      margin-left: 0;
+    }
+
+  }
+
+}

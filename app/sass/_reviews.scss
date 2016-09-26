@@ -1,0 +1,238 @@
+.reviews {
+  position: relative;
+  padding: 8px 0;
+
+  .swiper-container {
+
+    .swiper-wrapper {
+      @include align-items(center);
+
+      .swiper-slide {
+      }
+
+    }
+
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 106px;
+  }
+  .swiper-button-prev {
+    left: -8px;
+  }
+  .swiper-button-next {
+    right: -8px;
+  }
+
+}
+.reviews__inner {
+  position: relative;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 36px;
+}
+.reviews__items {
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.reviews__info {
+  text-align: center;
+  margin: 0 0 20px;
+
+  span {
+    display: block;
+    max-width: 150px;
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: 18px;
+    color: #fff;
+    @include main-font2();
+    letter-spacing: 3px;
+
+  }
+
+}
+.reviews__pic {
+  overflow: hidden;
+  width: 145px;
+  height: 145px;
+  border-radius: 145px;
+  margin: 0 auto 19px;
+  text-align: center;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+}
+.reviews__text {
+  max-height: 375px;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 22px;
+  @include main-font3();
+  text-align: left;
+  color: rgba(255,255,255,0.6);
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .reviews {
+
+    .swiper-container {
+
+      .swiper-wrapper {
+
+        .swiper-slide {
+          width: 20%;
+          padding: 0 20px;
+          text-align: center;
+        }
+
+      }
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      top: 48%;
+    }
+    .swiper-button-prev {
+      left: 6px;
+    }
+    .swiper-button-next {
+      right: 6px;
+    }
+
+  }
+  .reviews__inner {
+    padding: 0 20px;
+  }
+  .reviews__items {
+    padding-top: 11px;
+    padding-bottom: 11px;
+
+    >div:first-child {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+
+      &:before,
+      &:after {
+        position: absolute;
+        z-index: 2;
+        top: -1.8em;
+        right: 3.8em;
+        width: 2.4em;
+        height: 3.6em;
+        background: url("../img/quote.png") no-repeat;
+        background-size: contain;
+        content: '';
+        -webkit-animation-name: tada;
+        -webkit-animation-duration: 2000ms;
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-iteration-count: infinite;
+        animation-name: tada;
+        animation-duration: 2000ms;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+
+      }
+      &:after {
+        right: 1em;
+        animation-name: tada;
+        animation-duration: 2000ms;
+        animation-delay: 1000ms;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+      }
+
+    }
+
+  }
+  .reviews__item {
+    position: relative;
+    padding: 0 6em 0 9.8em;
+    height: 216px;
+  }
+  .reviews__info {
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    width: 9em;
+    text-align: left;
+    margin: 0;
+
+    span {
+      margin: 0 0 0 0.6em;
+    }
+
+  }
+  .reviews__pic {
+    margin: 0 0 20px;
+    width: 8em;
+    height: 8em;
+  }
+  .reviews__text {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  @-webkit-keyframes tada {
+    from {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+
+    10%, 20% {
+      -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+      transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    }
+
+    30%, 50%, 70%, 90% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+      transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+
+    40%, 60%, 80% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+      transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+
+    to {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  @keyframes tada {
+    from {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+
+    10%, 20% {
+      -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+      transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    }
+
+    30%, 50%, 70%, 90% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+      transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+
+    40%, 60%, 80% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+      transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+
+    to {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  }
+
+}
+@media (min-width: $desktop) {
+
+}
