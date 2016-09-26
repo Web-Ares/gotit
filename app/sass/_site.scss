@@ -415,6 +415,32 @@ body {
     font-size: 26em;
     line-height: 1em;
   }
+  .site__index-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    .site__index-swiper {
+
+      >.swiper-wrapper {
+
+        >.swiper-slide {
+
+          .swiper-slide__content {
+
+          }
+
+        }
+
+      }
+
+
+
+    }
+
+  }
   .site__content {
     padding-top: 9em;
   }

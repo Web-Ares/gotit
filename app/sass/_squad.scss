@@ -4,22 +4,6 @@
   padding: 50px 0 70px;
   text-align: center;
 
-  &:after {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 530px;
-    height: 530px;
-    border-radius: 100%;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    background: rgb(11,17,20);
-    background: -moz-linear-gradient(top,  rgba(11,17,20,1) 62%, rgba(23,36,41,1) 95%);
-    background: -webkit-linear-gradient(top,  rgba(11,17,20,1) 62%,rgba(23,36,41,1) 95%);
-    background: linear-gradient(to bottom,  rgba(11,17,20,1) 62%,rgba(23,36,41,1) 95%);
-    content: '';
-  }
-
   .swiper-container {
 
     .swiper-wrapper {
@@ -39,6 +23,20 @@
   z-index: 1;
   max-width: 1080px;
   margin: 0 auto;
+}
+.squad__disk {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 530px;
+  height: 530px;
+  border-radius: 100%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: rgb(11,17,20);
+  background: -moz-linear-gradient(top,  rgba(11,17,20,1) 62%, rgba(23,36,41,1) 95%);
+  background: -webkit-linear-gradient(top,  rgba(11,17,20,1) 62%,rgba(23,36,41,1) 95%);
+  background: linear-gradient(to bottom,  rgba(11,17,20,1) 62%,rgba(23,36,41,1) 95%);
 }
 .squad__items {
   padding-top: 35px;
@@ -93,12 +91,6 @@
   .squad {
     padding: 50px 0;
 
-    &:after {
-      width: 48em;
-      height: 48em;
-      padding-bottom: 0;
-    }
-
     .swiper-container {
 
       .swiper-wrapper {
@@ -123,6 +115,12 @@
   .squad__inner {
     padding: 0 20px;
   }
+  .squad__disk {
+    width: 48em;
+    height: 48em;
+    padding-bottom: 0;
+  }
+
   .squad__items {
     padding-top: 40px;
     margin-bottom: 0;
@@ -160,23 +158,20 @@
 
   .squad {
     padding: 115px 0;
-
-    &:after {
-      -webkit-animation-name: spin;
-      -webkit-animation-duration: 4000ms;
-      -webkit-animation-iteration-count: infinite;
-      -webkit-animation-timing-function: linear;
-      animation-name: spin;
-      animation-duration: 4000ms;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      -webkit-transform-origin: 0% 0;
-      transform-origin: 0% 0;
-      background-size: contain;
-    }
-
   }
-
+  .squad__disk {
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 4000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-transform-origin: 0% 0;
+    transform-origin: 0% 0;
+    background-size: contain;
+  }
 
   @-webkit-keyframes spin {
     from {

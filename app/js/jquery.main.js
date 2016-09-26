@@ -800,11 +800,18 @@
             _obj = obj,
             _window = $( window ),
             _swiperInit = false,
-            _swiper;
+            _swiper,
+            _squad = $('.squad'),
+            _squadDisk = $('.squad__disk');
 
         var _addEvents = function () {
 
                 _window.on( {
+                    load: function() {
+
+                        _setDiskSize();
+
+                    },
                     resize: function() {
 
                         if( _window.width() < 768 ) {
@@ -827,6 +834,8 @@
 
                         }
 
+                        _setDiskSize();
+
                     }
                 } );
 
@@ -842,6 +851,26 @@
             _destroySwiper = function() {
 
                 _swiper.destroy( true, true);
+
+            },
+            _setDiskSize = function() {
+
+                var height = _squad.innerHeight(),
+                    width = _squad.innerWidth(),
+                    newSize;
+
+                if( height > width ) {
+
+                    newSize  = width
+
+                } else {
+
+                    newSize  = height
+
+                }
+
+                _squadDisk.width( newSize );
+                _squadDisk.height( newSize );
 
             },
             _init = function() {
