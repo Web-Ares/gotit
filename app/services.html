@@ -15,6 +15,72 @@
 </head>
 <body>
 
+<script>
+
+    var ZoomSite = function (obj) {
+
+        //private properties
+        var _self = this,
+                _obj = obj,
+                _window = window;
+
+        //private methods
+        var _onEvents = function () {
+
+                    _window.onresize = function () {
+
+                        if( _window.innerWidth >= 1024 ) {
+
+                            _setSize();
+
+                        } else {
+
+                            _obj.style.fontSize = 75 + 'px';
+
+                        }
+
+                    }
+
+                },
+                _init = function () {
+
+                    _obj.obj = _self;
+
+                    _onEvents();
+
+                    if( _window.innerWidth >= 1024 ) {
+
+                        _setSize();
+
+                    }
+
+                },
+                _setSize = function () {
+
+                    var newSize;
+
+                    if( _window.innerHeight > 500 ) {
+
+                        newSize = ( 100 * ( window.innerHeight / 900 ) ) + 'px';
+
+                    } else {
+
+                        newSize = ( 100 * ( 500 / 900 ) ) + 'px';
+
+                    }
+
+                    _obj.style.fontSize = newSize;
+
+                };
+
+
+        _init();
+    };
+
+    new ZoomSite( document.body );
+
+</script>
+
     <!-- site -->
     <div class="site site_inner">
 
@@ -101,7 +167,7 @@
                                 <div class="swiper-slide">
 
                                     <!-- expertise__item -->
-                                    <div class="expertise__item">
+                                    <a href="#" class="expertise__item">
 
                                         <!-- expertise__pic -->
                                         <div class="expertise__pic">
@@ -113,14 +179,14 @@
 
                                         <span>UX/UI</span>
 
-                                    </div>
+                                    </a>
                                     <!-- /expertise__item -->
 
                                 </div>
                                 <div class="swiper-slide">
 
                                     <!-- expertise__item -->
-                                    <div class="expertise__item">
+                                    <a href="#" class="expertise__item">
 
                                         <!-- expertise__pic -->
                                         <div class="expertise__pic">
@@ -133,14 +199,14 @@
                                         <span>WEB and APP
 DESIGN</span>
 
-                                    </div>
+                                    </a>
                                     <!-- /expertise__item -->
 
                                 </div>
                                 <div class="swiper-slide">
 
                                     <!-- expertise__item -->
-                                    <div class="expertise__item">
+                                    <a href="#" class="expertise__item">
 
                                         <!-- expertise__pic -->
                                         <div class="expertise__pic">
@@ -153,14 +219,14 @@ DESIGN</span>
                                         <span>website
 development</span>
 
-                                    </div>
+                                    </a>
                                     <!-- /expertise__item -->
 
                                 </div>
                                 <div class="swiper-slide">
 
                                     <!-- expertise__item -->
-                                    <div class="expertise__item">
+                                    <a href="#" class="expertise__item">
 
                                         <!-- expertise__pic -->
                                         <div class="expertise__pic">
@@ -173,14 +239,14 @@ development</span>
                                         <span>DIGITAL
 MARKETING</span>
 
-                                    </div>
+                                    </a>
                                     <!-- /expertise__item -->
 
                                 </div>
                                 <div class="swiper-slide">
 
                                     <!-- expertise__item -->
-                                    <div class="expertise__item">
+                                    <a href="#" class="expertise__item">
 
                                         <!-- expertise__pic -->
                                         <div class="expertise__pic">
@@ -193,14 +259,14 @@ MARKETING</span>
                                         <span>PAID
 ADVERTISING</span>
 
-                                    </div>
+                                    </a>
                                     <!-- /expertise__item -->
 
                                 </div>
                                 <div class="swiper-slide">
 
                                     <!-- expertise__item -->
-                                    <div class="expertise__item">
+                                    <a href="#" class="expertise__item">
 
                                         <!-- expertise__pic -->
                                         <div class="expertise__pic">
@@ -212,7 +278,7 @@ ADVERTISING</span>
 
                                         <span>SEO / SEM / PPC</span>
 
-                                    </div>
+                                    </a>
                                     <!-- /expertise__item -->
 
                                 </div>

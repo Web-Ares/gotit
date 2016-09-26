@@ -3,6 +3,8 @@
 
     $( function() {
 
+        new Preloader( $('.preloader') );
+
         $.each( $('.site__index-page' ), function () {
 
             new Page( $(this) );
@@ -59,6 +61,51 @@
 
 
     } );
+
+    var Preloader = function (obj) {
+
+        //private properties
+        var _self = this,
+            _window = $( window ),
+            _preloader = obj,
+            _body = $('body');
+
+        //private methods
+        var _addEvents = function () {
+
+                _window.on( {
+                    load: function(){
+
+                        _showSite();
+
+                    }
+                } );
+
+            },
+            _init = function () {
+
+                _body[0].preloader = _self;
+                _addEvents();
+
+            },
+            _showSite = function() {
+
+                _preloader.addClass( 'preloader_loaded' );
+
+                setTimeout(function(){
+                    _preloader.remove();
+                    $('.site').addClass( 'site__loaded' );
+
+                },500);
+            };
+
+        //public properties
+
+        //public methods
+
+
+        _init();
+    };
 
     var Page = function ( obj ) {
 
@@ -292,6 +339,7 @@
                     spaceBetween: 0,
                     speed: 700,
                     slidesPerView: 1,
+                    simulateTouch: false,
                     autoHeight: 'auto',
                     mousewheelControl: true,
                     onInit: function( swiper ) {
@@ -638,6 +686,14 @@
                 _swiper1 = new Swiper( _obj.find( '.swiper-container' ), {
                     spaceBetween: 0,
                     slidesPerView: 1,
+                    loop: true,
+                    autoplay: 5000,
+                    //threshold: 100,
+                    //touchEventsTarget:'wrapper',
+                    //preventClicks: true,
+                    //preventClicksPropagation: false ,
+                    speed: 600,
+                    autoplayDisableOnInteraction: false,
                     nextButton: _obj.find('.swiper-button-next')[0],
                     prevButton: _obj.find('.swiper-button-prev')[0]
                 } );
@@ -836,7 +892,10 @@
                             slidesPerView: 3
                         },
                         768: {
-                            slidesPerView: 1
+                            slidesPerView: 1,
+                            loop: true,
+                            autoplay: 7000,
+                            autoplayDisableOnInteraction: false
                         }
                     }
                 } );
@@ -877,6 +936,7 @@
                     spaceBetween: 30,
                     loop: true,
                     autoplay: 7000,
+                    speed: 500,
                     autoplayDisableOnInteraction: false,
                     nextButton: _obj.find('.swiper-button-next')[0],
                     prevButton: _obj.find('.swiper-button-prev')[0]
@@ -903,12 +963,30 @@
             _mapLng = _map.data('map-lng'),
             _mapZoom = _map.data('map-zoom'),
             _btn = $('.contacts__cities .btn'),
+            _window = $( window ),
             map,
             marker;
 
         //private methods
         var _addEvents = function () {
 
+                _window.on( {
+                    resize: function() {
+                        _map.height( $('.contacts__inner').innerHeight() )
+                    }
+                } );
+
+
+
+                google.maps.event.addDomListener( window, 'resize', function() {
+
+                    var myLatLng = {lat: _btn.filter('.active').data('map-lat'), lng: _btn.filter('.active').data('map-lng')};
+
+                    map.setCenter( myLatLng );
+
+                    _offsetCenter( map.getCenter(), 0, 0);
+
+                } );
                 _btn.on( {
                     click: function () {
 
@@ -929,26 +1007,149 @@
 
                         }
 
-
-
                     }
                 } );
 
             },
+            _offsetCenter = function ( latlng, offsetx, offsety ) {
+
+                var scale = Math.pow( 2, map.getZoom() ),
+                    worldCoordinateCenter = map.getProjection().fromLatLngToPoint( latlng ),
+                    pixelOffset = new google.maps.Point( ( offsetx/scale ) || 0, ( offsety/scale ) || 0 ),
+                    worldCoordinateNewCenter = new google.maps.Point(
+
+                        worldCoordinateCenter.x - pixelOffset.x,
+                        worldCoordinateCenter.y + pixelOffset.y
+
+                    ),
+
+                    newCenter = map.getProjection().fromPointToLatLng( worldCoordinateNewCenter );
+
+                map.setCenter( newCenter );
+
+            },
             _initMap = function () {
                 var customMapType = new google.maps.StyledMapType([
-                    //{
-                    //    stylers: [
-                    //        {hue: '#f6d38a'},
-                    //        {visibility: 'simplified'},
-                    //        {gamma: 1},
-                    //        {weight: 1}
-                    //    ]
-                    //},
-                    //{
-                    //    //featureType: 'water',
-                    //    //stylers: [{color: '#f2dcad'}]
-                    //}
+                    {
+                        "stylers": [
+                            {
+                                "hue": "#b00040"
+                            },
+                            {
+                                "saturation": 60
+                            },
+                            {
+                                "lightness": -40
+                            }
+                        ]
+                    },
+                    {
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#ff6fa4"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "stylers": [
+                            {
+                                "color": "#B61530"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "stylers": [
+                            {
+                                "color": "#B61530"
+                            },
+                            {}
+                        ]
+                    },
+                    {
+                        "featureType": "road.local",
+                        "stylers": [
+                            {
+                                "color": "#B61530"
+                            },
+                            {
+                                "lightness": 6
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "stylers": [
+                            {
+                                "color": "#B61530"
+                            },
+                            {
+                                "lightness": -25
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "stylers": [
+                            {
+                                "color": "#B61530"
+                            },
+                            {
+                                "lightness": -10
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "stylers": [
+                            {
+                                "color": "#B61530"
+                            },
+                            {
+                                "lightness": 70
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit.line",
+                        "stylers": [
+                            {
+                                "color": "#B61530"
+                            },
+                            {
+                                "lightness": 90
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative.country",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit.station",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit.station",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#ff6fa4"
+                            }
+                        ]
+                    }
                 ], {
                     name: 'Custom Style'
                 });

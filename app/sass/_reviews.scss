@@ -8,6 +8,14 @@
       @include align-items(center);
 
       .swiper-slide {
+
+      }
+      .swiper-slide-active {
+
+        .reviews__item{
+          opacity: 1 !important;
+        }
+
       }
 
     }
@@ -36,6 +44,11 @@
   padding-top: 25px;
   padding-bottom: 25px;
 }
+.reviews__item {
+  opacity: 0 !important;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
 .reviews__info {
   text-align: center;
   margin: 0 0 20px;
@@ -61,10 +74,13 @@
   border-radius: 145px;
   margin: 0 auto 19px;
   text-align: center;
+  transform: translateZ(0);
 
   img {
     width: 100%;
     height: auto;
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
   }
 
 }
@@ -105,6 +121,10 @@
       right: 6px;
     }
 
+    .site__title {
+      margin: 0;
+    }
+
   }
   .reviews__inner {
     padding: 0 20px;
@@ -117,49 +137,53 @@
       position: relative;
       max-width: 700px;
       margin: 0 auto;
-
-      &:before,
-      &:after {
-        position: absolute;
-        z-index: 2;
-        top: -1.8em;
-        right: 3.8em;
-        width: 2.4em;
-        height: 3.6em;
-        background: url("../img/quote.png") no-repeat;
-        background-size: contain;
-        content: '';
-        -webkit-animation-name: tada;
-        -webkit-animation-duration: 2000ms;
-        -webkit-animation-timing-function: ease-in-out;
-        -webkit-animation-iteration-count: infinite;
-        animation-name: tada;
-        animation-duration: 2000ms;
-        animation-timing-function: ease-in-out;
-        animation-iteration-count: infinite;
-
-      }
-      &:after {
-        right: 1em;
-        animation-name: tada;
-        animation-duration: 2000ms;
-        animation-delay: 1000ms;
-        animation-timing-function: ease-in-out;
-        animation-iteration-count: infinite;
-      }
-
     }
 
   }
   .reviews__item {
+    @include flexbox();
+    @include flex-direction(row);
+    @include align-items(flex-start);
+    @include justify-content(space-between);
     position: relative;
-    padding: 0 6em 0 9.8em;
-    height: 216px;
+    padding: 35px 6em 0 0;
+    //height: 216px;
+
+    &:before,
+    &:after {
+      position: absolute;
+      z-index: 2;
+      top: 12px;
+      right: 2.8em;
+      width: 2.4em;
+      height: 3.6em;
+      background: url("../img/quote.png") no-repeat;
+      background-size: contain;
+      content: '';
+      -webkit-animation-name: tada;
+      -webkit-animation-duration: 2000ms;
+      -webkit-animation-timing-function: ease-in-out;
+      -webkit-animation-iteration-count: infinite;
+      animation-name: tada;
+      animation-duration: 2000ms;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+
+    }
+    &:after {
+      right: 0;
+      animation-name: tada;
+      animation-duration: 2000ms;
+      animation-delay: 1000ms;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
   }
   .reviews__info {
-    position: absolute;
-    left: 0;
-    top: 0.2em;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 0.6em;
     width: 9em;
     text-align: left;
     margin: 0;
@@ -175,6 +199,11 @@
     height: 8em;
   }
   .reviews__text {
+    display: inline-block;
+    vertical-align: top;
+    width: 21em;
+    padding: 0.4em 0 0 0.5em;
+    height: 223px;
     font-size: 18px;
     line-height: 24px;
   }

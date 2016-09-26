@@ -31,6 +31,25 @@
     display: block;
     text-align: center;
     text-transform: uppercase;
+    -webkit-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+  }
+
+  &:hover {
+
+    span {
+     color: rgba(255,255,255,0.5);
+    }
+
+    .expertise__pic {
+
+      img {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+      }
+
+    }
+
   }
 
 }
@@ -47,6 +66,8 @@
     display: block;
     -webkit-transform: scale(0.8);
     transform: scale(0.8);
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
   }
 
 }
@@ -83,6 +104,20 @@
     font-size: 1.2em;
     line-height: 1.2em;
     letter-spacing: 2px;
+
+    &:hover {
+
+      .expertise__pic {
+
+        img {
+          -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+        }
+
+      }
+
+    }
+
   }
   .expertise__pic {
     height: 80px;
