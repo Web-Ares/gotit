@@ -971,6 +971,9 @@
         var _addEvents = function () {
 
                 _window.on( {
+                    load: function() {
+                        _map.height( $('.contacts__inner').innerHeight() )
+                    },
                     resize: function() {
                         _map.height( $('.contacts__inner').innerHeight() )
                     }
@@ -1170,6 +1173,16 @@
 
                 map.mapTypes.set(customMapTypeId, customMapType);
                 map.setMapTypeId(customMapTypeId);
+
+                google.maps.event.addListenerOnce(map, 'idle', function() {
+
+                    var myLatLng = {lat: _btn.filter('.active').data('map-lat'), lng: _btn.filter('.active').data('map-lng')};
+
+                    map.setCenter( myLatLng );
+
+                    _offsetCenter( map.getCenter(), 0, 0);
+
+                } );
 
             },
             _init = function () {

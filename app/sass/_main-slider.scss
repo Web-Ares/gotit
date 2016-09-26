@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   height: 100vh;
-  min-height: 635px;
+  min-height: 560px;
 
   .swiper-container {
     position: absolute;
@@ -50,7 +50,7 @@
   @include align-items(center);
   @include justify-content(center);
   height: 100%;
-  padding: 9em 40px 2em;
+  padding: 40% 40px 2em;
   color: #fff;
   text-transform: uppercase;
   text-align: center;
@@ -92,7 +92,7 @@
   position: absolute;
   z-index: 2;
   left: 50%;
-  bottom: 2.5em;
+  bottom: 3%;
   width: 2em;
   height: 2em;
   margin-left: -1em;
@@ -111,8 +111,8 @@
     position: absolute;
     top: 70%;
     left: 40%;
-    width: 75%;
-    height: 75%;
+    width: 50%;
+    height: 50%;
     border-top: 1px solid #fff;
     border-left: 1px solid #fff;
     content: '';
@@ -211,6 +211,14 @@
     padding-bottom: 27.8em;
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
+  }
+  .main-slider__btn-down {
+
+    &:after {
+      width: 75%;
+      height: 75%;
+    }
+
   }
 
 }
