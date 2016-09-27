@@ -159,30 +159,6 @@
 
 @media (min-width: $tablet-portrait) {
 
-  .main-slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    min-height: 500px;
-
-    .swiper-button-next,
-    .swiper-button-prev {
-      top: 47.8%;
-      width: 2em;
-      height: 2em;
-    }
-    .swiper-button-prev {
-      left: 48px;
-    }
-    .swiper-button-next {
-      right: 48px;
-    }
-
-  }
   .main-slider__content {
     @include align-items(flex-end);
     @include justify-content(flex-end);
@@ -224,6 +200,30 @@
 }
 @media (min-width: $desktop) {
 
+  .main-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 500px;
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      top: 47.8%;
+      width: 2em;
+      height: 2em;
+    }
+    .swiper-button-prev {
+      left: 48px;
+    }
+    .swiper-button-next {
+      right: 48px;
+    }
+
+  }
   .main-slider__btn-down {
     bottom: 3em;
     width: 3em;

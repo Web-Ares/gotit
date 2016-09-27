@@ -166,9 +166,9 @@
                 _window.on( {
                     resize: function() {
 
-                        if( _window.width() >=768 ) {
+                        if( _window.width() >= 1024 ) {
 
-                            if( !_swiperInit ) {
+                            if( !_swiperInit  && !device.mobile() && !device.tablet() ) {
 
                                 _initSwiper();
                                 _swiperInit = true;
@@ -292,7 +292,7 @@
                 _btnDown.on( {
                     click: function() {
 
-                        if( _window.width() >= 768 ) {
+                        if( _window.width() >= 1024 ) {
 
                             _swiper.slideNext( true, 600);
 
@@ -456,14 +456,21 @@
                 _obj[0].obj = _self;
                 _addEvents();
 
-                if( _window.width() >=768 ) {
+                if( _window.width() >= 1024 && !device.mobile() && !device.tablet() ) {
 
                     if( !_swiperInit ) {
 
                         _initSwiper();
                         _centerContent();
                         _swiperInit = true;
+
                     }
+
+                }
+
+                if( device.mobile() || device.tablet() ) {
+
+                    _obj.addClass('mob_view');
 
                 }
 
@@ -632,11 +639,11 @@
             _obj = obj,
             _window = $( window ),
             _header = $( '.site__header'),
-            _img1 = _obj.find( '.vegetable1' ),
-            _img2 = _obj.find( '.vegetable2'),
-            _img3 = _obj.find( '.vegetable3'),
-            _img4 = _obj.find( '.vegetable4'),
-            _img5 = _obj.find( '.vegetable5'),
+            _img1 = _obj.find('.swiper-slide').find( '.move1' ),
+            _img2 = _obj.find('.swiper-slide').find( '.move2'),
+            _img3 = _obj.find('.swiper-slide').find( '.move3'),
+            _img4 = _obj.find('.swiper-slide').find( '.move4'),
+            _img5 = _obj.find('.swiper-slide').find( '.move5'),
             _step1 = 15,
             _step2 = 10,
             _step3 = 5,
@@ -647,7 +654,7 @@
         var _addEvents = function () {
 
 
-                _window.on( {
+                _obj.find('.swiper-slide').on( {
                     mousemove: function( e ) {
 
                         if (_window.width() > 1024 && !( _header.hasClass('opened') ) ) {
@@ -659,20 +666,13 @@
                                 percentFromCenterX = ( pageX - halfWidth ) / halfWidth,
                                 percentFromCenterY = ( pageY - halfHeight ) / halfHeight;
 
-                            if (_window.outerWidth() > 768) {
+                            if (_window.outerWidth() > 1024) {
 
                                 _moveBottom(percentFromCenterX, percentFromCenterY, _step1,_img1);
                                 _moveTop(percentFromCenterX, percentFromCenterY, _step2,_img2);
                                 _moveTop(percentFromCenterX, percentFromCenterY, _step3,_img3);
                                 _moveBottom(percentFromCenterX, percentFromCenterY, _step4,_img4);
                                 _moveBottom(percentFromCenterX, percentFromCenterY, _step5,_img5);
-
-                            } else {
-
-                                //_imgBottom.css({
-                                //    '-webkit-transform': 'translate( 0, 0 )',
-                                //    'transform': 'translate( 0, 0 )'
-                                //});
 
                             }
 
@@ -688,10 +688,6 @@
                     slidesPerView: 1,
                     loop: true,
                     autoplay: 5000,
-                    //threshold: 100,
-                    //touchEventsTarget:'wrapper',
-                    //preventClicks: true,
-                    //preventClicksPropagation: false ,
                     speed: 600,
                     autoplayDisableOnInteraction: false,
                     nextButton: _obj.find('.swiper-button-next')[0],
@@ -809,7 +805,12 @@
                 _window.on( {
                     load: function() {
 
-                        _setDiskSize();
+                        if( _window.width() >= 768 ) {
+
+                            _setDiskSize();
+
+                        }
+
 
                     },
                     resize: function() {
@@ -823,6 +824,8 @@
 
                             }
 
+                            _squadDisk.attr('style','')
+
 
                         } else {
 
@@ -832,9 +835,10 @@
                                 _swiperInit = false;
                             }
 
+                            _setDiskSize();
+
                         }
 
-                        _setDiskSize();
 
                     }
                 } );
@@ -1038,6 +1042,8 @@
                             }, 300 );
 
                         }
+
+                        return false;
 
                     }
                 } );

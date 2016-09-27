@@ -14,7 +14,7 @@
   -webkit-transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
   transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
 
-  span {
+  >span {
     @include flexbox();
     @include flex-direction(row);
     @include align-items(center);

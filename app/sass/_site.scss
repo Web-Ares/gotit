@@ -34,8 +34,8 @@ body {
     .site__header-menu {
       -webkit-transform: translateX(0);
       transform: translateX(0);
-      -webkit-transition: -webkit-transform 0.3s ease;
-      transition: transform 0.3s ease;
+      -webkit-transition: -webkit-transform 0.4s ease-in-out;
+      transition: transform 0.4s ease-in-out;
     }
     .site__header__btn {
 
@@ -199,14 +199,12 @@ body {
 
         .swiper-slide__content {
           position: relative;
-
-          &.centered {
-            @include flexbox();
-            @include flex-direction(row);
-            @include flex-wrap(wrap);
-            @include align-items(center);
-            @include justify-content(center);
-          }
+          min-height: 100vh;
+          @include flexbox();
+          @include flex-direction(row);
+          @include flex-wrap(wrap);
+          @include align-items(center);
+          @include justify-content(center);
 
           >div {
             width: 100%;
@@ -218,10 +216,42 @@ body {
 
     }
 
-
-
   }
 
+  &.mob_view {
+    position: relative;
+
+    .site__index-swiper {
+      position: relative;
+
+      >.swiper-wrapper {
+        display: block;
+
+        >.swiper-slide {
+          display: block;
+          background: #162328;
+
+          .swiper-slide__content {
+            position: relative;
+            min-height: 100vh;
+            @include flexbox();
+            @include flex-direction(row);
+            @include flex-wrap(wrap);
+            @include align-items(center);
+            @include justify-content(center);
+
+            >div {
+              width: 100%;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+  }
 }
 .site__title {
   @include main-font4();
@@ -278,9 +308,6 @@ body {
 }
 
 @media (min-width: $tablet-portrait) {
-  .site {
-
-  }
   .site__header {
     height: 5em;
   }
@@ -317,54 +344,6 @@ body {
     font-size: 3.15em;
     line-height: 1em;
   }
-  .site__index-page {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    .site__index-swiper {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      margin-left: auto;
-      margin-right: auto;
-
-      >.swiper-wrapper {
-
-        >.swiper-slide {
-
-          .swiper-slide__content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            max-height: 100%;
-            overflow-y: auto;
-
-            &.centered {
-              @include flexbox();
-              @include flex-direction(row);
-              @include flex-wrap(wrap);
-              @include align-items(center);
-              @include justify-content(center);
-            }
-
-          }
-
-        }
-
-      }
-
-
-
-    }
-
-  }
   .site__main-title {
     font-size: 20em;
     line-height: 1em;
@@ -385,17 +364,9 @@ body {
     padding-top: 5em;
   }
 }
-@media (min-width: $tablet-landscape) {
-  .site {
-
-  }
-}
 @media (min-width: $desktop) {
   body {
     font-size: 100px;
-  }
-  .site {
-
   }
   .site__header {
     height: 9em;
@@ -423,12 +394,36 @@ body {
     height: 100%;
 
     .site__index-swiper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
 
       >.swiper-wrapper {
 
         >.swiper-slide {
 
           .swiper-slide__content {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            max-height: 100%;
+            overflow-y: auto;
+            min-height: 1px;
+
+            &.centered {
+              @include flexbox();
+              @include flex-direction(row);
+              @include flex-wrap(wrap);
+              @include align-items(center);
+              @include justify-content(center);
+            }
 
           }
 
@@ -436,8 +431,45 @@ body {
 
       }
 
+    }
 
+    &.mob_view {
+      position: relative;
+      left: auto;
+      top: auto;
+      width: auto;
+      height: auto;
 
+      .site__index-swiper {
+        position: relative;
+
+        >.swiper-wrapper {
+          display: block;
+
+          >.swiper-slide {
+            display: block;
+            background: #162328;
+
+            .swiper-slide__content {
+              position: relative;
+              min-height: 100vh;
+              @include flexbox();
+              @include flex-direction(row);
+              @include flex-wrap(wrap);
+              @include align-items(center);
+              @include justify-content(center);
+
+              >div {
+                width: 100%;
+              }
+
+            }
+
+          }
+
+        }
+
+      }
     }
 
   }
