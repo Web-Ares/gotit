@@ -102,7 +102,7 @@
 
         .swiper-slide {
           width: 33.333%;
-          margin: 0 0 43px;
+          margin: 0 0 2.5em;
           padding: 0 20px;
           text-align: center;
         }
@@ -119,10 +119,11 @@
     width: 48em;
     height: 48em;
     padding-bottom: 0;
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
   }
-
   .squad__items {
-    padding-top: 40px;
+    padding-top: 2.2em;
     margin-bottom: 0;
   }
   .squad__item {
@@ -131,7 +132,7 @@
     letter-spacing: 2px;
 
     span {
-      margin: 0 0 26px;
+      margin: 0 0 1.05em;
     }
 
   }
@@ -150,7 +151,7 @@
     height: 12.2em;
     max-width: 265px;
     max-height: 265px;
-    margin: 0 0 26px;
+    margin: 0 0 1.3em;
   }
 
 }
@@ -171,6 +172,8 @@
     -webkit-transform-origin: center;
     transform-origin: center;
     background-size: contain;
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
   }
 
   @-webkit-keyframes spin {

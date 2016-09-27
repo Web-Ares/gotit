@@ -1,6 +1,8 @@
 .btn {
-  display: inline-block;
-  vertical-align: top;
+  @include inline-flex();
+  @include flex-direction(row);
+  @include align-items(center);
+  @include justify-content(center);
   border: none;
   width: 10.9em;
   height: 2.9em;
@@ -13,15 +15,6 @@
   @include main-font2();
   -webkit-transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
   transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
-
-  >span {
-    @include flexbox();
-    @include flex-direction(row);
-    @include align-items(center);
-    @include justify-content(center);
-    width: 100%;
-    height: 100%;
-  }
 
   &:hover {
     color: $btn-color-hover;

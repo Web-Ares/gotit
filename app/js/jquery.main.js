@@ -113,186 +113,46 @@
             _obj = obj,
             _window = $( window ),
             _dom = $( 'html, body' ),
-            _actionScroll = false,
-            _actionScrollTop = false,
-            _actionScrollBottom = false,
-            _direction = 0,
             _swiperInit = false,
             _swiper,
-            _swiperContent = _obj.find('.swiper-slide__content'),
+            _slideContent = _obj.find('.slide__content'),
             _mainSlider = $('.main-slider'),
             _btnDown = _mainSlider.find('.main-slider__btn-down');
 
         var _addEvents = function () {
 
-                _swiperContent.on( {
-                    scroll: function() {
-
-                        if( _swiperInit ) {
-
-                            var actSlide = _obj.find('.site__index-swiper .swiper-slide-active'),
-                                actSlideContent = actSlide.find('.swiper-slide__content'),
-                                actSlideContentInner = actSlideContent.find('>div');
-
-                            _checkActionScrollTop( actSlideContent );
-                            _checkActionScrollBottom( actSlideContent, actSlideContentInner );
-
-                            if( _actionScrollTop && !_actionScrollBottom && _direction < 0 ) {
-
-                                _swiper.unlockSwipeToPrev();
-                                _swiper.enableMousewheelControl();
-
-
-                            }
-
-                            if( _actionScrollBottom && !_actionScrollTop && _direction > 0 ) {
-
-                                _swiper.unlockSwipeToNext();
-                                _swiper.enableMousewheelControl();
-
-                            }
-
-                            if( !_actionScrollBottom && !_actionScrollTop ) {
-
-                                _swiper.lockSwipes();
-                                _swiper.disableMousewheelControl();
-
-                            }
-
-                        }
-
-                    }
-                } );
                 _window.on( {
                     resize: function() {
 
                         if( _window.width() >= 1024 ) {
 
-                            if( !_swiperInit  && !device.mobile() && !device.tablet() ) {
+                            if( !_swiperInit && !device.mobile() && !device.tablet() ) {
 
-                                _initSwiper();
+                                _initFullPage();
                                 _swiperInit = true;
 
                             }
+
+                            _centerContent();
 
 
                         } else {
 
                             if( _swiperInit ) {
 
-                                _destroySwiper();
+                                _destroyFullPage();
                                 _swiperInit = false;
                             }
 
-                        }
-
-                        if( _swiperInit ) {
-
-                            var actSlide = _obj.find('.site__index-swiper .swiper-slide-active'),
-                                actSlideContent = actSlide.find('.swiper-slide__content'),
-                                actSlideContentInner = actSlideContent.find('>div');
-
-                            _checkActionScroll( actSlideContentInner );
-                            _centerContent();
+                            _slideContent.find('.slide__content-inner').attr( 'style','' );
 
                         }
-
                     }
-                } );
-                _swiperContent.on( {
-                    'DOMMouseScroll': function ( e ) {
-
-                        var delta = e.originalEvent.detail;
-
-                        if ( delta ) {
-
-                            _direction = ( delta > 0 ) ? 1 : -1;
-
-                            _checkScroll( _direction );
-
-                        }
-
-                        if( _actionScrollTop && !_actionScrollBottom && _direction > 0 ) {
-
-                            _swiper.lockSwipeToPrev();
-                            _swiper.disableMousewheelControl();
-
-
-                        }
-
-                        if( _actionScrollBottom && !_actionScrollTop && _direction < 0 ) {
-
-                            _swiper.lockSwipeToNext();
-                            _swiper.disableMousewheelControl();
-
-                        }
-
-                        if( _actionScrollTop && !_actionScrollBottom && _direction < 0 ) {
-
-                            _swiper.unlockSwipeToPrev();
-                            _swiper.enableMousewheelControl();
-
-
-                        }
-
-                        if( _actionScrollBottom && !_actionScrollTop && _direction > 0 ) {
-
-                            _swiper.unlockSwipeToNext();
-                            _swiper.enableMousewheelControl();
-
-                        }
-
-
-                    },
-                    'mousewheel': function ( e ) {
-
-                        var delta = e.originalEvent.wheelDelta;
-
-                        if ( delta ) {
-
-                            _direction = ( delta > 0 ) ? -1 : 1;
-
-                            _checkScroll( _direction );
-
-                        }
-
-                        if( _actionScrollTop && !_actionScrollBottom && _direction > 0 ) {
-
-                            _swiper.lockSwipeToPrev();
-                            _swiper.disableMousewheelControl();
-
-
-                        }
-
-                        if( _actionScrollBottom && !_actionScrollTop && _direction < 0 ) {
-
-                            _swiper.lockSwipeToNext();
-                            _swiper.disableMousewheelControl();
-
-                        }
-
-                        if( _actionScrollTop && !_actionScrollBottom && _direction < 0 ) {
-
-                            _swiper.unlockSwipeToPrev();
-                            _swiper.enableMousewheelControl();
-
-
-                        }
-
-                        if( _actionScrollBottom && !_actionScrollTop && _direction > 0 ) {
-
-                            _swiper.unlockSwipeToNext();
-                            _swiper.enableMousewheelControl();
-
-                        }
-
-                    }
-
                 } );
                 _btnDown.on( {
                     click: function() {
 
-                        if( _window.width() >= 1024 ) {
+                        if( _window.width() >= 1024 && !device.mobile() && !device.tablet() ) {
 
                             _swiper.slideNext( true, 600);
 
@@ -308,77 +168,15 @@
                 } );
 
             },
-            _checkScroll = function( direction ) {
+            _initFullPage = function() {
 
-                if( direction < 0 && _actionScrollTop && _swiperInit ) {
+                $('#fullpage').fullpage( {
 
-                    _swiper.unlockSwipeToPrev();
-                    _swiper.enableMousewheelControl();
+                    scrollOverflow: true,
+                    sectionSelector: '.slide__content',
+                    onLeave: function( anchorLink, index, slideIndex, direction, nextSlideIndex ) {
 
-                }
-            },
-            _checkActionScroll = function( elem ) {
-
-                _actionScroll = ( _window.scrollTop() + _window.height() ) >= elem.innerHeight();
-
-            },
-            _checkActionScrollTop = function( elem ) {
-
-                _actionScrollTop = elem.scrollTop() <= 0;
-
-            },
-            _checkActionScrollBottom = function( elem, elemInner ) {
-
-                _actionScrollBottom = ( elem.scrollTop() + _window.height() ) >= elemInner.innerHeight();
-
-            },
-            _initSwiper = function() {
-
-                _swiper = new Swiper('.site__index-swiper', {
-                    direction: 'vertical',
-                    spaceBetween: 0,
-                    speed: 700,
-                    slidesPerView: 1,
-                    simulateTouch: false,
-                    autoHeight: 'auto',
-                    mousewheelControl: true,
-                    onInit: function( swiper ) {
-
-                        var actSlide = _obj.find('.site__index-swiper .swiper-slide-active'),
-                            actSlideContent = actSlide.find('.swiper-slide__content'),
-                            actSlideContentInner = actSlide.find('.swiper-slide__content>div');
-
-                        _direction = 0;
-
-                        _checkActionScroll( actSlideContentInner );
-                        _checkActionScrollTop( actSlideContent );
-                        _checkActionScrollBottom( actSlideContent, actSlideContentInner );
-
-                        if( _actionScroll ) {
-
-                            swiper.unlockSwipes();
-                            swiper.enableMousewheelControl();
-
-                        } else {
-
-                            swiper.lockSwipes();
-                            swiper.disableMousewheelControl();
-                            swiper.disableKeyboardControl();
-
-                            _checkScroll( _direction );
-
-                        }
-
-                    },
-                    onSlideChangeStart: function( swiper ) {
-
-                        //_swiperContent.css( {
-                        //    'overflow-y': 'hidden'
-                        //} );
-
-                        var index = swiper.activeIndex;
-
-                        if( index > 0 ) {
+                        if( index > 1 ) {
 
                             $('.logo_index').hide();
 
@@ -388,68 +186,36 @@
 
                         }
 
-
-                    },
-                    onSlideChangeEnd: function(swiper) {
-
-                        var actSlide = _obj.find('.site__index-swiper .swiper-slide-active'),
-                            actSlideContent = actSlide.find('.swiper-slide__content'),
-                            actSlideContentInner = actSlide.find('.swiper-slide__content>div');
-
-                        _direction = 0;
-
-                        _checkActionScroll( actSlideContentInner );
-                        _checkActionScrollTop( actSlideContent );
-                        _checkActionScrollBottom( actSlideContent, actSlideContentInner );
-
-                        if( _actionScroll ) {
-
-                            swiper.unlockSwipes();
-                            swiper.enableMousewheelControl();
-
-                        } else {
-
-                            swiper.lockSwipes();
-                            swiper.disableMousewheelControl();
-                            swiper.disableKeyboardControl();
-
-                            _checkScroll( _direction );
-
-                        }
-
-                        //setTimeout( function() {
-                        //
-                        //    _swiperContent.css( {
-                        //        'overflow-y': 'auto'
-                        //    } );
-                        //
-                        //}, 600 );
-
                     }
+
                 } );
 
             },
-            _destroySwiper = function() {
+            _destroyFullPage = function() {
 
-                _swiper.destroy( true, true);
+                $.fn.fullpage.destroy();
 
             },
             _centerContent = function() {
-                _swiperContent.each( function() {
+                _slideContent.each( function() {
 
                     var curContent = $(this),
-                        curContentInner = curContent.find('>div');
+                        curContentInner = curContent.find('.slide__content-inner');
 
-                    if( curContent.innerHeight() > curContentInner.innerHeight() ) {
+                    curContentInner.css( {
+                        'min-height': _window.height()
+                    } );
+
+                    if( curContentInner.find('>div').innerHeight() < _window.height() ) {
 
                         if( !( curContent.find('.contacts').length ) ) {
-                            curContent.addClass('centered');
+                            curContentInner.addClass('centered');
                         }
 
 
                     } else {
 
-                        curContent.removeClass('centered');
+                        curContentInner.removeClass('centered');
 
                     }
 
@@ -459,11 +225,12 @@
                 _obj[0].obj = _self;
                 _addEvents();
 
-                if( _window.width() >= 1024 && !device.mobile() && !device.tablet() ) {
+                if( _window.width() >= 1024) {
+                //if( _window.width() >= 1024 && !device.mobile() && !device.tablet() ) {
 
                     if( !_swiperInit ) {
 
-                        _initSwiper();
+                        _initFullPage();
                         _centerContent();
                         _swiperInit = true;
 
@@ -474,6 +241,16 @@
                 if( device.mobile() || device.tablet() ) {
 
                     _obj.addClass('mob_view');
+
+                }
+
+                if( device.tablet() ) {
+
+                    _obj.find('.swiper-slide__content').css( {
+
+                        'min-height': _window.height()
+
+                    } );
 
                 }
 
@@ -497,7 +274,7 @@
 
                     resize: function () {
 
-                        if( _window.width() >= 1024 ) {
+                        if( _window.width() >= 1024 && !device.mobile() && !device.tablet() ) {
 
                             _setSize();
 
@@ -518,7 +295,7 @@
 
                 _onEvents();
 
-                if( _window.width() >= 1024 ) {
+                if( _window.width() >= 1024 && !device.mobile() && !device.tablet() ) {
 
                     _setSize();
 
@@ -567,12 +344,18 @@
         var _closeMenu = function() {
 
                 _obj.removeClass( 'opened' );
-                _html.css( {
-                    'overflow-y': 'auto'
-                } );
-                _body.css( {
-                    'overflow-y': 'auto'
-                } );
+
+                if( _window.width() < 1024 ) {
+
+                    _html.css( {
+                        'overflow-y': 'auto'
+                    } );
+                    _body.css( {
+                        'overflow-y': 'auto'
+                    } );
+
+                }
+
                 _menuItems.attr( 'style', '' );
 
             },
@@ -584,7 +367,7 @@
 
                         if( _obj.hasClass( 'opened' ) ) {
 
-                            _closeMenu();
+                            //_closeMenu();
 
                         }
 
@@ -617,12 +400,18 @@
             _openMenu = function() {
 
                 _obj.addClass( 'opened' );
-                _html.css( {
-                    'overflow-y': 'hidden'
-                } );
-                _body.css( {
-                    'overflow-y': 'hidden'
-                } );
+
+                if( _window.width() < 1024 ) {
+
+                    _html.css( {
+                        'overflow-y': 'hidden'
+                    } );
+                    _body.css( {
+                        'overflow-y': 'hidden'
+                    } );
+
+                }
+
 
             },
             _init = function () {
@@ -695,7 +484,6 @@
                     spaceBetween: 0,
                     slidesPerView: 1,
                     loop: true,
-                    autoplay: 5000,
                     speed: 700,
                     effect: 'fade',
                     fade: {
@@ -945,7 +733,6 @@
                         768: {
                             slidesPerView: 1,
                             loop: true,
-                            autoplay: 7000,
                             autoplayDisableOnInteraction: false
                         }
                     }
@@ -986,7 +773,6 @@
                     slidesPerView: 1,
                     spaceBetween: 30,
                     loop: true,
-                    autoplay: 7000,
                     speed: 500,
                     effect: 'fade',
                     fade: {
@@ -994,21 +780,7 @@
                     },
                     autoplayDisableOnInteraction: false,
                     nextButton: _obj.find('.swiper-button-next')[0],
-                    prevButton: _obj.find('.swiper-button-prev')[0],
-                    //onSlideChangeStart: function( swiper ){
-                    //
-                    //    var slide  = swiper.slides,
-                    //        slideActive  = slide.filter('.swiper-slide-active');
-                    //
-                    //    slide.find('.reviews__item').css( {
-                    //        opacity: 0
-                    //    } );
-                    //
-                    //    slideActive.find('.reviews__item').css( {
-                    //        opacity: 1
-                    //    } );
-                    //
-                    //}
+                    prevButton: _obj.find('.swiper-button-prev')[0]
                 } );
 
             },
