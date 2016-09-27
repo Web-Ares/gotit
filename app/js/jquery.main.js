@@ -1016,11 +1016,17 @@
 
                 google.maps.event.addDomListener( window, 'resize', function() {
 
-                    var myLatLng = {lat: _btn.filter('.active').data('map-lat'), lng: _btn.filter('.active').data('map-lng')};
+                    if ( !_obj.parents('.contacts_services').length ) {
 
-                    map.setCenter( myLatLng );
+                        console.log('resize');
 
-                    _offsetCenter( map.getCenter(), 0, 0);
+                        var myLatLng = {lat: _btn.filter('.active').data('map-lat'), lng: _btn.filter('.active').data('map-lng')};
+
+                        map.setCenter( myLatLng );
+
+                        _offsetCenter( map.getCenter(), 0, 0);
+
+                    }
 
                 } );
                 _btn.on( {
@@ -1211,11 +1217,15 @@
 
                 google.maps.event.addListenerOnce(map, 'idle', function() {
 
-                    var myLatLng = {lat: _btn.filter('.active').data('map-lat'), lng: _btn.filter('.active').data('map-lng')};
+                    if ( !_obj.parents('.contacts_services').length ) {
 
-                    map.setCenter( myLatLng );
+                        var myLatLng = {lat: _btn.filter('.active').data('map-lat'), lng: _btn.filter('.active').data('map-lng')};
 
-                    _offsetCenter( map.getCenter(), 0, 0);
+                        map.setCenter( myLatLng );
+
+                        _offsetCenter( map.getCenter(), 0, 0);
+
+                    }
 
                 } );
 

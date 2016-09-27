@@ -2,6 +2,13 @@
   overflow: hidden;
   position: relative;
   padding: 50px 0 0;
+
+  &_services {
+
+    .contacts__inner {
+      min-height: 440px;
+    }
+  }
 }
 .contacts__inner {
   position: relative;
@@ -67,6 +74,7 @@
 }
 .contacts__pulse {
   position: relative;
+  z-index: -1;
   width: 145px;
   height: 145px;
   margin: 16px auto 4px;
@@ -118,6 +126,15 @@
 
 
 
+    &_services {
+
+      .contacts__info {
+        padding: 3em 17px 3em;
+      }
+      .contacts__pulse {
+        margin: -4.1em auto -2em;
+      }
+    }
   }
   .contacts__inner {
     padding: 0 20px;
@@ -492,4 +509,9 @@
     }
   }
 
+  .btn_services {
+    width: 11.3em;
+    height: 2.55em;
+    margin: 0 0 44px 0;
+  }
 }

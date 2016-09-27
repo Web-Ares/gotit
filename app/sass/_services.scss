@@ -1,0 +1,87 @@
+
+.sevices {
+
+  .site__title_2 {
+    margin: 0 0 57px;
+    padding-left: 15px;
+    font-size: 2.33em;
+    line-height: 1.33em;
+    text-transform: uppercase;
+    letter-spacing: 10.2px;
+    @include  main-font3();
+  }
+  &__wrap {
+    max-width: 860px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+  &__text {
+    margin-bottom: 57px;
+    font-size: 1em;
+    line-height: 2.05em;
+    @include main-font3();
+  }
+  &__info {
+    margin-bottom: -37px;
+
+    dl {
+      margin-bottom: 13px;
+      font-size: 1.1em;
+      line-height: 1.8em;
+
+      dt,
+      dd {
+        display: inline;
+      }
+      dt {
+        position: relative;
+        letter-spacing: -0.3px;
+        @include main-font2();
+
+        &:before {
+          position: relative;
+          display: inline-block;
+          vertical-align: middle;
+          width: 16px;
+          height: 3px;
+          margin-right: 5px;
+          margin-left: 4px;
+          background: #b10e3c;
+          content: '';
+        }
+      }
+      dd {
+        font-size: 0.95em;
+        letter-spacing: -0.4px;
+        @include main-font3();
+      }
+    }
+  }
+  &__info-list {
+    margin-bottom: 59px;
+  }
+  &__info-title {
+    max-width: 800px;
+    margin: 0 auto 34px;
+    font-size: 1.1em;
+    line-height: 1.2em;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+    @include  main-font1();
+  }
+}
+
+@media (max-width: $tablet-portrait) {
+
+}
+
+@media (min-width: $tablet-landscape) {
+
+}
+
+@media (min-width: $desktop) {
+
+}
+
+

@@ -281,6 +281,10 @@ body {
   @include main-font5();
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+
+  &_inner {
+    top: 21.8%;
+  }
 }
 .swiper-button-next,
 .swiper-button-prev {
