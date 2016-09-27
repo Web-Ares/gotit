@@ -269,7 +269,7 @@
 
                     resize: function () {
 
-                        if( _window.width() >= 1024 && !device.mobile() && !device.tablet() ) {
+                        if( _window.width() >= 1024 ) {
 
                             _setSize();
 
@@ -290,7 +290,7 @@
 
                 _onEvents();
 
-                if( _window.width() >= 1024 && !device.mobile() && !device.tablet() ) {
+                if( _window.width() >= 1024 ) {
 
                     _setSize();
 
