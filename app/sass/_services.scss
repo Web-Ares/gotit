@@ -1,7 +1,9 @@
 
 .sevices {
+  position: relative;
+  z-index: 2;
 
-  .site__title_2 {
+  h3 {
     margin: 0 0 57px;
     padding-left: 15px;
     font-size: 2.33em;
@@ -10,16 +12,26 @@
     letter-spacing: 10.2px;
     @include  main-font3();
   }
-  &__wrap {
-    max-width: 860px;
-    padding: 0 15px;
-    margin: 0 auto;
+  h4 {
+    max-width: 800px;
+    margin: 0 auto 34px;
+    font-size: 1.1em;
+    line-height: 1.2em;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+    @include  main-font1();
   }
-  &__text {
+  p {
     margin-bottom: 57px;
     font-size: 1em;
     line-height: 2.05em;
     @include main-font3();
+  }
+  &__wrap {
+    max-width: 860px;
+    padding: 0 15px;
+    margin: 0 auto;
   }
   &__info {
     margin-bottom: -37px;
@@ -59,16 +71,6 @@
   }
   &__info-list {
     margin-bottom: 59px;
-  }
-  &__info-title {
-    max-width: 800px;
-    margin: 0 auto 34px;
-    font-size: 1.1em;
-    line-height: 1.2em;
-    letter-spacing: 3px;
-    text-align: center;
-    text-transform: uppercase;
-    @include  main-font1();
   }
 }
 
