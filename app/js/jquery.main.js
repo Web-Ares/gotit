@@ -208,7 +208,18 @@
 
                     if( curContentInner.find('>div').innerHeight() < _window.height() ) {
 
-                        if( !( curContent.find('.contacts').length ) ) {
+                        if( curContent.find('.contacts').length ) {
+
+                            if( curContent.find('.contacts__map').height() < curContentInner.find('>div').innerHeight() ) {
+
+                                curContentInner.addClass('centered');
+
+                            } else {
+
+                                curContentInner.removeClass('centered');
+                            }
+
+                        } else {
                             curContentInner.addClass('centered');
                         }
 
@@ -797,10 +808,10 @@
 
                 _window.on( {
                     load: function() {
-                        _map.height( $('.contacts__inner').innerHeight() )
+                        _setHeight();
                     },
                     resize: function() {
-                        _map.height( $('.contacts__inner').innerHeight() )
+                        _setHeight();
                     }
                 } );
 
@@ -1025,6 +1036,31 @@
             _init = function () {
                 google.maps.event.addDomListener(window, 'load', _initMap);
                 _addEvents();
+                _setHeight();
+            },
+            _setHeight = function() {
+
+                var content = $('.contacts__info');
+
+                if( _window.width() >= 768 ) {
+
+                    if( content.innerHeight() > content.innerWidth()) {
+                        _obj.height( content.innerHeight()+(content.innerHeight()*0.3) );
+                        _obj.width( content.innerHeight()+(content.innerHeight()*0.3) );
+                    } else {
+                        _obj.height( content.innerWidth()+(content.innerWidth()*0.3) );
+                        _obj.width( content.innerWidth()+(content.innerWidth()*0.3) );
+                    }
+
+
+
+                } else {
+
+                    _obj.attr('style','');
+
+                }
+
+
             };
 
         _init();
