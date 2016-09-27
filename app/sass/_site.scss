@@ -39,6 +39,7 @@ body {
   height: 4em;
   -webkit-transition: -webkit-transform 0.4s ease-out;
   transition: transform 0.4s ease-out;
+  pointer-events: none;
 
   &.opened {
 
@@ -90,6 +91,7 @@ body {
   padding: 0;
   background: transparent;
   font-size: 1em !important;
+  pointer-events: visible;
 
   span {
     position: absolute;
@@ -141,6 +143,7 @@ body {
   padding: 70px 20px;
   background: rgba(23,36,40,0.93);
   text-align: center;
+  pointer-events: visible;
 
   nav {
     position: relative;

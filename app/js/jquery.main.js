@@ -126,7 +126,7 @@
 
                         if( _window.width() >= 1024 ) {
 
-                            if( !_swiperInit && !device.mobile() && !device.tablet() ) {
+                            if( !_swiperInit ) {
 
                                 _initFullPage();
                                 _swiperInit = true;
@@ -152,9 +152,9 @@
                 _btnDown.on( {
                     click: function() {
 
-                        if( _window.width() >= 1024 && !device.mobile() && !device.tablet() ) {
+                        if( _window.width() >= 1024 ) {
 
-                            _swiper.slideNext( true, 600);
+                            $.fn.fullpage.moveTo(2);
 
                         } else {
 
@@ -193,7 +193,7 @@
             },
             _destroyFullPage = function() {
 
-                $.fn.fullpage.destroy();
+                $.fn.fullpage.destroy('all');
 
             },
             _centerContent = function() {
@@ -226,7 +226,6 @@
                 _addEvents();
 
                 if( _window.width() >= 1024) {
-                //if( _window.width() >= 1024 && !device.mobile() && !device.tablet() ) {
 
                     if( !_swiperInit ) {
 
@@ -238,21 +237,6 @@
 
                 }
 
-                if( device.mobile() || device.tablet() ) {
-
-                    _obj.addClass('mob_view');
-
-                }
-
-                if( device.tablet() ) {
-
-                    _obj.find('.swiper-slide__content').css( {
-
-                        'min-height': _window.height()
-
-                    } );
-
-                }
 
             };
 
