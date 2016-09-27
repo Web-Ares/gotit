@@ -32,11 +32,11 @@ body {
 }
 .site__header {
   position: absolute;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100%;
   height: 4em;
-  z-index: 2;
   -webkit-transition: -webkit-transform 0.4s ease-out;
   transition: transform 0.4s ease-out;
 
@@ -196,80 +196,25 @@ body {
 }
 .site__index-page {
   position: relative;
+  z-index: 1;
 
-  .site__index-swiper {
-    position: relative;
+    .slide__content {
+      //position: relative;
+      ////min-height: 100vh;
+      //@include flexbox();
+      //@include flex-direction(row);
+      //@include flex-wrap(wrap);
+      //@include align-items(center);
+      //@include justify-content(center);
+      //
+      //&.swiper-slide__content_no-center {
+      //  @include align-items(flex-end);
+      //}
 
-    >.swiper-wrapper {
-      display: block;
-
-      >.swiper-slide {
-        display: block;
-        background: #162328;
-
-        .swiper-slide__content {
-          position: relative;
-          min-height: 100vh;
-          @include flexbox();
-          @include flex-direction(row);
-          @include flex-wrap(wrap);
-          @include align-items(center);
-          @include justify-content(center);
-
-          &.swiper-slide__content_no-center {
-            @include align-items(flex-end);
-          }
-
-          >div {
-            width: 100%;
-          }
-
-        }
-
-      }
 
     }
 
-  }
 
-  &.mob_view {
-    position: relative;
-
-    .site__index-swiper {
-      position: relative;
-
-      >.swiper-wrapper {
-        display: block;
-
-        >.swiper-slide {
-          display: block;
-          background: #162328;
-
-          .swiper-slide__content {
-            position: relative;
-            min-height: 100vh;
-            @include flexbox();
-            @include flex-direction(row);
-            @include flex-wrap(wrap);
-            @include align-items(center);
-            @include justify-content(center);
-
-            &.swiper-slide__content_no-center {
-              @include align-items(flex-end);
-            }
-
-            >div {
-              width: 100%;
-            }
-
-          }
-
-        }
-
-      }
-
-    }
-  }
 }
 .site__title {
   @include main-font4();
@@ -415,90 +360,62 @@ body {
     line-height: 1em;
   }
   .site__index-page {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 
-    .site__index-swiper {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      margin-left: auto;
-      margin-right: auto;
+    .slide__content-inner {
 
-      >.swiper-wrapper {
+      &.centered {
+        @include flexbox();
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+        @include align-items(center);
+        @include justify-content(center);
+      }
 
-        >.swiper-slide {
-
-          .swiper-slide__content {
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            max-height: 100%;
-            overflow-y: auto;
-            min-height: 1px;
-
-            &.centered {
-              @include flexbox();
-              @include flex-direction(row);
-              @include flex-wrap(wrap);
-              @include align-items(center);
-              @include justify-content(center);
-            }
-
-          }
-
-        }
-
+      >div {
+        width: 100%;
       }
 
     }
 
-    &.mob_view {
-      position: relative;
-      left: auto;
-      top: auto;
-      width: auto;
-      height: auto;
+    //&.mob_view {
+    //  position: relative;
+    //  left: auto;
+    //  top: auto;
+    //  width: auto;
+    //  height: auto;
+    //
+    //  .site__index-swiper {
+    //    position: relative;
+    //
+    //    >.swiper-wrapper {
+    //      display: block;
+    //
+    //      >.swiper-slide {
+    //        display: block;
+    //        background: #162328;
+    //        height: auto;
+    //
+    //        .swiper-slide__content {
+    //          position: relative;
+    //          //min-height: 100vh;
+    //          @include flexbox();
+    //          @include flex-direction(row);
+    //          @include flex-wrap(wrap);
+    //          @include align-items(center);
+    //          @include justify-content(center);
+    //
+    //          >div {
+    //            width: 100%;
+    //          }
+    //
+    //        }
+    //
+    //      }
+    //
+    //    }
+    //
+    //  }
 
-      .site__index-swiper {
-        position: relative;
-
-        >.swiper-wrapper {
-          display: block;
-
-          >.swiper-slide {
-            display: block;
-            background: #162328;
-
-            .swiper-slide__content {
-              position: relative;
-              min-height: 100vh;
-              @include flexbox();
-              @include flex-direction(row);
-              @include flex-wrap(wrap);
-              @include align-items(center);
-              @include justify-content(center);
-
-              >div {
-                width: 100%;
-              }
-
-            }
-
-          }
-
-        }
-
-      }
-    }
 
   }
   .site__content {
