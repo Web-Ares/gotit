@@ -442,7 +442,10 @@
 
                     if( curContent.innerHeight() > curContentInner.innerHeight() ) {
 
-                        curContent.addClass('centered');
+                        if( !( curContent.find('.contacts').length ) ) {
+                            curContent.addClass('centered');
+                        }
+
 
                     } else {
 
@@ -639,11 +642,6 @@
             _obj = obj,
             _window = $( window ),
             _header = $( '.site__header'),
-            _img1 = _obj.find('.swiper-slide').find( '.move1' ),
-            _img2 = _obj.find('.swiper-slide').find( '.move2'),
-            _img3 = _obj.find('.swiper-slide').find( '.move3'),
-            _img4 = _obj.find('.swiper-slide').find( '.move4'),
-            _img5 = _obj.find('.swiper-slide').find( '.move5'),
             _step1 = 15,
             _step2 = 10,
             _step3 = 5,
@@ -653,9 +651,18 @@
 
         var _addEvents = function () {
 
+                $(document).on(
+                    'mousemove',
+                    '.main-slider .swiper-slide',
+                    function( e ) {
 
-                _obj.find('.swiper-slide').on( {
-                    mousemove: function( e ) {
+
+                        var slide = $(this),
+                            _img1 = slide.find('.move1'),
+                            _img2 = slide.find('.move2'),
+                            _img3 = slide.find('.move3'),
+                            _img4 = slide.find('.move4'),
+                            _img5 = slide.find('.move5');
 
                         if (_window.width() > 1024 && !( _header.hasClass('opened') ) ) {
 
@@ -677,8 +684,9 @@
                             }
 
                         }
+
                     }
-                } );
+                );
 
             },
             _initSwiper = function() {
@@ -688,7 +696,11 @@
                     slidesPerView: 1,
                     loop: true,
                     autoplay: 5000,
-                    speed: 600,
+                    speed: 700,
+                    effect: 'fade',
+                    fade: {
+                        crossFade: true
+                    },
                     autoplayDisableOnInteraction: false,
                     nextButton: _obj.find('.swiper-button-next')[0],
                     prevButton: _obj.find('.swiper-button-prev')[0]
@@ -875,6 +887,12 @@
 
                 _squadDisk.width( newSize );
                 _squadDisk.height( newSize );
+                _squadDisk.css( {
+
+                    'margin-top': '-' +newSize/2+ 'px',
+                    'margin-left': '-' +newSize/2+ 'px'
+
+                } );
 
             },
             _init = function() {
@@ -970,9 +988,27 @@
                     loop: true,
                     autoplay: 7000,
                     speed: 500,
+                    effect: 'fade',
+                    fade: {
+                        crossFade: true
+                    },
                     autoplayDisableOnInteraction: false,
                     nextButton: _obj.find('.swiper-button-next')[0],
-                    prevButton: _obj.find('.swiper-button-prev')[0]
+                    prevButton: _obj.find('.swiper-button-prev')[0],
+                    //onSlideChangeStart: function( swiper ){
+                    //
+                    //    var slide  = swiper.slides,
+                    //        slideActive  = slide.filter('.swiper-slide-active');
+                    //
+                    //    slide.find('.reviews__item').css( {
+                    //        opacity: 0
+                    //    } );
+                    //
+                    //    slideActive.find('.reviews__item').css( {
+                    //        opacity: 1
+                    //    } );
+                    //
+                    //}
                 } );
 
             },

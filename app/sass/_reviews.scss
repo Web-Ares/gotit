@@ -5,15 +5,15 @@
   .swiper-container {
 
     .swiper-wrapper {
-      //@include align-items(center);
 
       .swiper-slide {
-
       }
       .swiper-slide-active {
 
         .reviews__item{
-          opacity: 1 !important;
+          //opacity: 1 !important;
+          -webkit-transition: opacity 0.3s ease 0.3s;
+          transition: opacity 0.3s ease 0.3s;
         }
 
       }
@@ -45,9 +45,9 @@
   padding-bottom: 25px;
 }
 .reviews__item {
-  opacity: 0 !important;
-  -webkit-transition: opacity 0.3s ease;
-  transition: opacity 0.3s ease;
+  //opacity: 0;
+  //-webkit-transition: opacity 0.3s ease;
+  //transition: opacity 0.3s ease;
 }
 .reviews__info {
   text-align: center;

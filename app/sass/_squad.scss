@@ -168,23 +168,23 @@
     animation-duration: 4000ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    -webkit-transform-origin: 0% 0;
-    transform-origin: 0% 0;
+    -webkit-transform-origin: center;
+    transform-origin: center;
     background-size: contain;
   }
 
   @-webkit-keyframes spin {
     from {
-      -webkit-transform: rotate(0deg) translateX(-50%) translateY(-50%);
+      -webkit-transform: rotate(0deg);
     } to {
-        -webkit-transform: rotate(360deg) translateX(-50%) translateY(-50%);
+        -webkit-transform: rotate(360deg);
       }
   }
   @keyframes spin {
     from {
-      transform: rotate(0deg) translateX(-50%) translateY(-50%);
+      transform: rotate(0deg);
     } to {
-        transform: rotate(360deg) translateX(-50%) translateY(-50%);
+        transform: rotate(360deg);
       }
   }
 

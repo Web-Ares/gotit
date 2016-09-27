@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   height: 100vh;
-  min-height: 560px;
+  min-height: 600px;
 
   .swiper-container {
     position: absolute;
@@ -15,6 +15,7 @@
     >.swiper-wrapper {
 
       .swiper-slide {
+        overflow: hidden;
         display: block;
         background: transparent;
         height: 100%;
@@ -45,12 +46,15 @@
 
 }
 .main-slider__content {
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
   @include flexbox();
   @include flex-direction(row);
   @include align-items(center);
   @include justify-content(center);
   height: 100%;
-  padding: 40% 40px 2em;
+  padding: 2em 40px 2em;
   color: #fff;
   text-transform: uppercase;
   text-align: center;
