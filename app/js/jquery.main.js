@@ -495,6 +495,9 @@
                 );
 
                 _window.on( {
+                    load: function () {
+                        _initSwiper();
+                    },
                     resize: function() {
 
                         if( _window.width() >= 1024 && screen.width >= 1024 ) {
@@ -567,7 +570,7 @@
             _init = function() {
                 _obj[0].obj = _self;
                 _addEvents();
-                _initSwiper();
+
 
                 if( _window.width() < 1024 ) {
 
