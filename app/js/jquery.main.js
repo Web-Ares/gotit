@@ -450,9 +450,6 @@
             _step3 = 5,
             _step4 = 20,
             _step5 = 25,
-            _orientation = false,
-            _orientationPortrait = false,
-            _orientationLandscape = false,
             _swiper1;
 
         var _addEvents = function () {
@@ -523,8 +520,6 @@
 
 
                 }, false);
-
-
 
             },
             _initSwiper = function() {
