@@ -357,15 +357,17 @@
             _onEvents = function () {
 
                 _window.on( {
+                    scroll: function () {
 
-                    resize: function () {
+                        if( _window.scrollTop() > _obj.innerHeight() ) {
 
-                        if( _obj.hasClass( 'opened' ) ) {
+                            _obj.addClass('fixed');
 
-                            //_closeMenu();
+                        } else {
+
+                            _obj.removeClass('fixed');
 
                         }
-
                     }
 
                 } );
@@ -431,6 +433,9 @@
             _step3 = 5,
             _step4 = 20,
             _step5 = 25,
+            _orientation = false,
+            _orientationPortrait = false,
+            _orientationLandscape = false,
             _swiper1;
 
         var _addEvents = function () {
@@ -472,6 +477,35 @@
                     }
                 );
 
+                _window.on( {
+                    resize: function() {
+
+                        if( _window.width() >= 1024 && screen.width >= 1024 ) {
+
+                            _obj.attr('style', '');
+
+                        }
+
+                    }
+                } );
+
+                window.addEventListener("orientationchange", function() {
+
+                    setTimeout( function() {
+
+                        if( screen.width < 1024 ) {
+
+                            _setHeight();
+
+                        }
+
+                    }, 500 );
+
+
+                }, false);
+
+
+
             },
             _initSwiper = function() {
 
@@ -506,10 +540,23 @@
                 } );
 
             },
+            _setHeight = function() {
+
+                var height = _window.height();
+
+                _obj.innerHeight( height );
+
+            },
             _init = function() {
                 _obj[0].obj = _self;
                 _addEvents();
                 _initSwiper();
+
+                if( _window.width() < 1024 ) {
+
+                    _setHeight();
+
+                }
 
             };
 
@@ -1004,6 +1051,11 @@
 
                 map = new google.maps.Map( _map[0], {
                     zoom: _mapZoom,
+                    zoomControl: false,
+                    mapTypeControl: false,
+                    scaleControl: false,
+                    streetViewControl: false,
+                    rotateControl: false,
                     center: {lat: _mapLat, lng: _mapLng},
                     mapTypeControlOptions: {
                         mapTypeIds: [google.maps.MapTypeId.ROADMAP, customMapTypeId]

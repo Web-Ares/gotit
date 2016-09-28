@@ -41,6 +41,14 @@ body {
   transition: transform 0.4s ease-out;
   pointer-events: none;
 
+  &.fixed {
+    position: fixed;
+
+    .logo_index {
+      display: none;
+    }
+
+  }
   &.opened {
 
     .site__header-menu {
