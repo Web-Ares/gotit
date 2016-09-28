@@ -1,8 +1,8 @@
 .main-slider {
   position: relative;
   overflow: hidden;
-  height: 100vh;
-  min-height: 600px;
+  //height: 100vh;
+  min-height: 500px;
 
   .swiper-container {
     position: absolute;
@@ -212,7 +212,7 @@
     //height: 100%;
     //margin-left: auto;
     //margin-right: auto;
-    min-height: 500px;
+    height: 100vh !important;
 
     .swiper-button-next,
     .swiper-button-prev {

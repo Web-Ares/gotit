@@ -40,6 +40,15 @@
     content: '';
     -webkit-transform: translateZ(0)  translateY(-50%) translateX(-50%);
     transform: translateZ(0)  translateY(-50%) translateX(-50%);
+
+    -webkit-animation-name: pulse3;
+    -webkit-animation-duration: 4000ms;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: pulse3;
+    animation-duration: 4000ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
   }
 
   .contacts__map-google {
@@ -60,7 +69,7 @@
 .contacts__info {
   position: relative;
   z-index: 1;
-  padding: 68px 17px 0;
+  padding: 68px 17px 40px;
   text-align: center;
 
   p {
@@ -79,6 +88,28 @@
   height: 145px;
   margin: 16px auto 4px;
 
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: rgba(255,255,255,0.1);
+    content: '';
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    -webkit-animation-name: pulsejg1;
+    -webkit-animation-duration: 4000ms;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: pulsejg1;
+    animation-duration: 4000ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
   &:after {
     position: absolute;
     top: 50%;
@@ -86,7 +117,7 @@
     width: 7px;
     height: 7px;
     background: #fff;
-    box-shadow: 0 0 0 20px rgba(255,255,255,0.1), 0 0 0 45px rgba(255,255,255,0.1),0 0 0 70px rgba(255,255,255,0.1);
+    box-shadow: 0 0 0 20px rgba(255,255,255,0.1);
     border-radius: 100%;
     content: '';
     -webkit-transform: translate(-50%,-50%);
@@ -94,7 +125,25 @@
   }
 
   .contacts__pulse1 {
-    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 66%;
+    height: 66%;
+    border-radius: 100%;
+    background: rgba(255,255,255,0.1);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    -webkit-animation-name: pulsejg2;
+    -webkit-animation-duration: 4000ms;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: pulsejg2;
+    animation-duration: 4000ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
   }
 
 }
@@ -112,12 +161,227 @@
 
 }
 .contacts__links-phone {
+
   span {
-    span {
-      margin: 0 4px;
-    }
+    margin: 0 4px;
   }
 
+}
+
+@-webkit-keyframes pulsejg1 {
+  0% {
+    -webkit-transform: scale(.1) translate(-50%,-50%);
+    opacity: 0;
+  }
+
+  20% {
+    transform: scale(.2) translate(-50%,-50%);
+    opacity: 0.5;
+  }
+
+  50% {
+    -webkit-transform: scale(.8) translate(-50%,-50%);
+    opacity: 1;
+  }
+
+  60% {
+    -webkit-transform: scale(1) translate(-50%,-50%);
+    opacity: 1;
+  }
+
+  70% {
+    -webkit-transform: scale(1.1) translate(-50%,-50%);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: scale(1.2) translate(-50%,-50%);
+    opacity: .7;
+  }
+
+  90% {
+    transform: scale(1.3) translate(-50%,-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.3) translate(-50%,-50%);
+    opacity: 0;
+  }
+}
+@keyframes pulsejg1 {
+  0% {
+    transform: scale(.1) translate(-50%,-50%);
+    opacity: 0;
+  }
+
+  20% {
+    transform: scale(.2) translate(-50%,-50%);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(.8) translate(-50%,-50%);
+    opacity: 1;
+  }
+
+  60% {
+    transform: scale(1) translate(-50%,-50%);
+    opacity: 1;
+  }
+
+  70% {
+    transform: scale(1.1) translate(-50%,-50%);
+    opacity: 1;
+  }
+
+  80% {
+    transform: scale(1.2) translate(-50%,-50%);
+    opacity: .7;
+  }
+
+  90% {
+    transform: scale(1.3) translate(-50%,-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.3) translate(-50%,-50%);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes pulsejg2 {
+  0% {
+    -webkit-transform: scale(.1) translate(-50%,-50%);
+    opacity: 0;
+  }
+
+  20% {
+    transform: scale(.2) translate(-50%,-50%);
+    opacity: 0.5;
+  }
+
+  50% {
+    -webkit-transform: scale(.8) translate(-50%,-50%);
+    opacity: 1;
+  }
+
+  60% {
+    -webkit-transform: scale(1) translate(-50%,-50%);
+    opacity: 1;
+  }
+
+  70% {
+    -webkit-transform: scale(1.1) translate(-50%,-50%);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: scale(1.2) translate(-50%,-50%);
+    opacity: .7;
+  }
+
+  100% {
+    -webkit-transform: scale(1.3) translate(-50%,-50%);
+    opacity: 0;
+  }
+}
+@keyframes pulsejg2 {
+  0% {
+    transform: scale(.1) translate(-50%,-50%);
+    opacity: 0;
+  }
+
+  20% {
+    transform: scale(.2) translate(-50%,-50%);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(.8) translate(-50%,-50%);
+    opacity: 1;
+  }
+
+  60% {
+    transform: scale(1) translate(-50%,-50%);
+    opacity: 1;
+  }
+
+  70% {
+    transform: scale(1.1) translate(-50%,-50%);
+    opacity: 1;
+  }
+
+  80% {
+    transform: scale(1.2) translate(-50%,-50%);
+    opacity: .7;
+  }
+
+  100% {
+    transform: scale(1.3) translate(-50%,-50%);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes pulse3 {
+  0% {
+    opacity: 0;
+  }
+
+
+  50% {
+    opacity: 1;
+  }
+
+
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes pulse3 {
+  0% {
+    opacity: 0;
+  }
+
+
+
+  50% {
+    opacity: 1;
+  }
+
+
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes pulse1 {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255,255,255,0.1);
+  }
+  33% {
+    box-shadow: 0 0 0 1.2em rgba(255,255,255,0.1);
+  }
+  60% {
+    box-shadow: 0 0 0 2.2em rgba(255,255,255,0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 2.2em rgba(255,255,255,0);
+  }
+}
+@keyframes pulse1 {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255,255,255,0.1);
+  }
+  33% {
+    box-shadow: 0 0 0 1.2em rgba(255,255,255,0.1);
+  }
+  60% {
+    box-shadow: 0 0 0 2.2em rgba(255,255,255,0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 2.2em rgba(255,255,255,0);
+  }
 }
 
 @media (min-width: $tablet-portrait) {
@@ -204,14 +468,6 @@
       animation-iteration-count: infinite;
     }
     &:before {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      height: 100%;
-      border-radius: 100%;
-      background-color: rgba(255,255,255,0.1);
-      content: '';
       -webkit-transform: translate(-50%,-50%);
       transform: translate(-50%,-50%);
       -webkit-animation-name: pulsejg1;
@@ -222,21 +478,11 @@
       animation-duration: 4000ms;
       animation-timing-function: linear;
       animation-iteration-count: infinite;
-      -webkit-transform-origin: 0 0;
-      transform-origin: 0 0;
     }
 
     .contacts__pulse1 {
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
       width: 66%;
       height: 66%;
-      border-radius: 100%;
-      background: rgba(255,255,255,0.1);
-      -webkit-transform: translate(-50%,-50%);
-      transform: translate(-50%,-50%);
       -webkit-animation-name: pulsejg2;
       -webkit-animation-duration: 4000ms;
       -webkit-animation-timing-function: linear;
@@ -245,8 +491,6 @@
       animation-duration: 4000ms;
       animation-timing-function: linear;
       animation-iteration-count: infinite;
-      -webkit-transform-origin: 0 0;
-      transform-origin: 0 0;
     }
 
   }
