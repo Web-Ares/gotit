@@ -7,6 +7,8 @@
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   pointer-events: visible;
+  -webkit-transition: top 0.3s;
+  transition: top 0.3s;
 
   img {
     display: block;
