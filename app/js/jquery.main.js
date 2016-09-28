@@ -874,7 +874,7 @@
 
                         map.setCenter( myLatLng );
 
-                        _offsetCenter( map.getCenter(), 0, 0);
+                        _offsetCenter( map.getCenter(), 0, 50);
 
                     }
 
@@ -890,11 +890,12 @@
                             curItem.addClass('active');
 
                             var myLatLng = {lat: $(this).data('map-lat'), lng: $(this).data('map-lng')};
-                            //marker.setPosition(myLatLng);
+                            marker.setPosition(myLatLng);
 
                             setTimeout( function() {
                                 google.maps.event.trigger(map, 'resize');
                                 map.setCenter(myLatLng);
+                                _offsetCenter( map.getCenter(), 0, 50);
                             }, 300 );
 
                         }
@@ -1062,10 +1063,10 @@
                     }
                 });
 
-                //marker = new google.maps.Marker({
-                //    position: {lat: _mapLat, lng: _mapLng},
-                //    map: map
-                //});
+                marker = new google.maps.Marker({
+                    position: {lat: _mapLat, lng: _mapLng},
+                    map: map
+                });
 
                 map.mapTypes.set(customMapTypeId, customMapType);
                 map.setMapTypeId(customMapTypeId);
@@ -1078,7 +1079,7 @@
 
                         map.setCenter( myLatLng );
 
-                        _offsetCenter( map.getCenter(), 0, 0);
+                        _offsetCenter( map.getCenter(), 0, 50);
 
                     }
 
