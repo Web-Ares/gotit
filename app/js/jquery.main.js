@@ -122,6 +122,21 @@
         var _addEvents = function () {
 
                 _window.on( {
+                    load: function() {
+                        if( _window.width() >= 1024) {
+
+                            if( !_swiperInit ) {
+
+                                _initFullPage();
+                                _centerContent();
+                                _swiperInit = true;
+
+                            }
+
+                        }
+
+
+                    },
                     resize: function() {
 
                         if( _window.width() >= 1024 ) {
@@ -206,11 +221,14 @@
                         'min-height': _window.height()
                     } );
 
-                    if( curContentInner.find('>div').innerHeight() < _window.height() ) {
+                    console.log(curContentInner.find('>div')[0].clientHeight)
+                    console.log(_window.height())
+
+                    if( curContentInner.find('>div').height() < _window.height() ) {
 
                         if( curContent.find('.contacts').length ) {
 
-                            if( curContent.find('.contacts__map').height() < curContentInner.find('>div').innerHeight() ) {
+                            if( curContent.find('.contacts__map').height() < curContentInner.find('>div').height() ) {
 
                                 curContentInner.addClass('centered');
 
@@ -236,17 +254,6 @@
                 _obj[0].obj = _self;
                 _addEvents();
 
-                if( _window.width() >= 1024) {
-
-                    if( !_swiperInit ) {
-
-                        _initFullPage();
-                        _centerContent();
-                        _swiperInit = true;
-
-                    }
-
-                }
 
 
             };
