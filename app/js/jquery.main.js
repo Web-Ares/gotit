@@ -890,7 +890,7 @@
                             curItem.addClass('active');
 
                             var myLatLng = {lat: $(this).data('map-lat'), lng: $(this).data('map-lng')};
-                            marker.setPosition(myLatLng);
+                            //marker.setPosition(myLatLng);
 
                             setTimeout( function() {
                                 google.maps.event.trigger(map, 'resize');
@@ -1062,10 +1062,10 @@
                     }
                 });
 
-                marker = new google.maps.Marker({
-                    position: {lat: _mapLat, lng: _mapLng},
-                    map: map
-                });
+                //marker = new google.maps.Marker({
+                //    position: {lat: _mapLat, lng: _mapLng},
+                //    map: map
+                //});
 
                 map.mapTypes.set(customMapTypeId, customMapType);
                 map.setMapTypeId(customMapTypeId);
