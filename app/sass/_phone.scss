@@ -1,0 +1,50 @@
+
+.phone {
+  position: absolute;
+}
+.phone__wrap {
+
+}
+.pnone__part1 {
+  width: 704px;
+  height: 411px;
+  background-image: url('../img/phone/phone-part_1.png');
+  background-size: contain;
+}
+.pnone__part2 {
+  width: 700px;
+  height: 368px;
+  background-image: url('../img/phone/phone-part_2.png');
+  background-size: contain;
+}
+.pnone__part3 {
+  width: 702px;
+  height: 369px;
+  background-image: url('../img/phone/phone-part_3.png');
+  background-size: contain;
+}
+.pnone__part4 {
+  width: 280px;
+  height: 220px;
+  background-image: url('../img/phone/phone-part_4.png');
+  background-size: contain;
+}
+
+
+@media (min-width: $tablet-portrait) {
+
+
+
+}
+
+@media (min-width: $tablet-landscape) {
+
+}
+
+@media (min-width: $desktop) {
+
+
+
+}
+
+
