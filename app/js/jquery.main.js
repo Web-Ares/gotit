@@ -1014,6 +1014,7 @@
         var _self = this,
             _obj = obj,
             _window = $( window ),
+            _swiperInit = false,
             _swiper;
 
         var _addEvents = function () {
@@ -1021,7 +1022,25 @@
                 _window.on( {
                     resize: function() {
 
+                        if( _window.width() < 768 ) {
 
+                            if( !_swiperInit ) {
+
+                                _initSwiper();
+                                _swiperInit = true;
+
+                            }
+
+
+                        } else {
+
+                            if( _swiperInit ) {
+
+                                _destroySwiper();
+                                _swiperInit = false;
+                            }
+
+                        }
 
                     }
                 } );
@@ -1046,10 +1065,24 @@
                 } );
 
             },
+            _destroySwiper = function() {
+
+                _swiper.destroy( true, true);
+
+            },
             _init = function() {
                 _obj[0].obj = _self;
                 _addEvents();
-                _initSwiper();
+
+                if( _window.width() < 768 ) {
+
+                    if( !_swiperInit ) {
+
+                        _initSwiper();
+                        _swiperInit = true;
+                    }
+
+                }
 
             };
 

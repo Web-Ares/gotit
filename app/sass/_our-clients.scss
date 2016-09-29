@@ -58,9 +58,6 @@
         }
 
       }
-      .swiper-button-disabled {
-        display: none;
-      }
       .swiper-button-prev {
         left: 9px;
       }
@@ -79,5 +76,33 @@
 
 }
 @media (min-width: $desktop) {
+
+  .our-clients {
+
+    .swiper-container {
+
+      .swiper-wrapper {
+        @include flexbox();
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+        @include align-items(flex-start);
+        @include justify-content(flex-start);
+
+        .swiper-slide {
+          width: 20%;
+          margin: 3em 0 3em;
+          text-align: center;
+        }
+
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        display: none;
+      }
+
+    }
+
+  }
 
 }
