@@ -13,6 +13,15 @@
     display: block;
     width: 100%;
     height: auto;
+
+    &.vegetables__case-pic1 {
+      -webkit-transform: rotate(-103deg);
+      transform: rotate(-103deg);
+    }
+    &.vegetables__case-pic2 {
+      -webkit-transform: rotate(18deg) translate(-3em, 5em);
+      transform:rotate(18deg) translate(-3em, 5em);
+    }
   }
 
   &.vegetable1 {
@@ -21,18 +30,15 @@
     right: -21.9em;
     width: 25.3em;
     height: 18.2em;
-    //background-image: url("../img/vegetable1.png");
   }
   &.vegetable2 {
     left: -6em;
     top: 0.4em;
     width: 11.6em;
     height: 10em;
-    //background-image: url("../img/vegetable2.png");
   }
   &.vegetable3 {
     display: none;
-    //background-image: url("../img/vegetable3.png");
   }
   &.vegetable4 {
     left: -9.2em;
@@ -40,7 +46,14 @@
     bottom: -5.8em;
     width: 15.5em;
     height: 18.7em;
-    //background-image: url("../img/vegetable4.png");
+
+    &_case {
+      left: -4.2em;
+      //top: auto;
+      //bottom: -3em;
+      //width: 28.8em;
+      //height: 24.3em;
+    }
   }
   &.vegetable5 {
     top: 12.9em;
@@ -48,9 +61,15 @@
     margin-left: -14.8em;
     width: 12em;
     height: 6.8em;
-    //background-image: url("../img/vegetable5.png");
   }
-
+  &.vegetable6 {
+    top: auto;
+    bottom: 4.1em;
+    left: 3em;
+    width: 6em;
+    height: 13.8em;
+    margin-left: 0;
+  }
 }
 
 @media (min-width: $tablet-portrait) {
@@ -106,6 +125,13 @@
       right: -12.6em;
       width: 21.3em;
       height: 22.8em;
+
+      &_case {
+        bottom: -4.1em;
+        right: -5em;
+        width: 20.4em;
+        height: 17.8em;
+      }
     }
     &.vegetable4 {
       left: -5.6em;
@@ -113,6 +139,14 @@
       bottom: -6.5em;
       width: 34em;
       height: 30.7em;
+
+      &_case {
+        left: -1.7em;
+        top: auto;
+        bottom: -3em;
+        width: 28.8em;
+        height: 24.3em;
+      }
     }
     &.vegetable5 {
       top: 8.5em;
@@ -121,7 +155,12 @@
       height: 13.8em;
       margin-left: 0;
     }
-
+    &.vegetable6 {
+      top: 15.1em;
+      left: 3em;
+      width: 9em;
+      height: 13.8em;
+      margin-left: 0;
+    }
   }
-
 }
