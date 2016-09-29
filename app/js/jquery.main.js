@@ -165,7 +165,7 @@
                                 _swiperInit = false;
                             }
 
-                            _slideContent.find('.slide__content-inner').attr( 'style','' );
+                            //_slideContent.find('.slide__content-inner').attr( 'style','' );
 
                         }
                     }
@@ -239,40 +239,40 @@
 
             },
             _centerContent = function() {
-                _slideContent.each( function() {
-
-                    var curContent = $(this),
-                        curContentInner = curContent.find('.slide__content-inner');
-
-                    curContentInner.css( {
-                        'min-height': _window.height()
-                    } );
-
-                    if( curContentInner.find('>div').height() < _window.height() ) {
-
-                        if( curContent.find('.contacts').length ) {
-
-                            if( curContent.find('.contacts__map').height() < curContentInner.find('>div').height() ) {
-
-                                curContentInner.addClass('centered');
-
-                            } else {
-
-                                curContentInner.removeClass('centered');
-                            }
-
-                        } else {
-                            curContentInner.addClass('centered');
-                        }
-
-
-                    } else {
-
-                        curContentInner.removeClass('centered');
-
-                    }
-
-                } );
+                //_slideContent.each( function() {
+                //
+                //    var curContent = $(this),
+                //        curContentInner = curContent.find('.slide__content-inner');
+                //
+                //    curContentInner.css( {
+                //        'min-height': _window.height()
+                //    } );
+                //
+                //    if( curContentInner.find('>div').height() < _window.height() ) {
+                //
+                //        if( curContent.find('.contacts').length ) {
+                //
+                //            if( curContent.find('.contacts__map').height() < curContentInner.find('>div').height() ) {
+                //
+                //                curContentInner.addClass('centered');
+                //
+                //            } else {
+                //
+                //                curContentInner.removeClass('centered');
+                //            }
+                //
+                //        } else {
+                //            curContentInner.addClass('centered');
+                //        }
+                //
+                //
+                //    } else {
+                //
+                //        curContentInner.removeClass('centered');
+                //
+                //    }
+                //
+                //} );
             },
             _init = function() {
                 _obj[0].obj = _self;
