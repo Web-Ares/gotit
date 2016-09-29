@@ -42,7 +42,7 @@ body {
 
 }
 .site__header {
-  position: absolute;
+  position: fixed;
   z-index: 2;
   top: 0;
   left: 0;
@@ -53,9 +53,8 @@ body {
   pointer-events: none;
 
   &.fixed {
-    position: fixed;
 
-    .logo_index {
+    .logo {
       display: none;
     }
     .site__header-title {
@@ -227,20 +226,14 @@ body {
 .site__index-page {
   position: relative;
   z-index: 1;
+  overflow: hidden;
 
     .slide__content {
-      //position: relative;
-      ////min-height: 100vh;
-      //@include flexbox();
-      //@include flex-direction(row);
-      //@include flex-wrap(wrap);
-      //@include align-items(center);
-      //@include justify-content(center);
-      //
-      //&.swiper-slide__content_no-center {
-      //  @include align-items(flex-end);
-      //}
+      position: relative;
 
+      &:first-child {
+        z-index: 3;
+      }
 
     }
 

@@ -220,6 +220,14 @@
 
                         }
 
+                        var block = $('.slide__content').eq( index-1).find('.slide__content-inner>div>div');
+
+                        if( block.hasClass('reviews') ) {
+
+                            block.find('.reviews__item').addClass('animation');
+
+                        }
+
                     }
 
                 } );
@@ -239,9 +247,6 @@
                     curContentInner.css( {
                         'min-height': _window.height()
                     } );
-
-                    console.log(curContentInner.find('>div')[0].clientHeight)
-                    console.log(_window.height())
 
                     if( curContentInner.find('>div').height() < _window.height() ) {
 
@@ -385,7 +390,7 @@
                 _window.on( {
                     scroll: function () {
 
-                        if( _window.scrollTop() > _obj.innerHeight() ) {
+                        if( _window.scrollTop() > 0 ) {
 
                             _obj.addClass('fixed');
 
@@ -501,6 +506,7 @@
                                 _moveTop(percentFromCenterX, percentFromCenterY, _step2,_img2);
                                 _moveTop(percentFromCenterX, percentFromCenterY, _step3,_img3);
                                 _moveBottom(percentFromCenterX, percentFromCenterY, _step4,_img4);
+                                _moveBottom(percentFromCenterX, percentFromCenterY, _step4, $('.vegetable4_copy') );
                                 _moveBottom(percentFromCenterX, percentFromCenterY, _step5,_img5);
 
                             }
@@ -554,7 +560,50 @@
                     },
                     autoplayDisableOnInteraction: false,
                     nextButton: _obj.find('.swiper-button-next')[0],
-                    prevButton: _obj.find('.swiper-button-prev')[0]
+                    prevButton: _obj.find('.swiper-button-prev')[0],
+                    onInit: function( swiper ) {
+
+                        var actSlide = swiper.slides.filter('.swiper-slide-active'),
+                            sectionIndex = actSlide.parents('.slide__content').index(),
+                            nextSection = $('.slide__content').eq(sectionIndex+1);
+
+                        if( actSlide.hasClass('swiper-slide_vegetable') ) {
+
+                            nextSection.prepend(' <div class="vegetables vegetable4 vegetable4_copy move4">\
+                                                        <img src="img/vegetable4.png" alt="">\
+                                                    </div>');
+
+                        }
+
+                    },
+                    onSlideChangeStart: function( swiper ) {
+
+                        var actSlide = swiper.slides.filter('.swiper-slide-active'),
+                            sectionIndex = actSlide.parents('.slide__content').index(),
+                            nextSection = $('.slide__content').eq(sectionIndex+1).find('.slide__content-inner');
+
+                        if( !( actSlide.hasClass('swiper-slide_vegetable') ) ) {
+
+                            $('.vegetable4_copy').remove();
+
+                        }
+
+                    },
+                    onSlideChangeEnd: function( swiper ) {
+
+                        var actSlide = swiper.slides.filter('.swiper-slide-active'),
+                            sectionIndex = actSlide.parents('.slide__content').index(),
+                            nextSection = $('.slide__content').eq(sectionIndex+1).find('.slide__content-inner');
+
+                        if( actSlide.hasClass('swiper-slide_vegetable') ) {
+
+                            nextSection.prepend(' <div class="vegetables vegetable4 vegetable4_copy move4">\
+                                                        <img src="img/vegetable4.png" alt="">\
+                                                    </div>');
+
+                        }
+
+                    }
                 } );
 
             },
@@ -930,8 +979,6 @@
                 google.maps.event.addDomListener( window, 'resize', function() {
 
                     if ( !_obj.parents('.contacts_services').length ) {
-
-                        console.log('resize');
 
                         var myLatLng = {lat: _btn.filter('.active').data('map-lat'), lng: _btn.filter('.active').data('map-lng')};
 

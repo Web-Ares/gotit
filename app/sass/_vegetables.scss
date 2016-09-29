@@ -70,6 +70,12 @@
     height: 13.8em;
     margin-left: 0;
   }
+  &.vegetable4_copy {
+    width: 15.5em;
+    bottom: auto;
+    top: -12.9em;
+  }
+
 }
 
 @media (min-width: $tablet-portrait) {
@@ -94,6 +100,10 @@
       top: 12.9em;
       left: 50%;
       margin-left: -20.8em;
+    }
+    &.vegetable4_copy {
+      top: -11.9em;
+      bottom: auto;
     }
 
   }
@@ -154,6 +164,11 @@
       width: 27em;
       height: 13.8em;
       margin-left: 0;
+    }
+    &.vegetable4_copy {
+      width: 34em !important;
+      top: -24.2em;
+      bottom: auto;
     }
     &.vegetable6 {
       top: 15.1em;
