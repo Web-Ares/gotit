@@ -276,7 +276,7 @@ body {
   transform: translate(-50%, -50%);
 
   &_inner {
-    top: 21.8%;
+    top: 13.8%;
   }
 }
 .swiper-button-next,
@@ -354,6 +354,10 @@ body {
   .site__main-title {
     font-size: 20em;
     line-height: 1em;
+
+    &_inner {
+      top: 21.8%;
+    }
   }
   .swiper-button-next,
   .swiper-button-prev {
