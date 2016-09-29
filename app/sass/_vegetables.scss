@@ -21,18 +21,15 @@
     right: -21.9em;
     width: 25.3em;
     height: 18.2em;
-    //background-image: url("../img/vegetable1.png");
   }
   &.vegetable2 {
     left: -6em;
     top: 0.4em;
     width: 11.6em;
     height: 10em;
-    //background-image: url("../img/vegetable2.png");
   }
   &.vegetable3 {
     display: none;
-    //background-image: url("../img/vegetable3.png");
   }
   &.vegetable4 {
     left: -9.2em;
@@ -40,7 +37,6 @@
     bottom: -5.8em;
     width: 15.5em;
     height: 18.7em;
-    //background-image: url("../img/vegetable4.png");
   }
   &.vegetable5 {
     top: 12.9em;
@@ -48,7 +44,11 @@
     margin-left: -14.8em;
     width: 12em;
     height: 6.8em;
-    //background-image: url("../img/vegetable5.png");
+  }
+  &.vegetable4_copy {
+    width: 15.5em;
+    bottom: auto;
+    top: -12.9em;
   }
 
 }
@@ -75,6 +75,10 @@
       top: 12.9em;
       left: 50%;
       margin-left: -20.8em;
+    }
+    &.vegetable4_copy {
+      top: -11.9em;
+      bottom: auto;
     }
 
   }
@@ -120,6 +124,11 @@
       width: 27em;
       height: 13.8em;
       margin-left: 0;
+    }
+    &.vegetable4_copy {
+      width: 34em !important;
+      top: -24.2em;
+      bottom: auto;
     }
 
   }
