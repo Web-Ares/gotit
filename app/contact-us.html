@@ -242,14 +242,14 @@
                             <div class="contacts__addresses">
                                 <address>
                                     <div>
-                                        2335 N Spaulding
-                                        Chicago, IL
-                                        60647
+                                        <span>2335 N Spaulding</span>
+                                        <span>Chicago, IL</span>
+                                        <span>60647</span>
                                     </div>
                                     <div>
-                                        747 Third Ave, 1st Fl
-                                        New York, NY
-                                        10017
+                                        <span>747 Third Ave, 1st Fl</span>
+                                        <span>New York, NY</span>
+                                        <span>10017</span>
                                     </div>
                                 </address>
                             </div>
@@ -257,16 +257,18 @@
 
                             <!-- contacts__form -->
                             <div class="contacts__form">
-                                <form action="#">
+                                <form action="#" novalidate data-action="php/form.php">
                                     <p>You can also drop us a line:</p>
 
                                     <div class="contacts__fields">
                                         <div class="contacts__cell">
-                                            <input class="site__input" type="text" name="your-name" id="your-name" placeholder="Name *">
-                                            <input class="site__input" type="text" name="your-phone" id="your-phone" placeholder="Your Phone or E-mail *">
+                                            <input class="site__input" data-error="please add your name" required type="text" name="your-name" id="your-name" placeholder="Name *">
+                                            <input class="site__input" data-error="please add your phone or email" required type="text" name="your-phone" id="your-phone" placeholder="Your Phone or E-mail *">
+
                                         </div>
-                                        <div>
-                                            <textarea class="site__input" name="message" id="message" cols="30" rows="10" placeholder="Your Message *"></textarea>
+                                        <div class="contacts__fields-textarea">
+                                            <div class="contacts__fields-textarea-height"></div>
+                                            <textarea class="site__input" data-error="please add your message" required name="message" id="message" cols="30" rows="10" placeholder="Your Message *"></textarea>
                                         </div>
                                         <span class="contacts__fields-error">please add your name</span>
                                     </div>
@@ -329,6 +331,6 @@
 
     <script src="js/vendors/jquery-2.2.1.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfHUKutvIv-r49HNCxnEzKJlZgfXzPqd4"></script>
-    <script src="js/main.min.js"></script>
+    <script src="js/contacts.min.js"></script>
 </body>
 </html>
