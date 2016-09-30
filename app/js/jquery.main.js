@@ -288,7 +288,7 @@
 
                     resize: function () {
 
-                        if( _window.width() >= 1024 ) {
+                        if( _window.width() >= 768 ) {
 
                             _setSize();
 
@@ -309,7 +309,7 @@
 
                 _onEvents();
 
-                if( _window.width() >= 1024 ) {
+                if( _window.width() >= 768 ) {
 
                     _setSize();
 
@@ -324,12 +324,12 @@
 
                 if( _window.height() > 500 ) {
 
-                    newSize = ( 100 * ( window.innerHeight / 900 ) )/5.2 + 'px';
+                    newSize = (( 100 * ( window.innerHeight / 900 ) )/5) + 'px';
 
 
                 } else {
 
-                    newSize = ( 100 * ( 500 / 900 ) ) + 'px';
+                    newSize = (( 100 * ( 500 / 900 ) )/5) + 'px';
 
                 }
 

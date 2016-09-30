@@ -248,6 +248,47 @@
   line-height: 15px;
   text-transform: uppercase;
 }
+.contacts__form {
+  position: relative;
+
+  form {
+    -webkit-transition: opacity 0.3s, visibility 0.3s;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+
+  &.hidden {
+
+    form {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .contacts__success {
+      opacity: 1;
+      visibility: visible;
+    }
+
+  }
+
+}
+.contacts__success {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  max-width: 282px;
+  padding: 30px 0 0;
+  color: rgba(255,255,255,0.5);
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  background: url('../img/check.png') no-repeat top center;
+  background-size: 30px 21px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-transition: opacity 0.3s, visibility 0.3s;
+  transition: opacity 0.3s, visibility 0.3s;
+}
 
 @-webkit-keyframes pulsejg1 {
   0% {

@@ -12,6 +12,7 @@
   font-size: 1.2em;
   line-height: 1em;
   background: $btn-back;
+  text-transform: uppercase;
   @include main-font2();
   -webkit-transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
   transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
@@ -26,7 +27,9 @@
   }
 
 }
-.btn_2 {
+.btn_2,
+.btn_4,
+.btn_5 {
   background: transparent;
   border: 1px solid #fff;
   width: 226px;
@@ -66,27 +69,6 @@
   }
 
 }
-.btn_4 {
-  background: transparent;
-  border: 1px solid #fff;
-  width: 226px;
-  height: 32px;
-  font-size: 14px;
-  line-height: 14px;
-  margin: 0 0 20px;
-
-  &:hover,
-  &.active{
-    color: $btn-color-hover;
-    background: #fff;
-  }
-  &:active {
-    color: $btn-color-active;
-    background: $btn-back-active;
-    border-color: $btn-back-active;
-  }
-
-}
 
 @media (min-width: $tablet-portrait) {
 
@@ -103,6 +85,12 @@
     width: 13em;
   }
   .btn_4 {
+    height: 3em;
+    width: 12.7em;
+    font-size: 0.78em;
+    line-height: 1em;
+  }
+  .btn_5 {
     height: 3em;
     width: 12.7em;
     font-size: 0.78em;
