@@ -127,6 +127,8 @@
 
   img {
     display: block;
+    width: 85px;
+    height: auto;
     -webkit-transform: scale(0.8);
     transform: scale(0.8);
     -webkit-transition: -webkit-transform 0.3s ease;

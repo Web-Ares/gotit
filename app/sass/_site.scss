@@ -1,5 +1,5 @@
 body {
-  font-size: 75px;
+  font-size: 20px;
 }
 .site {
   overflow: hidden;
@@ -8,7 +8,6 @@ body {
   min-width: 320px;
   min-height: 100%;
   background: #162328;
-  font-size: 0.203em;
   @include main-font3();
   color: #fff;
 
@@ -55,10 +54,12 @@ body {
   &.fixed {
 
     .logo {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
     }
     .site__header-title {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
     }
 
   }
@@ -101,6 +102,8 @@ body {
 .site__header-title {
   display: none;
   pointer-events: visible;
+  -webkit-transition: opacity 0.3s, visibility 0.3s;
+  transition: opacity 0.3s, visibility 0.3s;
 }
 .site__header__btn {
   position: absolute;
@@ -311,6 +314,28 @@ body {
 
 }
 
+input[type="submit"].site__input,
+input[type="text"].site__input,
+input[type="password"].site__input,
+textarea.site__input,
+input[type="email"].site__input,
+input[type="tel"].site__input,
+input[type="phone"].site__input,
+input[type="number"].site__input {
+  display: inline-block;
+  width: 100%;
+  height: 35px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  padding: 8px 5px;
+  margin: 0 0 9px;
+  font-size: 16px;
+  line-height: 16px;
+  color: #fff;
+  @include main-font1();
+}
+
 @media (min-width: $tablet-portrait) {
   .site__header {
     height: 5em;
@@ -375,32 +400,6 @@ body {
 @media (min-width: $desktop) {
   body {
     font-size: 100px;
-  }
-  .site {
-
-    &.site_inner {
-
-      .site__header {
-
-
-        &.fixed {
-          //height: 6em;
-          //background: #162328;
-
-          .logo {
-            display: none;
-          }
-
-          .site__header__btn {
-            //top: 2.55em;
-          }
-
-        }
-
-      }
-
-    }
-
   }
   .site__header {
     height: 9em;
