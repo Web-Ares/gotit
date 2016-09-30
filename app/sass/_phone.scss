@@ -1,33 +1,193 @@
 
 .phone {
-  position: absolute;
+  position: relative;
 }
 .phone__wrap {
+  position: relative;
+  width: 720px;
+  height: 560px;
+  margin: 0 auto;
+
+  div {
+    position: absolute;
+  }
+  .shadow {
+    z-index: 1;
+    -webkit-transition: all .8s ease-in-out;
+    transition: all .8s ease-in-out;
+  }
+}
+.pnone__item {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: all .8s ease-in-out;
+  transition: all .8s ease-in-out;
 
 }
-.pnone__part1 {
-  width: 704px;
-  height: 411px;
-  background-image: url('../img/phone/phone-part_1.png');
-  background-size: contain;
+.pnone__part_1 {
+  z-index: 1;
+  top: 91px;
+  left: 35px;
+  width: 695px;
+  height: 360.5px;
+
+  .pnone__item {
+    background-image: url('../img/phone/phone-part_1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .shadow {
+    top: 41px;
+    width: 706px;
+    height: 372px;
+    background-image: url('../img/phone/phone-part-shadow_1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 }
-.pnone__part2 {
-  width: 700px;
-  height: 368px;
-  background-image: url('../img/phone/phone-part_2.png');
-  background-size: contain;
+.pnone__part_2 {
+  z-index: 2;
+  top: 13px;
+  left: 30px;
+  width: 698px;
+  height: 366px;
+
+  &:hover,
+  &.animation {
+
+    .pnone__item {
+      -webkit-transform: translate(0%, 20.3%) scale(0.869);
+      transform: translate(0%, 20.3%) scale(0.869);
+    }
+    .shadow {
+      -webkit-transform: translate(0%, 10.2%) scale(0.869);
+      transform: translate(0%, 10.2%) scale(0.869);
+    }
+  }
+
+  .pnone__item {
+    background-image: url('../img/phone/phone-part_2.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    //animation: part .5s forwards .5s ease-in-out;
+    //-webkit-animation: part .5s forwards .5s ease-in-out;
+  }
+  .shadow {
+    top: 36px;
+    left: -7px;
+    width: 708px;
+    height: 376px;
+    background-image: url('../img/phone/phone-part-shadow_2.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 }
-.pnone__part3 {
-  width: 702px;
-  height: 369px;
-  background-image: url('../img/phone/phone-part_3.png');
-  background-size: contain;
+.pnone__part_3 {
+  z-index: 3;
+  top: -52px;
+  left: 27px;
+  width: 703px;
+  height: 367.5px;
+
+  &:hover,
+  &.animation {
+
+    .pnone__item {
+      -webkit-transform: translate(0%, 37.3%) scale(0.869);
+      transform: translate(0%, 37.3%) scale(0.869);
+    }
+    .shadow {
+      -webkit-transform: translate(0%, 27.2%) scale(0.869);
+      transform: translate(0%, 27.2%) scale(0.869);
+    }
+  }
+
+  .pnone__item {
+    background-image: url('../img/phone/phone-part_3.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .shadow {
+    top: 37px;
+    left: 17px;
+    width: 713px;
+    height: 367.5px;
+    background-image: url('../img/phone/phone-part-shadow_3.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 }
-.pnone__part4 {
-  width: 280px;
-  height: 220px;
-  background-image: url('../img/phone/phone-part_4.png');
-  background-size: contain;
+.pnone__part_4 {
+  z-index: 4;
+  top: -25px;
+  left: 223px;
+  width: 278.5px;
+  height: 160px;
+
+  &:hover,
+  &.animation {
+
+    .pnone__item {
+      -webkit-transform: translate(0%, 124.3%) scale(0.869);
+      transform: translate(0%, 124.3%) scale(0.869);
+    }
+    .shadow {
+      -webkit-transform: translate(0%, 91.2%) scale(0.869);
+      transform: translate(0%, 91.2%) scale(0.869);
+    }
+  }
+
+  .pnone__item {
+    background-image: url('../img/phone/phone-part_4.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .shadow {
+    top: 61px;
+    left: 4px;
+    width: 273px;
+    height: 155px;
+    background-image: url('../img/phone/phone-part-shadow_4.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+@-webkit-keyframes part {
+  0% {
+    -webkit-transform: translate(0 0) scale(1);
+    transform: translate(0 0) scale(1);
+  }
+  100% {
+    -webkit-transform: translate(0%, 20.3%) scale(0.869);
+    transform: translate(0%, 20.3%) scale(0.869);
+  }
+}
+@keyframes part {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(250%, 0, 0);
+    transform: translate3d(250%, 0, 0);
+  }
+  30% {
+    opacity: 1;
+    -webkit-transform: translate(0%, 20.3%) scale(0.869);
+    transform: translate(0%, 20.3%) scale(0.869);
+  }
+  70% {
+    opacity: 0.5;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-250%, 0, 0);
+    transform: translate3d(-250%, 0, 0);
+  }
 }
 
 

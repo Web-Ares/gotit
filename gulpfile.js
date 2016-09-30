@@ -41,6 +41,12 @@ var paths = {
             contains: [
                 'app/js/jquery.tabs.js'
             ]
+        },
+        {
+            dist: 'phone.min.js',
+            contains: [
+                'app/js/jquery.phone.js'
+            ]
         }
     ],
     vendorScripts: 'app/js/vendors/**/*.js',
