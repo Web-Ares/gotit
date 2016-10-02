@@ -195,11 +195,7 @@
     padding: 34px 0;
     margin-bottom: 42px;
 
-    strong {
-      padding-right: 6em;
-    }
     p {
-      padding-right: 6em;
       font-size: 1em;
     }
   }
@@ -237,5 +233,16 @@
   }
   .case__wrap {
     margin: -4.3em auto 0;
+  }
+  .case__sliders-text {
+    padding: 34px 0;
+    margin-bottom: 42px;
+
+    strong {
+      padding-right: 6em;
+    }
+    p {
+      padding-right: 6em;
+    }
   }
 }
