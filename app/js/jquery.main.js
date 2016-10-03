@@ -295,7 +295,7 @@
                         } else {
 
                             _body.css( {
-                                'font-size': '20px'
+                                'font-size': '75px'
                             } );
 
                         }
@@ -324,12 +324,12 @@
 
                 if( _window.height() > 500 ) {
 
-                    newSize = (( 100 * ( window.innerHeight / 900 ) )/5) + 'px';
+                    newSize = (( 100 * ( window.innerHeight / 900 ) )) + 'px';
 
 
                 } else {
 
-                    newSize = (( 100 * ( 500 / 900 ) )/5) + 'px';
+                    newSize = (( 100 * ( 500 / 900 ) )) + 'px';
 
                 }
 

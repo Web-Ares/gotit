@@ -1,5 +1,5 @@
 body {
-  font-size: 20px;
+  font-size: 75px;
 }
 .site {
   overflow: hidden;
@@ -7,6 +7,7 @@ body {
   z-index: 1;
   min-width: 320px;
   min-height: 100%;
+  font-size: 0.203em;
   background: #162328;
   @include main-font3();
   color: #fff;
@@ -408,7 +409,7 @@ input[type="number"].site__input {
 }
 @media (min-width: $desktop) {
   body {
-    font-size: 20px;
+    font-size: 100px;
   }
   .site__header {
     height: 9em;
