@@ -45,7 +45,9 @@
 
                 } );
                 _fields.each( function () {
+
                     _validateField( $( this ) );
+
                 } );
 
             },
