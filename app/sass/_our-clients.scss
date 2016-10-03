@@ -85,7 +85,7 @@
         @include flexbox();
         @include flex-direction(row);
         @include flex-wrap(wrap);
-        @include align-items(flex-start);
+        @include align-items(center);
         @include justify-content(flex-start);
 
         .swiper-slide {
