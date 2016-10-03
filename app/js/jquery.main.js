@@ -953,6 +953,7 @@
                     slidesPerView: 1,
                     spaceBetween: 30,
                     speed: 500,
+                    loop: true,
                     effect: 'fade',
                     fade: {
                         crossFade: true
@@ -961,16 +962,6 @@
                     nextButton: _obj.find('.swiper-button-next')[0],
                     prevButton: _obj.find('.swiper-button-prev')[0]
                 } );
-
-                if( _obj.find('.swiper-slide:not(.swiper-slide-duplicate)').length > 1) {
-
-                    _swiper.params.loop = 'true';
-
-                } else {
-
-                    _obj.find(".swiper-button-next, .swiper-button-prev").css('display', 'none');
-
-                }
 
             },
             _init = function() {
