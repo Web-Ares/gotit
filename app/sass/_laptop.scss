@@ -2,6 +2,7 @@
 .laptop {
   position: relative;
   width: 100%;
+  margin-bottom: 4em;
   padding-bottom: 57.7%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -20,6 +21,11 @@
 
 @media (min-width: $tablet-portrait) {
 
+  .laptop {
+    position: relative;
+    width: 100%;
+    margin-bottom: 6.6em;
+  }
 }
 
 @media (min-width: $tablet-landscape) {
@@ -28,23 +34,5 @@
 
 @media (min-width: $desktop) {
 
-  .laptop {
-    //position: relative;
-    //width: 103%;
-    //margin-left: -26px;
-    //padding-bottom: 58.6%;
-    //background-size: contain;
-    //background-repeat: no-repeat;
-
-    //img {
-    //  position: absolute;
-    //  left: 49.3%;
-    //  transform: translateX(-50%);
-    //  display: block;
-    //  top: 6.1%;
-    //  width: 75.2%;
-    //  margin: 0 auto;
-    //}
-  }
 
 }
