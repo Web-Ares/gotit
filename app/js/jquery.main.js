@@ -450,7 +450,7 @@
                 _onEvents();
                 _obj[0].obj = _self;
 
-                if( _window.scrollTop() > _obj.innerHeight() ) {
+                if( _window.scrollTop() > _obj.innerHeight()/2 ) {
 
                     _obj.addClass('fixed');
 
