@@ -9,18 +9,18 @@
 
     .main-slider__text {
       position: relative;
-      top: 5em;
+      top: 0.9em;
       text-align: center;
 
       h2.site__title {
-        font-size: 2.6em;
+        font-size: 0.4em;
         line-height: 1.1em;
         margin-bottom: 0;
       }
       p {
         margin-bottom: 0;
         text-align: center;
-        font-size: 0.9em;
+        font-size: 0.2em;
         line-height: 1.4em;
       }
     }
@@ -143,7 +143,7 @@
 @media screen and (orientation:portrait) {
 
   .main-slider__btn-down {
-    bottom: 7em;
+    bottom: 1.7em;
   }
 
   .case__wrap {
@@ -155,7 +155,7 @@
 @media screen and (orientation:landscape) {
 
   .main-slider__btn-down {
-    bottom: 4em;
+    bottom: 1em;
   }
   .case__wrap {
     margin: -1.3em auto 0;
@@ -169,18 +169,18 @@
   .case {
 
     .main-slider {
-      margin-top: -1.43em;
+      margin-top: -1.02em;
 
       .main-slider__text {
-        top: 2.2em;
+        top: 0.9em;
 
         h2.site__title {
-          margin: 0 0 0.055em;
-          font-size: 2.88em;
+          margin: 0 0 0.065em;
+          font-size: 0.68em;
           line-height: 1.1em;
         }
         p {
-          font-size: 1.1em;
+          font-size: 0.25em;
           line-height: 1.1em;
         }
       }
@@ -241,7 +241,7 @@
   @media screen and (orientation:portrait) {
 
     .main-slider__btn-down {
-      bottom: 16em;
+      bottom: 2em;
     }
 
   }
@@ -249,7 +249,7 @@
   @media screen and (orientation:landscape) {
 
     .main-slider__btn-down {
-      bottom: 10em;
+      bottom: 2.4em;
     }
 
   }
@@ -265,9 +265,12 @@
 
     .main-slider {
       height: 118vh;
-      margin-top: -1.92em;
-    }
+      margin-top: -1.823em;
 
+      .main-slider__text {
+        top: 0.6em;
+      }
+    }
   }
   .case__wrap {
     margin: -4.3em auto 0;
