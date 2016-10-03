@@ -810,9 +810,21 @@
 
                 var height = _window.height();
 
-                _obj.css( {
-                    height: height
-                } );
+                if ( _obj.parents('.case').length ) {
+
+                    _obj.css( {
+                        height: height + height/5
+                    } );
+
+                } else {
+
+                    _obj.css( {
+                        height: height
+                    } );
+
+                }
+
+
 
             },
             _init = function() {
