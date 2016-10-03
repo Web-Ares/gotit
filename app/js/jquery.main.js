@@ -53,6 +53,12 @@
 
         } );
 
+        $.each( $('.main-slider'), function () {
+
+            new MainSliderPictures( $(this) );
+
+        } );
+
 
     } );
 
@@ -279,6 +285,7 @@
         var _self = this,
             _obj = obj,
             _window = $(window),
+            _mainSlider = $('.main-slider_index'),
             _body = $( 'body' );
 
         //private methods
@@ -295,7 +302,11 @@
                         } else {
 
                             _body.css( {
-                                'font-size': '20px'
+                                'font-size': '75px'
+                            } );
+
+                            _mainSlider.css( {
+                                'font-size': '75px'
                             } );
 
                         }
@@ -324,16 +335,20 @@
 
                 if( _window.height() > 500 ) {
 
-                    newSize = (( 100 * ( window.innerHeight / 900 ) )/5) + 'px';
+                    newSize = (( 100 * ( window.innerHeight / 900 ) )) + 'px';
 
 
                 } else {
 
-                    newSize = (( 100 * ( 500 / 900 ) )/5) + 'px';
+                    newSize = (( 100 * ( 500 / 900 ) )) + 'px';
 
                 }
 
                 _body.css( {
+                    'font-size': newSize
+                } );
+
+                _mainSlider.css( {
                     'font-size': newSize
                 } );
 
@@ -517,8 +532,11 @@
 
                         if( _window.width() >= 1024 && screen.width >= 1024 ) {
 
-                            _obj.attr('style', '');
-                            $('.vegetables').attr('style', '');
+                            _obj.css( {
+                                height: ''
+                            } );
+
+                            //$('.move').attr('style', '');
 
                         }
 
@@ -530,7 +548,7 @@
 
                             setTimeout( function() {
 
-                                _obj.find('.swiper-slide-active .vegetables').each(function(){
+                                _obj.find('.swiper-slide-active .move').each(function(){
 
                                     var vegetable = $(this),
                                         pos = vegetable.position().top,
@@ -558,7 +576,9 @@
 
                                             oldImg.css( {
                                                 bottom: 'auto',
-                                                right: 'auto'
+                                                right: 'auto',
+                                                width: vegetable.width(),
+                                                height: vegetable.height()
                                             } );
 
                                         } else {
@@ -581,7 +601,9 @@
 
                                             newImg.css( {
                                                 bottom: 'auto',
-                                                right: 'auto'
+                                                right: 'auto',
+                                                width: vegetable.width(),
+                                                height: vegetable.height()
                                             } );
 
 
@@ -591,7 +613,7 @@
 
                                         var num = vegetable.attr('class').replace( /(^.+\D)(\d+)(\D.+$)/i,'$2');
 
-                                        $('copy_move copy_'+num+'').remove();
+                                        $('.copy_move.copy_'+num+'').remove();
 
                                     }
 
@@ -644,7 +666,7 @@
 
                             var height = actSlide.innerHeight();
 
-                            actSlide.find('.vegetables').each(function(){
+                            actSlide.find('.move').each(function(){
 
                                 var vegetable = $(this),
                                     pos = vegetable.position().top,
@@ -673,7 +695,9 @@
 
                                     newImg.css( {
                                         bottom: 'auto',
-                                        right: 'auto'
+                                        right: 'auto',
+                                        width: vegetable.width(),
+                                        height: vegetable.height()
                                     } );
 
                                 }
@@ -705,7 +729,7 @@
                             var height = actSlide.innerHeight();
 
 
-                            actSlide.find('.vegetables').each(function(){
+                            actSlide.find('.move').each(function(){
 
                                 var vegetable = $(this),
                                     pos = vegetable.position().top,
@@ -734,7 +758,9 @@
 
                                     newImg.css( {
                                         bottom: 'auto',
-                                        right: 'auto'
+                                        right: 'auto',
+                                        width: vegetable.width(),
+                                        height: vegetable.height()
                                     } );
 
                                 }
@@ -768,7 +794,9 @@
 
                 var height = _window.height();
 
-                _obj.innerHeight( height );
+                _obj.css( {
+                    height: height
+                } );
 
             },
             _init = function() {
@@ -1218,6 +1246,87 @@
                 }
 
 
+            };
+
+        _init();
+    };
+
+    var MainSliderPictures = function ( obj ) {
+
+        //private properties
+        var _self = this,
+            _obj = obj,
+            _slide = _obj.find('.swiper-slide'),
+            _window = $( window );
+
+        //private methods
+        var _addEvents = function () {
+
+                _window.on( {
+                    load: function() {
+
+                    },
+                    resize: function() {
+
+                        _addPictures();
+
+                    }
+                } );
+
+            },
+            _addPictures = function() {
+
+                _slide.find('.move').each(function(){
+
+                    var curItem = $(this),
+                        dataView = curItem.data('views');
+
+
+                    if( dataView != undefined ) {
+
+                        for( var i = 0; i < dataView.length; i++ ) {
+
+                            var needView;
+
+                            if( _window.width() >= 1024 ) {
+
+                                needView = dataView[2];
+
+                            } else if( _window.width() < 1024 && _window.width() >=768 ) {
+
+                                needView = dataView[1];
+
+                            } else if( _window.width() < 768 ) {
+
+                                needView = dataView[0];
+
+                            }
+
+                        }
+
+                        curItem.css( {
+                            'background-image': 'url("'+ needView.url +'")',
+                            top: 'auto',
+                            right: 'auto',
+                            bottom: 'auto',
+                            left: 'auto'
+                        } );
+
+                        for (var key in needView.positions) {
+
+                            curItem.css( key, needView.positions[key]/100 + 'em' );
+
+                        }
+
+                    }
+
+
+                } );
+
+            },
+            _init = function () {
+                _addEvents();
+                _addPictures();
             };
 
         _init();
