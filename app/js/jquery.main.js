@@ -653,7 +653,6 @@
                 _swiper1 = new Swiper( _obj.find( '.swiper-container' ), {
                     spaceBetween: 0,
                     slidesPerView: 1,
-                    loop: true,
                     speed: 700,
                     effect: 'fade',
                     fade: {
@@ -777,7 +776,18 @@
 
 
                     }
+
                 } );
+
+                if( _obj.find('.swiper-slide:not(.swiper-slide-duplicate)').length > 1) {
+
+                    _swiper1.params.loop = 'true';
+
+                } else {
+
+                    _obj.find(".swiper-button-next, .swiper-button-prev").css('display', 'none');
+
+                }
 
             },
             _moveBottom = function( xPercent, yPercent, step, image ) {
@@ -942,7 +952,6 @@
                 _swiper = new Swiper( _obj.find( '.swiper-container' ), {
                     slidesPerView: 1,
                     spaceBetween: 30,
-                    loop: true,
                     speed: 500,
                     effect: 'fade',
                     fade: {
@@ -952,6 +961,16 @@
                     nextButton: _obj.find('.swiper-button-next')[0],
                     prevButton: _obj.find('.swiper-button-prev')[0]
                 } );
+
+                if( _obj.find('.swiper-slide:not(.swiper-slide-duplicate)').length > 1) {
+
+                    _swiper.params.loop = 'true';
+
+                } else {
+
+                    _obj.find(".swiper-button-next, .swiper-button-prev").css('display', 'none');
+
+                }
 
             },
             _init = function() {
@@ -1310,13 +1329,17 @@
 
                         }
 
-                        curItem.css( {
-                            'background-image': 'url("'+ needView.url +'")',
-                            top: 'auto',
-                            right: 'auto',
-                            bottom: 'auto',
-                            left: 'auto'
-                        } );
+                        if( needView.url.length ) {
+
+                            curItem.css( {
+                                'background-image': 'url("'+ needView.url +'")',
+                                top: 'auto',
+                                right: 'auto',
+                                bottom: 'auto',
+                                left: 'auto'
+                            } );
+
+                        }
 
                         for (var key in needView.positions) {
 
