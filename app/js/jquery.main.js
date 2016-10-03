@@ -279,6 +279,7 @@
         var _self = this,
             _obj = obj,
             _window = $(window),
+            _mainSlider = $('.main-slider_index'),
             _body = $( 'body' );
 
         //private methods
@@ -295,6 +296,10 @@
                         } else {
 
                             _body.css( {
+                                'font-size': '75px'
+                            } );
+
+                            _mainSlider.css( {
                                 'font-size': '75px'
                             } );
 
@@ -334,6 +339,10 @@
                 }
 
                 _body.css( {
+                    'font-size': newSize
+                } );
+
+                _mainSlider.css( {
                     'font-size': newSize
                 } );
 
@@ -517,7 +526,7 @@
 
                         if( _window.width() >= 1024 && screen.width >= 1024 ) {
 
-                            _obj.attr('style', '');
+                            _obj.css( {'height': '' } );
                             $('.vegetables').attr('style', '');
 
                         }
@@ -768,7 +777,9 @@
 
                 var height = _window.height();
 
-                _obj.innerHeight( height );
+                _obj.css( {
+                    height: height
+                } );
 
             },
             _init = function() {
