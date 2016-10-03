@@ -285,7 +285,7 @@
         var _self = this,
             _obj = obj,
             _window = $(window),
-            _mainSlider = $('.main-slider_index'),
+            _mainSlider = $('.main-slider'),
             _body = $( 'body' );
 
         //private methods
