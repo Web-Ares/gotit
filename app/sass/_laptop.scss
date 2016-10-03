@@ -1,0 +1,50 @@
+
+.laptop {
+  position: relative;
+  width: 100%;
+  padding-bottom: 57.7%;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  img {
+    position: absolute;
+    display: block;
+    left: 49.9%;
+    top: 6%;
+    width: 76%;
+    border-radius: 2px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+}
+
+@media (min-width: $tablet-portrait) {
+
+}
+
+@media (min-width: $tablet-landscape) {
+
+}
+
+@media (min-width: $desktop) {
+
+  .laptop {
+    //position: relative;
+    //width: 103%;
+    //margin-left: -26px;
+    //padding-bottom: 58.6%;
+    //background-size: contain;
+    //background-repeat: no-repeat;
+
+    //img {
+    //  position: absolute;
+    //  left: 49.3%;
+    //  transform: translateX(-50%);
+    //  display: block;
+    //  top: 6.1%;
+    //  width: 75.2%;
+    //  margin: 0 auto;
+    //}
+  }
+
+}
