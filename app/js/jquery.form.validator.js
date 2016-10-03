@@ -23,6 +23,9 @@
             _textareaField =  _obj.find('.contacts__fields-textarea'),
             _textareaHeight =  _obj.find('.contacts__fields-textarea-height'),
             _btnSuccess = $('.contacts__success .btn'),
+            _inputName = _obj.find('input#name'),
+            _inputContact = _obj.find('input#contact'),
+            _inputMessage = _obj.find('textarea#message'),
             _dom = $( 'html, body' ),
             _canType = false,
             _request = new XMLHttpRequest();
@@ -58,6 +61,7 @@
             },
             _constructor = function () {
                 _onEvents();
+                _addAttributesError();
                 _obj[0].obj = _self;
             },
             _addNotTouchedClass = function () {
@@ -74,6 +78,13 @@
                 _fields.each( function () {
                     _validateField( $( this ) );
                 } );
+
+            },
+            _addAttributesError = function() {
+
+                _inputName.attr('data-error','please add your name');
+                _inputContact.attr('data-error','please add your phone or email');
+                _inputMessage.attr('data-error','please add your message');
 
             },
             _onEvents = function () {
@@ -103,17 +114,6 @@
 
                 } );
                 _fields.on( {
-                    focus: function() {
-
-                        //var field = $(this),
-                        //    fieldParent = field.parent('.contacts__fields-wrap'),
-                        //    val = field.val(),
-                        //    caret = $('<span class="contacts__fields-caret"></span>');
-                        //
-                        //fieldParent.append(caret);
-                        //caret.text(val);
-
-                    },
                     keypress: function() {
 
                         $(this).removeClass( 'not-touched' );
