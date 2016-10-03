@@ -143,7 +143,7 @@
                 _window.on( {
                     resize: function() {
 
-                        if( _window.width() < 768 ) {
+                        if( _window.width() < 1024 ) {
 
                             if( !_swiperInit ) {
 
@@ -195,7 +195,7 @@
                 _obj[0].obj = _self;
                 _addEvents();
 
-                if( _window.width() < 768 ) {
+                if( _window.width() < 1024 ) {
 
                     if( !_swiperInit ) {
 
