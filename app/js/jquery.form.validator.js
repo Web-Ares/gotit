@@ -25,41 +25,10 @@
             _btnSuccess = $('.contacts__success .btn'),
             _inputName = _obj.find('input#name'),
             _inputContact = _obj.find('input#contact'),
-            _inputMessage = _obj.find('textarea#message'),
-            _dom = $( 'html, body' ),
-            _canType = false,
-            _request = new XMLHttpRequest();
+            _inputMessage = _obj.find('textarea#message');
 
         //private methods
-        var _ajaxRequest = function(){
-
-                var path = _form.attr('data-action');
-
-                _request.abort();
-                _request = $.ajax({
-                    url: path,
-                    data: _form.serialize(),
-                    dataType: 'json',
-                    timeout: 20000,
-                    type: "GET",
-                    success: function (msg) {
-
-                        _obj.addClass('hidden');
-                        _fields.val('');
-                        _textareaField.attr('style','');
-                        _textareaHeight.html('');
-
-                    },
-                    error: function (XMLHttpRequest) {
-                        if (XMLHttpRequest.statusText != "abort") {
-                            alert("Error");
-                        }
-                    }
-                });
-
-                return false;
-            },
-            _constructor = function () {
+        var _constructor = function () {
                 _onEvents();
                 _addAttributesError();
                 _obj[0].obj = _self;
@@ -103,12 +72,8 @@
                         } else {
 
                             _errorMessage.removeClass('visible');
-                            _ajaxRequest();
 
                         }
-
-
-                        return false;
 
                     }
 
@@ -146,6 +111,15 @@
 
                     }
                 } );
+                $(document).on( 'mailsent.wpcf7', function()  {
+
+                    _obj.addClass('hidden');
+                    _fields.val('');
+                    _textareaField.attr('style','');
+                    _textareaHeight.html('');
+
+                } );
+
             },
             _makeNotValid = function ( field ) {
                 field.addClass( 'not-valid' );
