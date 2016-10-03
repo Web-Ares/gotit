@@ -7,8 +7,7 @@
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   pointer-events: visible;
-  -webkit-transition: opacity 0.3s, visibility 0.3s;
-  transition: opacity 0.3s, visibility 0.3s;
+
 
   img {
     display: block;
@@ -28,6 +27,8 @@
     left: 49%;
     width: 15.3em;
     height: 2.9em;
+    -webkit-transition: opacity 0.3s, visibility 0.3s;
+    transition: opacity 0.3s, visibility 0.3s;
   }
   .logo__inner {
     top: 16px;
