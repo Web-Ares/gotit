@@ -18,7 +18,7 @@
         var _self = this,
             _obj = obj,
             _form =  _obj.find('form'),
-            _fields = _obj.find('input:required, textarea:required'),
+            _fields = _obj.find('input:required, textarea:required, input[aria-required="true"], textarea[aria-required="true"]'),
             _errorMessage = _obj.find('.contacts__fields-error'),
             _textareaField =  _obj.find('.contacts__fields-textarea'),
             _textareaHeight =  _obj.find('.contacts__fields-textarea-height'),
@@ -26,8 +26,6 @@
             _inputName = _obj.find('input#name'),
             _inputContact = _obj.find('input#contact'),
             _inputMessage = _obj.find('textarea#message'),
-            _dom = $( 'html, body' ),
-            _canType = false,
             _request = new XMLHttpRequest();
 
         //private methods
@@ -76,7 +74,9 @@
 
                 } );
                 _fields.each( function () {
+
                     _validateField( $( this ) );
+
                 } );
 
             },

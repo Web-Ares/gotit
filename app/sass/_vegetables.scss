@@ -117,7 +117,6 @@
   }
 
 }
-
 @media (min-width: $desktop) {
 
   .vegetables {
@@ -202,5 +201,20 @@
     &.copy_6 {
       width: 1.83em;
     }
+
   }
+
+  .moves_up {
+
+    &.move {
+      -webkit-transform: translateY(-400px) !important;
+      transform: translateY(-400px) !important;
+    }
+
+  }
+  .animated_moves {
+    -webkit-transition: -webkit-transform 0.4s linear;
+    transition: transform 0.4s linear;
+  }
+
 }
