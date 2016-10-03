@@ -3,6 +3,7 @@
   overflow: hidden;
   //height: 100vh;
   min-height: 500px;
+  font-size: 75px;
 
   .swiper-container {
     position: absolute;
@@ -26,8 +27,8 @@
   .swiper-button-next,
   .swiper-button-prev {
     top: 46.1%;
-    width: 1.6em;
-    height: 1.6em;
+    width: 0.325em;
+    height: 0.325em;
     background: none;
     border-top: 1px solid #fff;
     border-left: 1px solid #fff;
@@ -43,6 +44,16 @@
     right: 18px;
   }
 
+  .site__title {
+    font-size: 0.56em;
+    line-height: 1.1em;
+    margin: 0 0 0.1em;
+  }
+  .btn {
+    font-size: 0.24em;
+    line-height: 1em;
+  }
+
 }
 .main-slider__content {
   position: relative;
@@ -53,7 +64,7 @@
   @include align-items(center);
   @include justify-content(center);
   height: 100%;
-  padding: 2em 40px 2em;
+  padding: 0.406em 40px 0.406em;
   color: #fff;
   text-transform: uppercase;
   text-align: center;
@@ -68,7 +79,7 @@
   z-index: 1;
 
   p {
-    font-size: 0.9em;
+    font-size: 0.182em;
     line-height: 1.4em;
     margin: 0 0 29px;
   }
@@ -77,8 +88,8 @@
   display: inline-block;
   vertical-align: top;
   position: relative;
-  width: 15.8em;
-  height: 15.8em;
+  width: 3.207em;
+  height: 3.207em;
   margin: 0 0 2px 0;
 
   img {
@@ -96,9 +107,9 @@
   z-index: 2;
   left: 50%;
   bottom: 3%;
-  width: 2em;
-  height: 2em;
-  margin-left: -1em;
+  width: 0.406em;
+  height: 0.406em;
+  margin-left: -0.203em;
   background: none;
   text-indent: -9999px;
   -webkit-animation-name: down;
@@ -173,6 +184,14 @@
 
 @media (min-width: $tablet-portrait) {
 
+  .main-slider {
+
+    .site__main-title {
+      font-size: 5.06em;
+      line-height: 1em;
+    }
+
+  }
   .main-slider__content {
     @include align-items(flex-end);
     @include justify-content(flex-end);
@@ -186,19 +205,19 @@
   }
   .main-slider__text {
     p {
-      font-size: 1.18em;
+      font-size: 0.24em;
       line-height: 1.1em;
-      margin: 0 0 0.7em;
+      margin: 0 0 0.142em;
     }
   }
   .main-slider__pic {
     position: absolute;
-    top: 53%;
+    top: 50.5%;
     left: 50%;
-    width: 27.7em;
+    width: 5.2em;
     height: 0;
     margin: 0;
-    padding-bottom: 27.8em;
+    padding-bottom: 5.2em;
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
   }
@@ -223,6 +242,7 @@
     //margin-left: auto;
     //margin-right: auto;
     height: 100vh;
+    font-size: 100px;
 
     //&_case {
       //height: 118vh;
@@ -230,8 +250,8 @@
     .swiper-button-next,
     .swiper-button-prev {
       top: 47.8%;
-      width: 2em;
-      height: 2em;
+      width: 0.406em;
+      height: 0.406em;
     }
     .swiper-button-prev {
       left: 48px;
@@ -242,13 +262,13 @@
 
   }
   .main-slider__btn-down {
-    bottom: 3em;
-    width: 3em;
-    height: 3em;
-    margin-left: -1.5em;
+    bottom: 0.609em;
+    width: 0.609em;
+    height: 0.609em;
+    margin-left: -0.31em;
 
     &_case {
-      bottom: 10em;
+      bottom: 2.03em;
     }
   }
 
