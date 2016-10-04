@@ -29,6 +29,11 @@
   font-weight: 400;
   font-style: normal;
 }
+@mixin main-font7() {
+  font-family: "Museo Sans 500", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 @mixin justify() {
   text-align: justify;

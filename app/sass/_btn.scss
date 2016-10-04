@@ -77,6 +77,24 @@ button.btn {
   }
 
 }
+.btn_6 {
+  background: #16accf;
+  font-size: 21px;
+  line-height: 21px;
+  text-transform: none;
+  border-radius: 3px;
+  @include main-font7();
+
+  &:hover {
+    color: $btn-color-active;
+    background: #159bbc;
+  }
+  &:active {
+    color: $btn-color-active;
+    background: #158bac;
+  }
+
+}
 
 @media (min-width: $tablet-portrait) {
 
@@ -104,4 +122,13 @@ button.btn {
     font-size: 0.78em;
     line-height: 1em;
   }
+  .btn_6 {
+    background: #16accf;
+    font-size: 21px;
+    line-height: 21px;
+    text-transform: none;
+    border-radius: 3px;
+    @include main-font7();
+  }
+
 }

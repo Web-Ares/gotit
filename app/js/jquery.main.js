@@ -483,7 +483,8 @@
             _step3 = 5,
             _step4 = 20,
             _step5 = 25,
-            _swiper1;
+            _swiper1,
+            _globalWidth = 0;
 
         var _addEvents = function () {
 
@@ -533,8 +534,24 @@
                 _window.on( {
                     load: function () {
                         _initSwiper();
+
+                        _globalWidth = _window.width();
+
                     },
                     resize: function() {
+
+                        if( _globalWidth != _window.width() ) {
+
+                            _globalWidth = _window.width()+1;
+
+
+                            if( _window.width() < 1024 ) {
+
+                                _setHeight();
+
+                            }
+
+                        }
 
                         if( _window.width() >= 1024 && screen.width >= 1024 ) {
 

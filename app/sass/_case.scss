@@ -29,7 +29,7 @@
       top: 40.8%;
     }
   }
-  h2:not(.site__main-title) {
+  h2:not(.site__main-title,.case__blog-title) {
     margin-bottom: 0.5em;
     font-size: 1.95em;
     line-height: 1;
@@ -139,19 +139,75 @@
     @include  main-font4();
   }
 }
+.case__content {
+  overflow: hidden;
+}
+.case__content-text {
+  padding: 20px 0;
+  margin-bottom: 40px;
+
+  strong {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 0.9em;
+    line-height: 1;
+    letter-spacing: 2.8px;
+    text-transform: uppercase;
+    @include  main-font2();
+  }
+  p {
+    max-width: 100%;
+    margin-bottom: 0;
+    font-size: 0.9em;
+    line-height: 1.9em;
+    letter-spacing: -0.3px;
+    @include  main-font4();
+  }
+}
+.case__content-icons {
+
+  img {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 0 50px;
+
+    &:first-child {
+      margin: 0;
+    }
+
+  }
+
+}
+.case__blog {
+  max-width: 375px;
+  box-shadow: 0 0 10px -2px rgba(0,0,0,0.4);
+  @include main-font7();
+
+  .case__blog-title {
+    font-size: 18px;
+    line-height: 20px;
+    margin: 0 0 10px;
+  }
+  p {
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 18px;
+    margin: 0 0 10px;
+    @include main-font7();
+  }
+
+}
 
 @media screen and (orientation:portrait) {
 
   .main-slider__btn-down {
     bottom: 1.7em;
   }
-
   .case__wrap {
     margin: -4.3em auto 0;
   }
 
 }
-
 @media screen and (orientation:landscape) {
 
   .main-slider__btn-down {
@@ -161,9 +217,7 @@
     margin: -1.3em auto 0;
   }
 
-
 }
-
 @media (min-width: $tablet-portrait) {
 
   .case {
@@ -186,7 +240,7 @@
       }
     }
 
-    h2:not(.site__main-title) {
+    h2:not(.site__main-title,.case__blog-title) {
       font-size: 2.85em;
     }
     p {
@@ -237,6 +291,16 @@
       font-size: 1em;
     }
   }
+  .case__blog {
+
+    p {
+      font-size: 15px;
+      line-height: 18px;
+      margin: 0 0 10px;
+      @include main-font7();
+    }
+
+  }
 
   @media screen and (orientation:portrait) {
 
@@ -254,11 +318,6 @@
 
   }
 }
-
-@media (min-width: $tablet-landscape) {
-
-}
-
 @media (min-width: $desktop) {
 
   .case {
@@ -286,4 +345,13 @@
       padding-right: 6em;
     }
   }
+  .case__content-text {
+    padding: 34px 0;
+    margin-bottom: 42px;
+
+    strong {
+      padding-right: 6em;
+    }
+  }
+
 }
