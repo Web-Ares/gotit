@@ -118,11 +118,8 @@
     height: 7px;
     margin: -3.5px  0 0 -3.5px;
     background: #fff;
-    box-shadow: 0 0 0 20px rgba(255,255,255,0.1);
     border-radius: 100%;
     content: '';
-    //-webkit-transform: translate(-50%,-50%);
-    //transform: translate(-50%,-50%);
   }
 
   .contacts__pulse1 {
@@ -134,8 +131,6 @@
     border-radius: 100%;
     margin: -33%  0 0 -33%;
     background: rgba(255,255,255,0.1);
-    //-webkit-transform: translate(-50%,-50%);
-    //transform: translate(-50%,-50%);
     -webkit-animation-name: pulsejg2;
     -webkit-animation-duration: 4000ms;
     -webkit-animation-timing-function: linear;
@@ -146,6 +141,19 @@
     animation-iteration-count: infinite;
     -webkit-transform-origin: center center;
     transform-origin: center center;
+
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      content: '';
+      margin: -20px  0 0 -20px;
+      background: rgba(255,255,255,0.1);
+    }
+
   }
 
 }
@@ -506,35 +514,6 @@
   }
 }
 
-@-webkit-keyframes pulse1 {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255,255,255,0.1);
-  }
-  33% {
-    box-shadow: 0 0 0 1.2em rgba(255,255,255,0.1);
-  }
-  60% {
-    box-shadow: 0 0 0 2.2em rgba(255,255,255,0.1);
-  }
-  100% {
-    box-shadow: 0 0 0 2.2em rgba(255,255,255,0);
-  }
-}
-@keyframes pulse1 {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255,255,255,0.1);
-  }
-  33% {
-    box-shadow: 0 0 0 1.2em rgba(255,255,255,0.1);
-  }
-  60% {
-    box-shadow: 0 0 0 2.2em rgba(255,255,255,0.1);
-  }
-  100% {
-    box-shadow: 0 0 0 2.2em rgba(255,255,255,0);
-  }
-}
-
 @media (min-width: $tablet-portrait) {
 
   .contacts {
@@ -615,21 +594,8 @@
       width: 11px;
       height: 11px;
       margin: -5.5px 0 0 -5.5px;
-      box-shadow: 0 0 0 2.2em rgba(255,255,255,0.1);
-      -webkit-animation-name: pulse1;
-      -webkit-animation-duration: 4000ms;
-      -webkit-animation-timing-function: linear;
-      -webkit-animation-iteration-count: infinite;
-      animation-name: pulse1;
-      animation-duration: 4000ms;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      -webkit-transform-origin: center center;
-      transform-origin: center center;
     }
     &:before {
-      //-webkit-transform: translate(-50%,-50%);
-      //transform: translate(-50%,-50%);
       -webkit-animation-name: pulsejg1;
       -webkit-animation-duration: 4000ms;
       -webkit-animation-timing-function: linear;
@@ -652,6 +618,13 @@
       animation-duration: 4000ms;
       animation-timing-function: linear;
       animation-iteration-count: infinite;
+
+      &:before {
+        width: 5em;
+        height: 5em;
+        margin: -2.5em 0 0 -2.5em;
+      }
+
     }
 
   }
@@ -982,35 +955,6 @@
 
     100% {
       opacity: 0;
-    }
-  }
-
-  @-webkit-keyframes pulse1 {
-    0% {
-      box-shadow: 0 0 0 2.2em rgba(255,255,255,0);
-    }
-    33% {
-      box-shadow: 0 0 0 2.2em rgba(255,255,255,0.0);
-    }
-    80% {
-      box-shadow: 0 0 0 2.2em rgba(255,255,255,0.1);
-    }
-    100% {
-      box-shadow: 0 0 0 2.2em rgba(255,255,255,0);
-    }
-  }
-  @keyframes pulse1 {
-    0% {
-      box-shadow: 0 0 0 2.2em rgba(255,255,255,0);
-    }
-    33% {
-      box-shadow: 0 0 0 2.2em rgba(255,255,255,0.0);
-    }
-    80% {
-      box-shadow: 0 0 0 2.2em rgba(255,255,255,0.1);
-    }
-    100% {
-      box-shadow: 0 0 0 2.2em rgba(255,255,255,0);
     }
   }
 
