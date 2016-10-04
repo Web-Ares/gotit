@@ -22,7 +22,7 @@
     text-align: left;
     @include  main-font3();
   }
-  img{
+  img {
     display: block;
     margin: 0 0 20px;
   }
@@ -245,6 +245,88 @@
   }
 
 }
+.case__hero_pure {
+  box-shadow: 0 2.8em 1.5em -1.5em rgba(0,0,0,0.2) inset;
+
+  .site__main-title {
+    top: 1.2em;
+    color: rgba(1,176,211,0.2);
+  }
+  .case__hero-text {
+
+    p {
+      color: #00b0d3;
+    }
+
+  }
+
+}
+.case__hero-woman {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 51.7%;
+  width: 4em;
+  height: 3.95em;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-image: url("../pic/case-pure_women.jpg.png");
+  background-size: contain;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  @include main-font6();
+}
+.case__hero-slogan {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  max-width: 260px;
+  left: 50%;
+  top: 2.5em;
+  @include main-font6();
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+
+  span {
+    display: block;
+    color: #a0a0a0;
+    text-transform: uppercase;
+
+    &:nth-child(1) {
+      font-size: 18px;
+      line-height: 25px;
+      padding: 0 0 0 4.1em;
+      letter-spacing: 6px;
+    }
+    &:nth-child(2) {
+      font-size: 26px;
+      line-height: 34px;
+    }
+    &:nth-child(3) {
+      font-size: 44px;
+      line-height: 54px;
+      padding: 0 0 0 0.4em;
+      color: #00b0d3;
+    }
+    &:nth-child(4) {
+      font-size: 16px;
+      line-height: 24px;
+      padding: 0.2em 0 0 2.4em;
+      letter-spacing: 4px;
+    }
+
+  }
+
+}
+.case__hero-items {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 0 0 50% 50% / 0 0 16% 16%;
+}
 
 @media screen and (orientation:portrait) {
 
@@ -366,6 +448,59 @@
     float: left;
     margin: 20px 20px 20px 0;
   }
+  .case__hero_pure {
+
+      .site__main-title {
+        top: 0.94em;
+        font-size: 5.1em;
+      }
+
+  }
+  .case__hero-woman {
+    left: 50%;
+    width: 6em;
+    height: 4.2em;
+  }
+  .case__hero-slogan {
+    width: 3.5em;
+    right: 1em;
+    left: auto;
+    top: 2.5em;
+    max-width: 100%;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+
+    span {
+      color: #a0a0a0;
+
+      &:nth-child(1) {
+        font-size: 0.3em;
+        line-height: 1em;
+        padding: 0 0 0 4.1em;
+        letter-spacing: 6px;
+      }
+      &:nth-child(2) {
+        font-size: 0.7em;
+        line-height: 1em;
+        letter-spacing: -4px;
+      }
+      &:nth-child(3) {
+        font-size: 1em;
+        line-height: 0.82em;
+        padding: 0 0 0 0.4em;
+        letter-spacing: -6px;
+        color: #00b0d3;
+      }
+      &:nth-child(4) {
+        font-size: 0.2em;
+        line-height: 1.3em;
+        padding: 0.2em 0 0 2.4em;
+        letter-spacing: 4px;
+      }
+
+    }
+
+  }
 
   @media screen and (orientation:portrait) {
 
@@ -387,6 +522,28 @@
 
   .case {
     padding-top: 100vh !important;
+
+    img {
+
+      &.alignleft {
+        margin: 20px 20px 20px 0;
+        float: left;
+      }
+      &.aligncenter {
+        display: block;
+        margin: 20px auto 40px;
+      }
+      &.alignright {
+        margin: 20px 0 20px 20px;
+        float: right;
+      }
+      &.alignnone {
+        width: 100%;
+        margin: 20px auto 40px;
+      }
+
+    }
+
   }
   .case__hero {
     height: 100vh !important;
@@ -451,6 +608,47 @@
     strong {
       padding-right: 6em;
     }
+  }
+  .case__hero-woman {
+    left: 51.7%;
+    width: 10em;
+    height: 6.95em;
+  }
+  .case__hero-slogan {
+    width: 4.5em;
+    right: 1.65em;
+    left: auto;
+    top: 1.82em;
+
+    span {
+
+      &:nth-child(1) {
+        font-size: 0.39em;
+        line-height: 1em;
+        padding: 0 0 0 4.4em;
+        letter-spacing: 8px;
+      }
+      &:nth-child(2) {
+        font-size: 0.65em;
+        line-height: 1em;
+        letter-spacing: -4px;
+      }
+      &:nth-child(3) {
+        font-size: 1.2em;
+        line-height: 0.82em;
+        padding: 0 0 0 0.4em;
+        letter-spacing: -7px;
+        color: #00b0d3;
+      }
+      &:nth-child(4) {
+        font-size: 0.22em;
+        line-height: 1.3em;
+        padding: 0.3em 0 0 2.5em;
+        letter-spacing: 4px;
+      }
+
+    }
+
   }
 }
 
