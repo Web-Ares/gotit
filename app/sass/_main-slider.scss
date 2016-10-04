@@ -141,13 +141,13 @@
   left: -50px;
   right: -50px;
   height: 84.7%;
+  padding: 0 50px;
   //width: 110%;
   //height: 7.62em;
   border-radius: 0 0 50% 50% / 0 0 16% 16%;
   background-size: cover;
   background-position: center;
 }
-
 .main-slider_pure {
 
   .swiper-container {
@@ -156,8 +156,19 @@
 
       .swiper-slide {
 
+        .main-slider__inner-pic {
+          box-shadow: 0 2.8em 1.5em -1.5em rgba(0,0,0,0.2) inset;
+        }
         .site__main-title {
+          top: 0.94em;
           color: rgba(1,176,211,0.2);
+        }
+        .main-slider__text {
+
+          p {
+            color: #00b0d3;
+          }
+
         }
 
       }
@@ -166,6 +177,63 @@
 
   }
 
+
+}
+.main-slider__woman {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 51.7%;
+  width: 10em;
+  height: 6.95em;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-image: url("../pic/case-pure_women.jpg.png");
+  background-size: contain;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  @include main-font6();
+}
+.main-slider__pure-slogan {
+  position: absolute;
+  z-index: 2;
+  width: 4.5em;
+  right: 1.65em;
+  top: 1.82em;
+  @include main-font6();
+
+  span {
+    display: block;
+    color: #a0a0a0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    &:nth-child(1) {
+      font-size: 37px;
+      line-height: 1em;
+      padding: 0 0 0 4.1em;
+      letter-spacing: 6px;
+    }
+    &:nth-child(2) {
+      font-size: 58px;
+      line-height: 1em;
+      letter-spacing: -4px;
+    }
+    &:nth-child(3) {
+      font-size: 105px;
+      line-height: 0.82em;
+      padding: 0 0 0 0.4em;
+      letter-spacing: -6px;
+      color: #00b0d3;
+    }
+    &:nth-child(4) {
+      font-size: 20px;
+      line-height: 1.3em;
+      padding: 0.2em 0 0 2.4em;
+      letter-spacing: 4px;
+    }
+
+  }
 
 }
 
@@ -249,6 +317,26 @@
       width: 75%;
       height: 75%;
     }
+
+  }
+  .main-slider_pure {
+
+    .swiper-container {
+
+      .swiper-wrapper {
+
+        .swiper-slide {
+
+          .site__main-title {
+            font-size: 5.1em;
+          }
+
+        }
+
+      }
+
+    }
+
 
   }
 
