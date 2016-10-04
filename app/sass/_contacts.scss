@@ -574,9 +574,11 @@
     line-height: 1.2em;
   }
   .contacts__info {
-    padding: 4.25em 2em 2em;
+    padding: 3em 2em 1.5em;
     max-width: 600px;
     margin: 0 auto;
+    max-height: 100vh;
+    overflow: hidden;
 
     p {
       margin: 0 0 0.9em;
@@ -733,20 +735,49 @@
     .contacts__pulse {
       margin: -1.8em auto -2.7em;
 
-      &:before,
-      &:after,
+      &:before {
+        -webkit-animation-name: none;
+        -webkit-animation-duration: 0ms;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: 0;
+        animation-name: none;
+        animation-duration: 0ms;
+        animation-timing-function: linear;
+        animation-iteration-count: 0;
+      }
+      &:after {
+        -webkit-animation-name: none;
+        -webkit-animation-duration: 0ms;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: 0;
+        animation-name: none;
+        animation-duration: 0ms;
+        animation-timing-function: linear;
+        animation-iteration-count: 0;
+      }
       .contacts__pulse1 {
-        -webkit-animation: none;
-        animation: none;
+        -webkit-animation-name: none;
+        -webkit-animation-duration: 0ms;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: 0;
+        animation-name: none;
+        animation-duration: 0ms;
+        animation-timing-function: linear;
+        animation-iteration-count: 0;
       }
     }
     .contacts__map {
       &:after {
-        -webkit-animation: none;
-        animation: none;
+        -webkit-animation-name: none;
+        -webkit-animation-duration: 0ms;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: 0;
+        animation-name: none;
+        animation-duration: 0ms;
+        animation-timing-function: linear;
+        animation-iteration-count: 0;
       }
     }
-
   }
 
 

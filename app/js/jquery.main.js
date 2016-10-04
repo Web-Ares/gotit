@@ -654,6 +654,7 @@
                     spaceBetween: 0,
                     slidesPerView: 1,
                     speed: 700,
+                    loop: true,
                     effect: 'fade',
                     fade: {
                         crossFade: true
@@ -778,16 +779,6 @@
                     }
 
                 } );
-
-                if( _obj.find('.swiper-slide:not(.swiper-slide-duplicate)').length > 1) {
-
-                    _swiper1.params.loop = 'true';
-
-                } else {
-
-                    _obj.find(".swiper-button-next, .swiper-button-prev").css('display', 'none');
-
-                }
 
             },
             _moveBottom = function( xPercent, yPercent, step, image ) {
