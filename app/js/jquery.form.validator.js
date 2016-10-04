@@ -115,12 +115,17 @@
                     }
                 } );
                 _textareaField.on( {
-                    keyup: function() {
+                    keyup: function( e ) {
 
                         var value = $(this).find('textarea').val();
 
                         _textareaHeight.html(value);
                         _textareaField.css( 'height', _textareaHeight.innerHeight());
+
+                        if( e.keyCode == 13 ) {
+                            console.log(00)
+                            _textareaField.css( 'height', _textareaHeight.innerHeight());
+                        }
 
                         return false;
 
