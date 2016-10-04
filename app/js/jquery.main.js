@@ -287,6 +287,7 @@
             _obj = obj,
             _window = $(window),
             _mainSlider = $('.main-slider'),
+            _caseHero = $('.case__hero'),
             _body = $( 'body' );
 
         //private methods
@@ -307,6 +308,10 @@
                             } );
 
                             _mainSlider.css( {
+                                'font-size': '75px'
+                            } );
+
+                            _caseHero.css( {
                                 'font-size': '75px'
                             } );
 
@@ -350,6 +355,10 @@
                 } );
 
                 _mainSlider.css( {
+                    'font-size': newSize
+                } );
+
+                _caseHero.css( {
                     'font-size': newSize
                 } );
 
@@ -499,8 +508,8 @@
 
                         if ( _window.width() > 1024 && !( _header.hasClass('opened') ) && !( $(document).find('.move').hasClass('animated_moves') ) ) {
 
-                            var pageX = e.pageX,
-                                pageY = e.pageY,
+                            var pageX = e.clientX,
+                                pageY = e.clientY,
                                 halfWidth = _obj.width() / 2,
                                 halfHeight = _obj.height() / 2,
                                 percentFromCenterX = ( pageX - halfWidth ) / halfWidth,

@@ -37,6 +37,14 @@ var paths = {
             ]
         },
         {
+            dist: 'case.min.js',
+            contains: [
+                'app/js/jquery.main.js',
+                'app/js/jquery.case.js',
+                'app/js/jquery.phone.js'
+            ]
+        },
+        {
             dist: 'ui.min.js',
             contains: [
                 'app/js/jquery.popup.js',
@@ -47,12 +55,6 @@ var paths = {
             dist: 'tabs.min.js',
             contains: [
                 'app/js/jquery.tabs.js'
-            ]
-        },
-        {
-            dist: 'phone.min.js',
-            contains: [
-                'app/js/jquery.phone.js'
             ]
         }
     ],
