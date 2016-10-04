@@ -26,6 +26,7 @@
         $.each( $('.main-slider'), function () {
 
             new MainSlider( $(this) );
+            new MainSliderPictures( $(this) );
 
         } );
 
@@ -50,12 +51,6 @@
         $.each( $('.case .main-slider__btn-down'), function () {
 
             new ScrollDown( $(this) );
-
-        } );
-
-        $.each( $('.main-slider'), function () {
-
-            new MainSliderPictures( $(this) );
 
         } );
 
