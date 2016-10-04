@@ -29,7 +29,35 @@
             _request = new XMLHttpRequest();
 
         //private methods
-        var _constructor = function () {
+        var _ajaxRequest = function(){
+
+                var path = _form.attr('data-action');
+
+                _request.abort();
+                _request = $.ajax({
+                    url: path,
+                    data: _form.serialize(),
+                    dataType: 'json',
+                    timeout: 20000,
+                    type: "GET",
+                    success: function (msg) {
+
+                        _obj.addClass('hidden');
+                        _fields.val('');
+                        _textareaField.attr('style','');
+                        _textareaHeight.html('');
+
+                    },
+                    error: function (XMLHttpRequest) {
+                        if (XMLHttpRequest.statusText != "abort") {
+                            alert("Error");
+                        }
+                    }
+                });
+
+                return false;
+            },
+            _constructor = function () {
                 _onEvents();
                 _addAttributesError();
                 _obj[0].obj = _self;
@@ -61,13 +89,13 @@
             },
             _onEvents = function () {
 
-                $(document).on( 'mailsent.wpcf7', function()  {
-                    _obj.addClass('hidden');
-                    _fields.val('');
-                    _textareaField.attr('style','');
-                    _textareaHeight.html('');
-
-                });
+                //$(document).on( 'mailsent.wpcf7', function()  {
+                //    _obj.addClass('hidden');
+                //    _fields.val('');
+                //    _textareaField.attr('style','');
+                //    _textareaHeight.html('');
+                //
+                //});
 
                 _form.on( {
                     submit: function( ) {
@@ -82,12 +110,13 @@
 
                         } else {
 
+                            _ajaxRequest();
                             _errorMessage.removeClass('visible');
 
                         }
 
 
-                        //return false;
+                        return false;
 
                     }
 
