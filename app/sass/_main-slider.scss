@@ -148,6 +148,27 @@
   background-position: center;
 }
 
+.main-slider_pure {
+
+  .swiper-container {
+
+    .swiper-wrapper {
+
+      .swiper-slide {
+
+        .site__main-title {
+          color: rgba(1,176,211,0.2);
+        }
+
+      }
+
+    }
+
+  }
+
+
+}
+
 @-webkit-keyframes down {
   0% {
     -webkit-transform: translateY(0);

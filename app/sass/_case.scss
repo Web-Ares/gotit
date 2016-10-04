@@ -1,4 +1,3 @@
-
 .case {
 
   .main-slider {
@@ -30,7 +29,7 @@
       top: 40.8%;
     }
   }
-  h2 {
+  h2:not(.site__main-title) {
     margin-bottom: 0.5em;
     font-size: 1.95em;
     line-height: 1;
@@ -187,7 +186,7 @@
       }
     }
 
-    h2 {
+    h2:not(.site__main-title) {
       font-size: 2.85em;
     }
     p {
