@@ -426,6 +426,10 @@ input:-webkit-autofill{
   body {
     font-size: 100px;
   }
+  .index-page,
+  .index-page body{
+    overflow-y: hidden;
+  }
   .site__header {
     height: 9em;
   }

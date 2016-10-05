@@ -1255,35 +1255,35 @@
 
                 var content = $('.contacts__info');
 
-                if( _window.width() >= 768 ) {
-
-                    if( content.innerHeight() > content.innerWidth()) {
-                        _obj.height( content.innerHeight()+(content.innerHeight()*0.25) );
-                        _obj.width( content.innerHeight()+(content.innerHeight()*0.25) );
-                    } else {
-                        _obj.height( content.innerWidth()+(content.innerWidth()*0.25) );
-                        _obj.width( content.innerWidth()+(content.innerWidth()*0.25) );
-                    }
-
-                    if( content.parents('.contacts').hasClass('contacts_2') ) {
-
-                        if( content.innerHeight() > content.innerWidth()) {
-                            _obj.height( content.innerHeight()+(content.innerHeight()*0.6) );
-                            _obj.width( content.innerHeight()+(content.innerHeight()*0.6) );
-                        } else {
-                            _obj.height( content.innerWidth()+(content.innerWidth()*0.6) );
-                            _obj.width( content.innerWidth()+(content.innerWidth()*0.6) );
-                        }
-
-                    }
-
-
-
-                } else {
-
-                    _obj.attr('style','');
-
-                }
+                //if( _window.width() >= 768 ) {
+                //
+                //    if( content.innerHeight() > content.innerWidth()) {
+                //        _obj.height( content.innerHeight()+(content.innerHeight()*0.25) );
+                //        _obj.width( content.innerHeight()+(content.innerHeight()*0.25) );
+                //    } else {
+                //        _obj.height( content.innerWidth()+(content.innerWidth()*0.25) );
+                //        _obj.width( content.innerWidth()+(content.innerWidth()*0.25) );
+                //    }
+                //
+                //    if( content.parents('.contacts').hasClass('contacts_2') ) {
+                //
+                //        if( content.innerHeight() > content.innerWidth()) {
+                //            _obj.height( content.innerHeight()+(content.innerHeight()*0.6) );
+                //            _obj.width( content.innerHeight()+(content.innerHeight()*0.6) );
+                //        } else {
+                //            _obj.height( content.innerWidth()+(content.innerWidth()*0.6) );
+                //            _obj.width( content.innerWidth()+(content.innerWidth()*0.6) );
+                //        }
+                //
+                //    }
+                //
+                //
+                //
+                //} else {
+                //
+                //    _obj.attr('style','');
+                //
+                //}
 
 
             };
