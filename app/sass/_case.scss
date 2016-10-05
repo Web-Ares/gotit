@@ -148,6 +148,10 @@
   .case__links-next {
     right: 18px;
   }
+  span.case__links-prev,
+  span.case__links-next {
+    opacity: .5;
+  }
 }
 .case__wrap {
   position: relative;
@@ -387,6 +391,27 @@
 
   .case {
     padding-top: 100vh !important;
+
+    img {
+
+      &.alignleft {
+        margin: 20px 20px 20px 0;
+        float: left;
+      }
+      &.aligncenter {
+        display: block;
+        margin: 20px auto 40px;
+      }
+      &.alignright {
+        margin: 20px 0 20px 20px;
+        float: right;
+      }
+      &.alignnone {
+        width: 100%;
+        margin: 20px auto 40px;
+      }
+
+    }
   }
   .case__hero {
     height: 100vh !important;
@@ -408,26 +433,7 @@
     .case__links-next {
       right: 48px;
     }
-    img {
 
-      &.alignleft {
-        margin: 20px 20px 20px 0;
-        float: left;
-      }
-      &.aligncenter {
-        display: block;
-        margin: 20px auto 40px;
-      }
-      &.alignright {
-        margin: 20px 0 20px 20px;
-        float: right;
-      }
-      &.alignnone {
-        width: 100%;
-        margin: 20px auto 40px;
-      }
-
-    }
 
   }
   .case__wrap {
