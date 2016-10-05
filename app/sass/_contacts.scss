@@ -1,8 +1,6 @@
 .contacts {
-  //overflow: hidden;
   position: relative;
   z-index: 1;
-  //padding: 50px 0 0;
 
   &_services {
 
@@ -527,6 +525,7 @@
       padding: 10px 0 0;
 
       .contacts__info {
+        justify-content: flex-start;
         padding: 3em 17px 3em;
       }
       .contacts__pulse {
