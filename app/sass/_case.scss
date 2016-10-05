@@ -233,7 +233,7 @@
     display: inline-block;
     vertical-align: top;
     width: initial !important;
-    margin: 0 50px 20px 0;
+    margin: 20px 0 20px 0;
   }
 
 }
@@ -438,6 +438,19 @@
       }
 
     }
+    .case__links {
+
+
+      .case__links-prev {
+        border-top: 1px solid #762c88;
+        border-left: 1px solid #762c88;
+      }
+      .case__links-next {
+        border-top: 1px solid #00b0d3;
+        border-left: 1px solid #00b0d3;
+      }
+
+    }
 
   }
   .case__hero-woman {
@@ -504,8 +517,7 @@
     img {
       display: inline-block;
       vertical-align: top;
-      width: initial !important;
-      margin: 0 104px 20px 0;
+      margin: 20px 0 20px 0;
     }
 
   }

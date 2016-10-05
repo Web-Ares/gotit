@@ -500,11 +500,11 @@
                         e = e || window.event;
 
                         var slide = $(this),
-                            _img1 = slide.find('.move1'),
-                            _img2 = slide.find('.move2'),
-                            _img3 = slide.find('.move3'),
-                            _img4 = slide.find('.move4'),
-                            _img5 = slide.find('.move5');
+                            _img1 = slide.find('.move1:not(.not_move)'),
+                            _img2 = slide.find('.move2:not(.not_move)'),
+                            _img3 = slide.find('.move3:not(.not_move)'),
+                            _img4 = slide.find('.move4:not(.not_move)'),
+                            _img5 = slide.find('.move5:not(.not_move)');
 
                         if ( _window.width() > 1024 && !( _header.hasClass('opened') ) && !( $(document).find('.move').hasClass('animated_moves') ) ) {
 

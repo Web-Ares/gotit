@@ -149,13 +149,14 @@
 @media (min-width: $desktop) {
 
   .featured-products {
-    height: 764px;
+    height: 35.8em;
     padding: 0;
     background-size: auto 100%;
     overflow: visible;
+    margin: 0 0 3.3em;
 
     .swiper-container {
-      height: 764px;
+      height: 35.8em;
       overflow: visible;
 
       .swiper-wrapper {
@@ -166,14 +167,19 @@
         @include justify-content(center);
 
         .swiper-slide {
-          width: 33.333%;
-          padding: 0 20px;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 86px;
-          height: 86px;
-          margin: -43px 0 0 -43px;
+          width: 11em;
+
+          &.swiper-slide_animated {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 16em;
+            height: 18em;
+            margin: -9em 0 0 -8em;
+            -webkit-transform-origin: top;
+            transform-origin: top;
+          }
+
         }
 
       }
@@ -202,5 +208,13 @@
     //max-width: 265px;
     //max-height: 265px;
     //margin: 0 0 1.3em;
+
+    img {
+      width: 100%;
+      height: auto;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+
   }
 }

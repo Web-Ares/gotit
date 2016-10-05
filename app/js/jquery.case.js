@@ -424,7 +424,7 @@
         var _self = this,
             _obj = obj,
             _objInner = _obj.find('.featured-products__disk'),
-            _items = _obj.find('.swiper-slide_aminated'),
+            _items = _obj.find('.swiper-slide_animated'),
             _distance = 0,
             _window = $(window),
             _globalWidth = _window.width();
@@ -432,9 +432,8 @@
         //private methods
         var _addEvents = function () {
 
-
                 _window.on( {
-                    'resize': function () {
+                    resize: function () {
 
                         if( _globalWidth != _window.width() && _window.width()>=1024 ) {
 
@@ -445,8 +444,107 @@
                         }
 
 
+                    },
+                    load: function() {
+
+                        if( _window.width()>=1024 ) {
+
+                            _positionItems();
+                            _checkScroll();
+
+                        }
+
+                    },
+                    scroll: function () {
+
+                        if (_window.width() >= 1024) {
+
+                            _checkScroll();
+
+                        }
+
                     }
                 } );
+
+            },
+            _checkScroll = function(){
+
+                var windowH = _window.height(),
+                    topPos = _obj.offset().top,
+                    start = topPos - windowH/2.5,
+                    end = topPos - windowH/15,
+                    scrollPoint;
+
+                var x = ( end - _window.scrollTop() ) / ( end -  start );
+
+                if ( x > 1 ) {
+
+                    scrollPoint = 1;
+
+                } else if ( x < 0 ) {
+
+                    scrollPoint = 0;
+
+                }
+
+                if( ( x < 1 ) && ( x > 0 ) ){
+
+                    scrollPoint = 1 - x;
+
+                }
+
+                _animationElems( start, end, scrollPoint );
+
+            },
+            _animationElems = function ( startPoint, endPoint, scrollPoint ) {
+
+                var segment = endPoint - startPoint;
+
+
+                _items.each(function (i) {
+
+                    var curElem = $( this ),
+                        rotateStart = 0,
+                        scaleStart = 0.4,
+                        rotateEnd = 90,
+                        scaleEnd = 1,
+                        pointStart = curElem.data('start'),
+                        pointFinish = curElem.data('finish'),
+                        k1 = ( ( pointFinish - pointStart ) * scrollPoint ) + pointStart,
+                        koofRotate = ( rotateEnd - rotateStart ) / segment * ( _window.scrollTop() - startPoint ),
+                        koofScale = scaleStart + ( scaleEnd - scaleStart ) / segment * ( _window.scrollTop() - startPoint );
+
+                    console.log( k1 )
+
+                    var rotate = curElem.data('rotate'),
+                        rotateReverse = curElem.data('rotate-reverse'),
+                        translate = curElem.data('translate'),
+                        scale = curElem.data('scale');
+
+
+                    if ( scrollPoint == 0 ) {
+
+                        curElem.css( {
+                            '-webkit-transform': 'rotate(' + rotate + 'deg) translate(' + translate + ') rotate(' + rotateReverse + 'deg)',
+                            'transform': 'rotate(' + rotate + 'deg) translate(' + translate + ') rotate(' + rotateReverse + 'deg)'
+                        } );
+
+                    } else if ( scrollPoint == 1 ) {
+
+                        curElem.css( {
+                            '-webkit-transform': 'rotate(' + (rotate + ( -rotateEnd )) + 'deg) translate(' + translate + ') rotate(' + (rotateReverse + rotateEnd) + 'deg)',
+                            'transform': 'rotate(' + (rotate + ( -rotateEnd )) + 'deg) translate(' + translate + ') rotate(' + (rotateReverse + rotateEnd) + 'deg)'
+                        } );
+
+                    } else {
+
+                        curElem.css( {
+                            '-webkit-transform': 'rotate(' + (rotate + ( -koofRotate )) + 'deg) translate(' + translate + ') rotate(' + ( rotateReverse + koofRotate ) + 'deg)',
+                            'transform': 'rotate(' + (rotate + ( -koofRotate )) + 'deg) translate(' + translate + ') rotate(' + ( rotateReverse + koofRotate ) + 'deg)'
+                        } );
+
+                    }
+                })
 
             },
             _positionItems = function () {
@@ -477,9 +575,14 @@
                         rotateReverse = rotate * -1;
 
                     curItem.css( {
-                        '-webkit-transform': 'rotate(' + rotate + 'deg) translate(' + radius + ') rotate(' + rotateReverse + 'deg)',
-                        'transform': 'rotate(' + rotate + 'deg) translate(' + radius + ') rotate(' + rotateReverse + 'deg)'
+                        '-webkit-transform': 'rotate(' + rotate + 'deg) scale(' + 0.4 + ')  translate(' + radius + ') rotate(' + rotateReverse + 'deg)',
+                        'transform': 'rotate(' + rotate + 'deg)  scale(' + 0.4 + ') translate(' + radius + ') rotate(' + rotateReverse + 'deg)'
                     } );
+
+                    curItem.attr( 'data-rotate', rotate );
+                    curItem.attr( 'data-rotate-reverse', rotateReverse );
+                    curItem.attr( 'data-translate', radius );
+                    curItem.attr( 'data-scale', '0.4' );
 
                 } );
             },
@@ -488,11 +591,7 @@
                 _obj[0].obj = _self;
                 _addEvents();
 
-                if( _window.width()>=1024 ) {
 
-                    _positionItems();
-
-                }
 
             };
 
