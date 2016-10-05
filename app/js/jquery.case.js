@@ -18,6 +18,7 @@
         $.each( $('.featured-products__items'), function () {
 
             new FeaturedProductsSlider( $(this) );
+            new SliderFormats( $(this) );
 
         } );
 
@@ -321,7 +322,7 @@
                     },
                     resize: function() {
 
-                        if( _window.width() < 768 ) {
+                        if( _window.width() < 1024 ) {
 
                             if( !_swiperInit ) {
 
@@ -329,8 +330,6 @@
                                 _swiperInit = true;
 
                             }
-
-                            _squadDisk.attr('style','')
 
 
                         } else {
@@ -345,6 +344,16 @@
 
                         }
 
+                        if( _window.width() < 768 ) {
+
+                            _squadDisk.attr('style','')
+
+
+                        } else {
+
+                            _setDiskSize();
+
+                        }
 
                     }
                 } );
@@ -353,8 +362,9 @@
             _initSwiper = function() {
 
                 _swiper = new Swiper( _obj.find( '.swiper-container' ), {
-                    slidesPerView: 1.5,
-                    centeredSlides: true
+                    slidesPerView: 1,
+                    nextButton: _obj.find('.swiper-button-next')[0],
+                    prevButton: _obj.find('.swiper-button-prev')[0]
                 } );
 
             },
@@ -393,7 +403,7 @@
                 _obj[0].obj = _self;
                 _addEvents();
 
-                if( _window.width() < 768 ) {
+                if( _window.width() < 1024 ) {
 
                     if( !_swiperInit ) {
 
@@ -407,5 +417,87 @@
 
         _init();
     };
+
+    var SliderFormats = function (obj) {
+
+        //private properties
+        var _self = this,
+            _obj = obj,
+            _objInner = _obj.find('.featured-products__disk'),
+            _items = _obj.find('.swiper-slide_aminated'),
+            _distance = 0,
+            _window = $(window),
+            _globalWidth = _window.width();
+
+        //private methods
+        var _addEvents = function () {
+
+
+                _window.on( {
+                    'resize': function () {
+
+                        if( _globalWidth != _window.width() && _window.width()>=1024 ) {
+
+                            _globalWidth = _window.width() + 1;
+
+                            _positionItems();
+
+                        }
+
+
+                    }
+                } );
+
+            },
+            _positionItems = function () {
+
+                if (_window.width() < 550) {
+
+                    _distance = 20;
+
+                } else if (_window.width() >= 550 && _window.width() < 1200) {
+
+                    _distance = 70;
+
+                } else {
+
+                    _distance = 54;
+
+                }
+
+                var radius = ( _obj.height() + _distance) / 2 + 'px',
+                    start = -90,
+                    numberOfElements = _items.length,
+                    slice = 360 / numberOfElements;
+
+                _items.each( function (i) {
+
+                    var curItem = $(this),
+                        rotate = slice * i + start,
+                        rotateReverse = rotate * -1;
+
+                    curItem.css( {
+                        '-webkit-transform': 'rotate(' + rotate + 'deg) translate(' + radius + ') rotate(' + rotateReverse + 'deg)',
+                        'transform': 'rotate(' + rotate + 'deg) translate(' + radius + ') rotate(' + rotateReverse + 'deg)'
+                    } );
+
+                } );
+            },
+            _init = function () {
+
+                _obj[0].obj = _self;
+                _addEvents();
+
+                if( _window.width()>=1024 ) {
+
+                    _positionItems();
+
+                }
+
+            };
+
+        _init();
+    };
+
 
 } )();

@@ -511,6 +511,17 @@
   }
   .case__hero-items {
     display: block;
+    z-index: 2;
+  }
+  .case__content_center {
+    text-align: center;
+    max-width: 660px;
+    margin: 0 auto;
+
+    p {
+      text-align: center;
+    }
+
   }
 
   @media screen and (orientation:portrait) {
