@@ -115,6 +115,11 @@
                         }
 
                         _addPictures();
+                    },
+                    scroll: function () {
+
+                        // _animateElems();
+
                     }
                 } );
 
@@ -132,6 +137,37 @@
 
 
                 }, false);
+
+            },
+            _animateElems = function () {
+
+                var scrollTop = _window.scrollTop(),
+                    objHeight = _obj.height(),
+                    elems = $('.move');
+
+                if ( scrollTop > objHeight/1.5 ) {
+
+                    elems.addClass('animated_moves');
+
+                    setTimeout(function () {
+
+                        elems.addClass('moves_up');
+
+                    }, 100);
+
+                    $('.case__hero-btn-down').trigger('click')
+
+                }else{
+
+                    elems.removeClass('moves_up');
+
+                    setTimeout(function () {
+
+                        elems.removeClass('animated_moves');
+
+                    }, 400)
+
+                }
 
             },
             _moveBottom = function( xPercent, yPercent, step, image ) {
