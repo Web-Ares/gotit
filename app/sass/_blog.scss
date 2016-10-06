@@ -53,12 +53,27 @@
   padding: 0 20px;
   margin: 0 auto 38px;
 
-  .blog__post-title {
-    text-align: center;
-  }
-  .blog__post-title_2 {
+  >h2,
+  >h3,
+  >h4{
+    margin: 0 0 20px;
+    @include main-font3();
+    text-transform: uppercase;
+    letter-spacing: 6px;
     font-size: 16px;
     line-height: 26px;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+  }
+  .blog__post-title {
+    margin: 0 0 20px;
+    @include main-font3();
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-size: 20px;
+    line-height: 26px;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
   }
 
   p {
@@ -154,8 +169,13 @@
   .blog__content {
     margin: 0 auto 1.9em;
 
-    .blog__post-title_2 {
+    >h2,
+    >h3,
+    >h4 {
       font-size: 1.1em;
+    }
+    .blog__post-title {;
+      font-size: 1.45em;
     }
 
   }
