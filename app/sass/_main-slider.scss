@@ -152,6 +152,7 @@
   .site__main-title {
     top: 1.2em;
     color: rgba(1,176,211,0.2);
+    z-index: -1;
   }
   .case__hero-text {
     top: auto;
@@ -291,7 +292,7 @@
   .main-slider_pure {
   }
   .main-slider__content_pure {
-
+    z-index: 1;
     margin: 0 -50px;
 
     .site__main-title {
