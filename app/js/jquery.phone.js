@@ -37,7 +37,6 @@
             _checkScroll = function(){
 
                 var windowH = _window.height(),
-                    curItems = _obj.find( '.pnone__part' ),
                     topPos = _obj.offset().top,
                     start = topPos - windowH/2.5,
                     end = topPos - windowH/15,
@@ -62,7 +61,7 @@
                 _animationElems( start, end, scrollPoint );
 
             },
-            _animationElems = function (startPoint, endPoint, scrollPoint) {
+            _animationElems = function ( startPoint, endPoint, scrollPoint ) {
 
                 var segment = endPoint - startPoint;
 
