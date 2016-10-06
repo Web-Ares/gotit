@@ -223,16 +223,8 @@
   }
 }
 .case__content-icons {
-  @include flexbox();
-  @include flex-wrap(wrap);
-  @include flex-direction(row);
-  @include align-items(flex-start);
-  @include justify-content(flex-start);
 
   img {
-    display: inline-block;
-    vertical-align: top;
-    width: initial !important;
     margin: 20px 0 20px 0;
   }
 
@@ -456,7 +448,7 @@
   .case__hero-woman {
     position: absolute;
     z-index: 1;
-    bottom: 0;
+    bottom: -10px;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     background-image: url("../pic/case-pure_women.jpg.png");

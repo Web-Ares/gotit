@@ -18,7 +18,7 @@
         $.each( $('.featured-products__items'), function () {
 
             new FeaturedProductsSlider( $(this) );
-            new SliderFormats( $(this) );
+            new FeaturedProductsAnimation( $(this) );
 
         } );
 
@@ -46,11 +46,11 @@
                         e = e || window.event;
 
                         var slide = $(this),
-                            _img1 = slide.find('.move1'),
-                            _img2 = slide.find('.move2'),
-                            _img3 = slide.find('.move3'),
-                            _img4 = slide.find('.move4'),
-                            _img5 = slide.find('.move5');
+                            _img1 = slide.find('.move1:not(.not_move)'),
+                            _img2 = slide.find('.move2:not(.not_move)'),
+                            _img3 = slide.find('.move3:not(.not_move)'),
+                            _img4 = slide.find('.move4:not(.not_move)'),
+                            _img5 = slide.find('.move5:not(.not_move)');
 
                         if ( _window.width() > 1024 && !( _header.hasClass('opened') ) && !( $(document).find('.move').hasClass('animated_moves') ) ) {
 
@@ -418,13 +418,12 @@
         _init();
     };
 
-    var SliderFormats = function (obj) {
+    var FeaturedProductsAnimation = function (obj) {
 
         //private properties
         var _self = this,
             _obj = obj,
-            _objInner = _obj.find('.featured-products__disk'),
-            _items = _obj.find('.swiper-slide_animated'),
+            _items = _obj.find('.swiper-slide'),
             _distance = 0,
             _window = $(window),
             _globalWidth = _window.width();
@@ -433,23 +432,10 @@
         var _addEvents = function () {
 
                 _window.on( {
-                    resize: function () {
-
-                        if( _globalWidth != _window.width() && _window.width()>=1024 ) {
-
-                            _globalWidth = _window.width() + 1;
-
-                            _positionItems();
-
-                        }
-
-
-                    },
                     load: function() {
 
                         if( _window.width()>=1024 ) {
 
-                            _positionItems();
                             _checkScroll();
 
                         }
@@ -479,11 +465,12 @@
 
                 if ( x > 1 ) {
 
-                    scrollPoint = 1;
+                    scrollPoint = 0;
+
 
                 } else if ( x < 0 ) {
 
-                    scrollPoint = 0;
+                    scrollPoint = 1;
 
                 }
 
@@ -498,100 +485,115 @@
             },
             _animationElems = function ( startPoint, endPoint, scrollPoint ) {
 
-                var segment = endPoint - startPoint;
+                var segment = endPoint - startPoint,
+                    radius = ( _obj.height() ) / 2;
 
-
-                _items.each(function (i) {
+                _items.each( function () {
 
                     var curElem = $( this ),
-                        rotateStart = 0,
-                        scaleStart = 0.4,
-                        rotateEnd = 90,
-                        scaleEnd = 1,
                         pointStart = curElem.data('start'),
                         pointFinish = curElem.data('finish'),
-                        k1 = ( ( pointFinish - pointStart ) * scrollPoint ) + pointStart,
-                        koofRotate = ( rotateEnd - rotateStart ) / segment * ( _window.scrollTop() - startPoint ),
-                        koofScale = scaleStart + ( scaleEnd - scaleStart ) / segment * ( _window.scrollTop() - startPoint );
+                        scaleStart = 0,
+                        scaleFinish = 1,
+                        kof = ( ( pointFinish - pointStart ) * scrollPoint ) + pointStart,
+                        kofScale = scaleStart + ( scaleFinish - scaleStart ) / segment * ( _window.scrollTop() - startPoint );
 
-                    console.log( k1 )
-
-                    var rotate = curElem.data('rotate'),
-                        rotateReverse = curElem.data('rotate-reverse'),
-                        translate = curElem.data('translate'),
-                        scale = curElem.data('scale');
+                    var x,
+                        y;
 
 
-                    if ( scrollPoint == 0 ) {
+                    if ( scrollPoint == 1 ) {
+
+                            x = Math.cos( pointFinish/57.2 ) * radius;
+                            y = Math.sin( pointFinish/57.2 ) * radius;
+
+                        if( pointFinish < 90 && pointFinish > 270 ) {
+
+                            x = -x;
+
+                        }
+
+                        if( pointStart === undefined ) {
+
+                            x = 0;
+                            y = 0;
+
+                        }
 
                         curElem.css( {
-                            '-webkit-transform': 'rotate(' + rotate + 'deg) translate(' + translate + ') rotate(' + rotateReverse + 'deg)',
-                            'transform': 'rotate(' + rotate + 'deg) translate(' + translate + ') rotate(' + rotateReverse + 'deg)'
+                            '-webkit-transform': 'translateX(' + x + 'px) translateY(' + y + 'px) scale( '+ scaleFinish +' )',
+                            'transform': 'translateX(' + x + 'px) translateY(' + y + 'px) scale( '+ scaleFinish +' )'
                         } );
 
-                    } else if ( scrollPoint == 1 ) {
+                    } else if ( scrollPoint == 0 ) {
+
+                        x = Math.cos( ( pointFinish - pointStart )/57.2 ) * radius;
+                        y = Math.sin( ( pointFinish - pointStart )/57.2 ) * radius;
+
+
+                        if( pointStart <= 180 ) {
+
+                            y = -y;
+
+                        }
+
+                        if( pointFinish <= 180 ) {
+
+                            x = -x;
+
+                        }
+
+                        if( pointStart === undefined ) {
+
+                            x = 0;
+                            y = 0;
+
+                        }
 
                         curElem.css( {
-                            '-webkit-transform': 'rotate(' + (rotate + ( -rotateEnd )) + 'deg) translate(' + translate + ') rotate(' + (rotateReverse + rotateEnd) + 'deg)',
-                            'transform': 'rotate(' + (rotate + ( -rotateEnd )) + 'deg) translate(' + translate + ') rotate(' + (rotateReverse + rotateEnd) + 'deg)'
+                            '-webkit-transform': 'translateX('  + x + 'px) translateY(' + y + 'px) scale( '+ scaleStart +' )',
+                            'transform': 'translateX(' + x + 'px) translateY(' + y + 'px) scale( '+ scaleStart +' )'
                         } );
+
 
                     } else {
 
+                            x = Math.cos( ( pointFinish - kof )/57.2 ) * radius;
+                            y = Math.sin( ( pointFinish - kof )/57.2 ) * radius;
+
+                        if( pointStart <= 180 ) {
+
+                            y = -y;
+
+                        }
+
+                        if( pointFinish <= 180 ) {
+
+                            x = -x;
+
+                        }
+
+                        if( pointStart === undefined ) {
+
+                            x = 0;
+                            y = 0;
+
+                        }
+
+
                         curElem.css( {
-                            '-webkit-transform': 'rotate(' + (rotate + ( -koofRotate )) + 'deg) translate(' + translate + ') rotate(' + ( rotateReverse + koofRotate ) + 'deg)',
-                            'transform': 'rotate(' + (rotate + ( -koofRotate )) + 'deg) translate(' + translate + ') rotate(' + ( rotateReverse + koofRotate ) + 'deg)'
+                            '-webkit-transform': 'translateX(' + x + 'px) translateY(' + y + 'px) scale( '+ kofScale +' )',
+                            'transform': 'translateX(' + x + 'px) translateY(' + y + 'px) scale( '+ kofScale +' )'
                         } );
 
                     }
-                })
-
-            },
-            _positionItems = function () {
-
-                if (_window.width() < 550) {
-
-                    _distance = 20;
-
-                } else if (_window.width() >= 550 && _window.width() < 1200) {
-
-                    _distance = 70;
-
-                } else {
-
-                    _distance = 54;
-
-                }
-
-                var radius = ( _obj.height() + _distance) / 2 + 'px',
-                    start = -90,
-                    numberOfElements = _items.length,
-                    slice = 360 / numberOfElements;
-
-                _items.each( function (i) {
-
-                    var curItem = $(this),
-                        rotate = slice * i + start,
-                        rotateReverse = rotate * -1;
-
-                    curItem.css( {
-                        '-webkit-transform': 'rotate(' + rotate + 'deg) scale(' + 0.4 + ')  translate(' + radius + ') rotate(' + rotateReverse + 'deg)',
-                        'transform': 'rotate(' + rotate + 'deg)  scale(' + 0.4 + ') translate(' + radius + ') rotate(' + rotateReverse + 'deg)'
-                    } );
-
-                    curItem.attr( 'data-rotate', rotate );
-                    curItem.attr( 'data-rotate-reverse', rotateReverse );
-                    curItem.attr( 'data-translate', radius );
-                    curItem.attr( 'data-scale', '0.4' );
-
                 } );
+
             },
             _init = function () {
 
                 _obj[0].obj = _self;
                 _addEvents();
-
-
 
             };
 
