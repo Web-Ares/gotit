@@ -55,6 +55,11 @@
   -webkit-transition: background 0.3s ease, border 0.3s ease;
   transition: background 0.3s ease, border 0.3s ease;
 
+  &.disabled {
+    opacity: 0;
+    visibility: hidden;
+  }
+
   &:hover {
     border-top: 2px solid #b10e3c;
     border-left: 2px solid #b10e3c;
