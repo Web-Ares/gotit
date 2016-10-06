@@ -528,9 +528,15 @@
       .contacts__info {
         justify-content: flex-start;
         padding: 3em 17px 3em;
+        min-height: 1px;
+        height: auto;
       }
       .contacts__pulse {
         margin: -4.1em auto -2em;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
       }
     }
   }

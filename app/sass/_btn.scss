@@ -96,6 +96,27 @@ button.btn {
   }
 
 }
+.btn_7 {
+  background: transparent;
+  border: 1px solid #fff;
+  width: 226px;
+  height: 32px;
+  font-size: 14px;
+  line-height: 14px;
+  margin: 0 0 20px;
+
+  &:hover {
+    color: $btn-color-active;
+    background: $btn-color-hover;
+    border-color: $btn-color-hover;
+  }
+  &:active {
+    color: $btn-color-active;
+    background: $btn-back-active;
+    border-color: $btn-back-active;
+  }
+
+}
 
 @media (min-width: $tablet-portrait) {
 
@@ -131,6 +152,14 @@ button.btn {
     text-transform: none;
     border-radius: 3px;
     @include main-font7();
+  }
+  .btn_7 {
+    width: 11.5em;
+    height: 3.1em;
+    margin: 0 0 0 0;
+    border-radius: 11.5em;
+    font-size: 0.7em;
+    line-height: 1em;
   }
 
 }
