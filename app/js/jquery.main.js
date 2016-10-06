@@ -162,14 +162,12 @@
 
                         if( _window.width() >= 1024 ) {
 
-                            console.log(300);
-
                             if ( $( this ).parents( '.case' ).length ) {
 
                                 _dom.stop( true, false );
                                 _dom.animate( { scrollTop: _mainSlider.innerHeight() }, 300 );
 
-                            }else{
+                            } else{
 
                                 $.fn.fullpage.moveTo(2);
 
@@ -935,8 +933,6 @@
 
                 _obj.on( {
                     click: function() {
-
-                        console.log(300);
 
                         _scroller.animate( { scrollTop: _mainSliderPic.innerHeight() }, 300 );
 
