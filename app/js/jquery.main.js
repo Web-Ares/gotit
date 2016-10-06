@@ -1278,9 +1278,6 @@
                         }
                     }
 
-                    _obj.height( content.width() );
-                    _obj.width( content.width() );
-
                 } else {
 
                     _obj.attr('style','');
