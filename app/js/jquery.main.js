@@ -741,6 +741,18 @@
 
                         $('.copy_move').remove();
 
+                        if( actSlide.find('.main-slider__content_pure').length ) {
+
+                            _obj.find('.swiper-button-prev').addClass('colored_pure');
+                            _obj.find('.swiper-button-next').addClass('colored_pure');
+
+                        } else {
+
+                            _obj.find('.swiper-button-prev').removeClass('colored_pure');
+                            _obj.find('.swiper-button-next').removeClass('colored_pure');
+
+                        }
+
                     },
                     onSlideChangeEnd: function( swiper ) {
 

@@ -11,7 +11,7 @@
     @include flexbox();
     @include flex-direction(row);
     @include align-items(center);
-    @include justify-content(space-around);
+    @include justify-content(center);
     width: 100%;
   }
 
@@ -24,6 +24,7 @@
   color: #fff;
   width: 36px;
   height: 36px;
+  margin: 0 6px;
   border-radius: 100%;
   border: 2px solid transparent;
   -webkit-transition: background 0.3s ease, border 0.3s ease;
@@ -81,6 +82,7 @@
   .pagination__item {
     width: 3.2em;
     height: 3.2em;
+    margin: 0 1.5em;
   }
   .pagination__item-prev ,
   .pagination__item-next {
@@ -90,5 +92,9 @@
 
 }
 @media (min-width: $desktop) {
+
+  .pagination__item {
+    margin: 0 3.7em;
+  }
 
 }

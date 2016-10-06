@@ -210,7 +210,7 @@
 
   .moves_up {
 
-    &.move:not(.not_move) {
+    &.move {
       -webkit-transform: translateY(-400px) !important;
       transform: translateY(-400px) !important;
     }

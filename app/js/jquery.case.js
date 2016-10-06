@@ -424,7 +424,6 @@
         var _self = this,
             _obj = obj,
             _items = _obj.find('.swiper-slide'),
-            _distance = 0,
             _window = $(window),
             _globalWidth = _window.width();
 
@@ -432,9 +431,29 @@
         var _addEvents = function () {
 
                 _window.on( {
+                    resize: function() {
+
+                        if( _globalWidth != _window.width() ) {
+
+                            _globalWidth = _window.width()+1;
+
+
+                            if( _window.width() < 1024 ) {
+
+                                _items.css( {
+                                    '-weblit-transform': 'none',
+                                    'transform': 'none'
+                                } );
+
+                            }
+
+                        }
+
+
+                    },
                     load: function() {
 
-                        if( _window.width()>=1024 ) {
+                        if( _window.width() >= 1024 ) {
 
                             _checkScroll();
 
