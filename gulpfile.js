@@ -20,7 +20,8 @@ var paths = {
         {
             dist: 'index.min.js',
             contains: [
-                'app/js/jquery.index.js'
+                'app/js/jquery.index.js',
+                'app/js/jquery.bubble.js'
             ]
         },
         {
@@ -41,7 +42,8 @@ var paths = {
             contains: [
                 'app/js/jquery.main.js',
                 'app/js/jquery.case.js',
-                'app/js/jquery.phone.js'
+                'app/js/jquery.phone.js',
+                'app/js/jquery.bubble.js'
             ]
         },
         {

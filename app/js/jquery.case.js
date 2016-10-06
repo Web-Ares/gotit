@@ -18,6 +18,7 @@
         $.each( $('.featured-products__items'), function () {
 
             new FeaturedProductsSlider( $(this) );
+            new FeaturedProductsAnimation( $(this) );
 
         } );
 
@@ -45,11 +46,11 @@
                         e = e || window.event;
 
                         var slide = $(this),
-                            _img1 = slide.find('.move1'),
-                            _img2 = slide.find('.move2'),
-                            _img3 = slide.find('.move3'),
-                            _img4 = slide.find('.move4'),
-                            _img5 = slide.find('.move5');
+                            _img1 = slide.find('.move1:not(.not_move)'),
+                            _img2 = slide.find('.move2:not(.not_move)'),
+                            _img3 = slide.find('.move3:not(.not_move)'),
+                            _img4 = slide.find('.move4:not(.not_move)'),
+                            _img5 = slide.find('.move5:not(.not_move)');
 
                         if ( _window.width() > 1024 && !( _header.hasClass('opened') ) && !( $(document).find('.move').hasClass('animated_moves') ) ) {
 
@@ -321,7 +322,7 @@
                     },
                     resize: function() {
 
-                        if( _window.width() < 768 ) {
+                        if( _window.width() < 1024 ) {
 
                             if( !_swiperInit ) {
 
@@ -329,8 +330,6 @@
                                 _swiperInit = true;
 
                             }
-
-                            _squadDisk.attr('style','')
 
 
                         } else {
@@ -345,6 +344,16 @@
 
                         }
 
+                        if( _window.width() < 768 ) {
+
+                            _squadDisk.attr('style','')
+
+
+                        } else {
+
+                            _setDiskSize();
+
+                        }
 
                     }
                 } );
@@ -353,8 +362,9 @@
             _initSwiper = function() {
 
                 _swiper = new Swiper( _obj.find( '.swiper-container' ), {
-                    slidesPerView: 1.5,
-                    centeredSlides: true
+                    slidesPerView: 1,
+                    nextButton: _obj.find('.swiper-button-next')[0],
+                    prevButton: _obj.find('.swiper-button-prev')[0]
                 } );
 
             },
@@ -393,7 +403,7 @@
                 _obj[0].obj = _self;
                 _addEvents();
 
-                if( _window.width() < 768 ) {
+                if( _window.width() < 1024 ) {
 
                     if( !_swiperInit ) {
 
@@ -407,5 +417,188 @@
 
         _init();
     };
+
+    var FeaturedProductsAnimation = function (obj) {
+
+        //private properties
+        var _self = this,
+            _obj = obj,
+            _items = _obj.find('.swiper-slide'),
+            _distance = 0,
+            _window = $(window),
+            _globalWidth = _window.width();
+
+        //private methods
+        var _addEvents = function () {
+
+                _window.on( {
+                    load: function() {
+
+                        if( _window.width()>=1024 ) {
+
+                            _checkScroll();
+
+                        }
+
+                    },
+                    scroll: function () {
+
+                        if (_window.width() >= 1024) {
+
+                            _checkScroll();
+
+                        }
+
+                    }
+                } );
+
+            },
+            _checkScroll = function(){
+
+                var windowH = _window.height(),
+                    topPos = _obj.offset().top,
+                    start = topPos - windowH/2.5,
+                    end = topPos - windowH/15,
+                    scrollPoint;
+
+                var x = ( end - _window.scrollTop() ) / ( end -  start );
+
+                if ( x > 1 ) {
+
+                    scrollPoint = 0;
+
+
+                } else if ( x < 0 ) {
+
+                    scrollPoint = 1;
+
+                }
+
+                if( ( x < 1 ) && ( x > 0 ) ){
+
+                    scrollPoint = 1 - x;
+
+                }
+
+                _animationElems( start, end, scrollPoint );
+
+            },
+            _animationElems = function ( startPoint, endPoint, scrollPoint ) {
+
+                var segment = endPoint - startPoint,
+                    radius = ( _obj.height() ) / 2;
+
+                _items.each( function () {
+
+                    var curElem = $( this ),
+                        pointStart = curElem.data('start'),
+                        pointFinish = curElem.data('finish'),
+                        scaleStart = 0,
+                        scaleFinish = 1,
+                        kof = ( ( pointFinish - pointStart ) * scrollPoint ) + pointStart,
+                        kofScale = scaleStart + ( scaleFinish - scaleStart ) / segment * ( _window.scrollTop() - startPoint );
+
+                    var x,
+                        y;
+
+
+                    if ( scrollPoint == 1 ) {
+
+                            x = Math.cos( pointFinish/57.2 ) * radius;
+                            y = Math.sin( pointFinish/57.2 ) * radius;
+
+                        if( pointFinish < 90 && pointFinish > 270 ) {
+
+                            x = -x;
+
+                        }
+
+                        if( pointStart === undefined ) {
+
+                            x = 0;
+                            y = 0;
+
+                        }
+
+                        curElem.css( {
+                            '-webkit-transform': 'translateX(' + x + 'px) translateY(' + y + 'px) scale( '+ scaleFinish +' )',
+                            'transform': 'translateX(' + x + 'px) translateY(' + y + 'px) scale( '+ scaleFinish +' )'
+                        } );
+
+                    } else if ( scrollPoint == 0 ) {
+
+                        x = Math.cos( ( pointFinish - pointStart )/57.2 ) * radius;
+                        y = Math.sin( ( pointFinish - pointStart )/57.2 ) * radius;
+
+
+                        if( pointStart <= 180 ) {
+
+                            y = -y;
+
+                        }
+
+                        if( pointFinish <= 180 ) {
+
+                            x = -x;
+
+                        }
+
+                        if( pointStart === undefined ) {
+
+                            x = 0;
+                            y = 0;
+
+                        }
+
+                        curElem.css( {
+                            '-webkit-transform': 'translateX('  + x + 'px) translateY(' + y + 'px) scale( '+ scaleStart +' )',
+                            'transform': 'translateX(' + x + 'px) translateY(' + y + 'px) scale( '+ scaleStart +' )'
+                        } );
+
+
+                    } else {
+
+                            x = Math.cos( ( pointFinish - kof )/57.2 ) * radius;
+                            y = Math.sin( ( pointFinish - kof )/57.2 ) * radius;
+
+                        if( pointStart <= 180 ) {
+
+                            y = -y;
+
+                        }
+
+                        if( pointFinish <= 180 ) {
+
+                            x = -x;
+
+                        }
+
+                        if( pointStart === undefined ) {
+
+                            x = 0;
+                            y = 0;
+
+                        }
+
+
+                        curElem.css( {
+                            '-webkit-transform': 'translateX(' + x + 'px) translateY(' + y + 'px) scale( '+ kofScale +' )',
+                            'transform': 'translateX(' + x + 'px) translateY(' + y + 'px) scale( '+ kofScale +' )'
+                        } );
+
+                    }
+                } );
+
+            },
+            _init = function () {
+
+                _obj[0].obj = _self;
+                _addEvents();
+
+            };
+
+        _init();
+    };
+
 
 } )();

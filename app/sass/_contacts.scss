@@ -260,6 +260,7 @@
 }
 .contacts__form {
   position: relative;
+  z-index: 5;
 
   form {
     //-webkit-transition: opacity 0.3s, visibility 0.3s;
