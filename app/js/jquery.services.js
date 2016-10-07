@@ -19,15 +19,25 @@
             _servicesWrap = _obj.find('.sevices__wrap'),
             _servicesBtns = $('.expertise__item'),
             _request = new XMLHttpRequest(),
-            _curAction = $('body').data( 'action' );
+            _curAction = $('body').data( 'action' ),
+            _window = $( window );
 
         var _addEvents = function () {
 
                 _servicesBtns.on( {
                     click: function() {
-                   
+
                         _addContent( $(this) );
                         return false;
+
+                    }
+                } );
+                _window.on( {
+                    resize: function() {
+
+                        _obj.css({
+                            height: 'auto'
+                        })
 
                     }
                 } );
@@ -35,9 +45,22 @@
             },
             _addContent = function ( elem ) {
 
-                var curId = elem.data( 'id' );
+                var curId = elem.data( 'id' ),
+                    curName = elem.data( 'name' ),
+                    padding = parseFloat( _obj.css('padding-bottom') ),
+                    url = window.location.pathname;
 
-                // _request.abort();
+                if ( elem.hasClass( 'active' ) ) {
+                    return false
+                }
+
+                _servicesBtns.removeClass('active');
+                elem.addClass('active');
+
+                _obj.css({
+                    height: _servicesWrap.innerHeight() + padding,
+                    opacity: 0
+                });
 
                 _request = $.ajax( {
 
@@ -53,8 +76,24 @@
 
                         var newContent = $( msg );
 
+                        url = [];
+                        url.push( curName );
+
+                        history.pushState( 2, '', ' '+url+'/' );
+
                         _servicesWrap.html( '' );
-                        _servicesWrap.html( newContent )
+                        _servicesWrap.html( newContent );
+
+                        setTimeout(function () {
+
+                            _obj.css({
+                                height: _servicesWrap.innerHeight() + padding,
+                                opacity: 1
+                            });
+
+                        }, 300);
+
+                        return false
 
                     },
                     error: function( XMLHttpRequest ){
