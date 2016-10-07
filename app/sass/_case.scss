@@ -24,6 +24,7 @@
   }
   img {
     display: block;
+    height: auto;
     margin: 0 0 20px;
   }
   ul,
@@ -565,7 +566,7 @@
         float: right;
       }
       &.alignnone {
-        width: 100%;
+        max-width: 100%;
         margin: 20px auto 40px;
       }
 
@@ -690,18 +691,5 @@
     }
 
   }
-}
-
-@media (max-width: $desktop) {
-
-  .case {
-
-    img {
-      width: 100%;
-      height: auto;
-    }
-
-  }
-
 }
 
