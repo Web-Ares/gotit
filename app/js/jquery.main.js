@@ -871,14 +871,15 @@
             _obj = obj,
             _window = $( window ),
             _swiperInit = false,
-            _swiper;
+            _swiper,
+            _screenVal = null;
 
         var _addEvents = function () {
 
                 _window.on( {
                     resize: function() {
 
-                        if( _window.width() < 768 ) {
+                        if( _window.width() < _screenVal ) {
 
                             if( !_swiperInit ) {
 
@@ -915,11 +916,25 @@
                 _swiper.destroy( true, true);
 
             },
+            _setScreenValue = function () {
+
+                if ( _obj.parents('.expertise_3').length )  {
+
+                    _screenVal = 1024
+
+                } else {
+
+                    _screenVal = 768
+
+                }
+
+            },
             _init = function() {
                 _obj[0].obj = _self;
+                _setScreenValue();
                 _addEvents();
 
-                if( _window.width() < 768 ) {
+                if( _window.width() < _screenVal ) {
 
                     if( !_swiperInit ) {
 

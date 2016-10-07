@@ -39,7 +39,6 @@
       transition: opacity .3s, visibility .3s;
     }
     &:before {
-      opacity: 0.7;
       position: absolute;
       top: -22px;
       right: -5px;
@@ -62,7 +61,7 @@
 
       &:before,
       &:after {
-        opacity: 1;
+        opacity: .7;
         visibility: visible;
       }
       &:hover {
@@ -221,6 +220,13 @@
   }
   .expertise_3 {
 
+    .swiper-container {
+
+      .swiper-wrapper {
+        flex-wrap: nowrap;
+      }
+    }
+
     .expertise__item {
       font-size: .9em;
       line-height: 1.24em;
@@ -231,7 +237,7 @@
         bottom: -45px;
       }
       &:after {
-        bottom: -61px;
+        bottom: -62px;
       }
       &.active {
 
