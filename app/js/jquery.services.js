@@ -48,7 +48,6 @@
                 var curId = elem.data( 'id' ),
                     curUrlArr = elem.data( 'name' ),
                     padding = parseFloat( _obj.css('padding-bottom') ),
-                    url = window.location.pathname,
                     name;
 
                 if ( elem.hasClass( 'active' ) ) {
@@ -77,19 +76,7 @@
 
                         var newContent = $( msg );
 
-                        // url = [];
-
-                        curUrlArr = curUrlArr.split('/');
-                        console.log(curUrlArr);
-                        
-                        name = curUrlArr[ curUrlArr.length - 2 ];
-                        
-                        console.info(name);
-                        console.log('1212');
-
-                        // url.push( name );
-
-                        history.replaceState( 2, '', ' '+url+'/' );
+                        history.replaceState( 2, '', ' '+curUrlArr+' ' );
 
                         _servicesWrap.html( '' );
                         _servicesWrap.html( newContent );

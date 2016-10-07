@@ -54,7 +54,6 @@
       }
       dt {
         position: relative;
-        letter-spacing: -0.3px;
         @include main-font2();
 
         &:before {
@@ -70,7 +69,6 @@
         }
       }
       dd {
-        letter-spacing: -0.4px;
         @include main-font3();
       }
     }
