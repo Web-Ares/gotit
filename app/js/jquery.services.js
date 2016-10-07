@@ -18,13 +18,14 @@
             _obj = obj,
             _servicesWrap = _obj.find('.sevices__wrap'),
             _servicesBtns = $('.expertise__item'),
-            _request = new XMLHttpRequest();
+            _request = new XMLHttpRequest(),
+            _curAction = $('body').data( 'action' );
 
         var _addEvents = function () {
 
                 _servicesBtns.on( {
                     click: function() {
-                        console.log('click');
+                   
                         _addContent( $(this) );
                         return false;
 
@@ -34,15 +35,17 @@
             },
             _addContent = function ( elem ) {
 
-                var curAction = elem.data( 'action' ),
-                    curId = elem.data( 'id' );
+                var curId = elem.data( 'id' );
 
                 // _request.abort();
 
                 _request = $.ajax( {
 
-                    url: curAction,
-                    data: [ curId ],
+                    url: _curAction,
+                    data:{
+                        action: "get_post_single",
+                        id: curId
+                    },
                     dataType: 'html',
                     timeout: 20000,
                     type: "GET",
