@@ -2,6 +2,9 @@
   position: relative;
   padding: 8px 0;
 
+  &_inner {
+    margin-bottom: 2.6em;
+  }
   .swiper-button-next,
   .swiper-button-prev {
     top: 106px;
