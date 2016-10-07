@@ -33,6 +33,30 @@
     line-height: 2.05em;
     @include main-font3();
   }
+  ul,
+  ol {
+    max-width: 940px;
+    margin: 0 auto 3.39em;
+
+    li {
+      position: relative;
+      font-size: 1em;
+      line-height: 1.9em;
+      text-align: left;
+      @include  main-font3();
+
+      &:before {
+        display: inline-block;
+        vertical-align: middle;
+        height: 6px;
+        width: 6px;
+        margin-right: 10px;
+        border-radius: 50%;
+        border: 2px solid #b10e3c;
+        content: '';
+      }
+    }
+  }
   &__wrap {
     max-width: 860px;
     padding: 0 15px;

@@ -907,7 +907,16 @@
 
                 _swiper = new Swiper( _obj.find( '.swiper-container' ), {
                     slidesPerView: 1.9,
-                    centeredSlides: true
+                    centeredSlides: true,
+                    onClick: function (swiper, event){
+
+                        console.log('onClick');
+
+                        var clicked = swiper.clickedIndex;
+                        swiper.activeIndex = clicked;
+                        swiper.updateClasses();
+                        _swiper.slideTo(clicked, 200, false);
+                    }
                 } );
 
             },

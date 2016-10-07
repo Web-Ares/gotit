@@ -20,6 +20,8 @@
             _servicesBtns = $('.expertise__item'),
             _request = new XMLHttpRequest(),
             _curAction = $('body').data( 'action' ),
+            _servicesTitle = $('.site__header-title'),
+            _servicesInnerTitle = $('.site__main-title_inner'),
             _window = $( window );
 
         var _addEvents = function () {
@@ -28,6 +30,7 @@
                     click: function() {
 
                         _addContent( $(this) );
+
                         return false;
 
                     }
@@ -47,11 +50,14 @@
 
                 var curId = elem.data( 'id' ),
                     curUrlArr = elem.data( 'name' ),
+                    title = elem.text(),
                     padding = parseFloat( _obj.css('padding-bottom') ),
                     name;
 
                 if ( elem.hasClass( 'active' ) ) {
+
                     return false
+
                 }
 
                 _servicesBtns.removeClass('active');
@@ -81,12 +87,20 @@
                         _servicesWrap.html( '' );
                         _servicesWrap.html( newContent );
 
+                        _servicesTitle.addClass('fade');
+                        _servicesInnerTitle.addClass('fade');
+
                         setTimeout(function () {
 
                             _obj.css({
                                 height: _servicesWrap.innerHeight() + padding,
                                 opacity: 1
                             });
+
+                            _servicesTitle.text(title);
+                            _servicesInnerTitle.text(title);
+                            _servicesTitle.removeClass('fade');
+                            _servicesInnerTitle.removeClass('fade');
 
                         }, 300);
 
@@ -101,6 +115,26 @@
                 } );
 
             },
+            // _centerSlide = function (elem) {
+            //
+            //     var curSlide = elem.parents('.swiper-slide'),
+            //         slides = $('.swiper-slide');
+            //
+            //     // slides.removeClass('swiper-slide-next');
+            //     // slides.removeClass('swiper-slide-prev');
+            //     curSlide.addClass( 'swiper-slide-active' );
+            //
+            //     // if (curSlide.prev().length) {
+            //     //     curSlide.prev().addClass('swiper-slide-prev')
+            //     // }
+            //     //
+            //     // if (curSlide.next().length) {
+            //     //     curSlide.next().addClass('swiper-slide-next')
+            //     // }
+            //
+            //     // $('.swiper-container').updateClasses();
+            //
+            // },
             _init = function() {
                 _obj[0].obj = _self;
                 _addEvents();

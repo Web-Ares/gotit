@@ -105,6 +105,10 @@ body {
   pointer-events: visible;
   -webkit-transition: opacity 0.3s, visibility 0.3s;
   transition: opacity 0.3s, visibility 0.3s;
+
+  &.fade {
+    opacity: 0;
+  }
 }
 .site__header__btn {
   position: absolute;
@@ -281,7 +285,14 @@ body {
   transform: translate(-50%, -50%);
 
   &_inner {
+    opacity: 1;
     top: 1.6em;
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s;
+
+    &.fade {
+      opacity: 0;
+    }
   }
 }
 .swiper-button-next,
