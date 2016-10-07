@@ -31,6 +31,18 @@
   font-size: 20px;
   line-height: 26px;
   color: rgba(255,255,255,0.7);
+
+  a {
+    color: rgba(255,255,255,0.7);
+    -webkit-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: rgba(255,255,255,1);
+    }
+
+  }
+
 }
 .blog__post-pic {
   overflow: hidden;
