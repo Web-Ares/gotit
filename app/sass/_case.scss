@@ -678,6 +678,17 @@
     }
 
   }
+  .case__content_margin {
+
+    img {
+
+      &.alignleft {
+        margin: 20px 5.1em 20px 0;
+      }
+
+    }
+
+  }
 }
 
 @media (max-width: $desktop) {
