@@ -44,7 +44,8 @@ var paths = {
                 'app/js/jquery.main.js',
                 'app/js/jquery.case.js',
                 'app/js/jquery.phone.js',
-                'app/js/jquery.bubble.js'
+                'app/js/jquery.bubble.js',
+                'app/js/jquery.retina-images.js'
             ]
         },
         {
