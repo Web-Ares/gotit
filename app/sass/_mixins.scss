@@ -34,6 +34,11 @@
   font-weight: 400;
   font-style: normal;
 }
+@mixin main-font8() {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
 
 @mixin justify() {
   text-align: justify;
