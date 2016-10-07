@@ -46,9 +46,10 @@
             _addContent = function ( elem ) {
 
                 var curId = elem.data( 'id' ),
-                    curName = elem.data( 'name' ),
+                    curUrlArr = elem.data( 'name' ),
                     padding = parseFloat( _obj.css('padding-bottom') ),
-                    url = window.location.pathname;
+                    url = window.location.pathname,
+                    name;
 
                 if ( elem.hasClass( 'active' ) ) {
                     return false
@@ -77,7 +78,11 @@
                         var newContent = $( msg );
 
                         url = [];
-                        url.push( curName );
+
+                        curUrlArr = curUrlArr.split('/');
+                        name = curUrlArr[ curUrlArr-1 ];
+
+                        url.push( name );
 
                         history.pushState( 2, '', ' '+url+'/' );
 
