@@ -80,7 +80,12 @@
                         url = [];
 
                         curUrlArr = curUrlArr.split('/');
-                        name = curUrlArr[ curUrlArr-1 ];
+                        console.log(curUrlArr);
+                        
+                        name = curUrlArr[ curUrlArr.length - 2 ];
+                        
+                        console.info(name);
+                        console.log('1212');
 
                         url.push( name );
 
