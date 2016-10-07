@@ -77,7 +77,7 @@
 
                         var newContent = $( msg );
 
-                        url = [];
+                        // url = [];
 
                         curUrlArr = curUrlArr.split('/');
                         console.log(curUrlArr);
@@ -87,9 +87,9 @@
                         console.info(name);
                         console.log('1212');
 
-                        url.push( name );
+                        // url.push( name );
 
-                        history.pushState( 2, '', ' '+url+'/' );
+                        history.replaceState( 2, '', ' '+url+'/' );
 
                         _servicesWrap.html( '' );
                         _servicesWrap.html( newContent );
