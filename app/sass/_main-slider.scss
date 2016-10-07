@@ -34,6 +34,18 @@
     border-left: 1px solid #fff;
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
+
+    &:after {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 260%;
+      height: 260%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      content: '';
+    }
+
   }
   .swiper-button-prev {
     left: 18px;
@@ -132,6 +144,16 @@
     content: '';
     -webkit-transform: rotate(-135deg) translateX(100%) translateY(50%);
     transform: rotate(-135deg) translateX(100%) translateY(50%);
+  }
+  &:before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 260%;
+    height: 260%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    content: '';
   }
 
 }
@@ -313,7 +335,7 @@
   .main-slider__woman {
     position: absolute;
     z-index: 1;
-    bottom: 0;
+    bottom: -5px;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     background-image: url("../pic/case-pure_women.jpg.png");
@@ -378,9 +400,9 @@
   }
   .main-slider__hero-content {
     position: absolute;
-    right: 1em;
+    right: 1.65em;
     left: auto;
-    top: 2.5em;
+    top: 1.84em;
     z-index: 4;
 
     .main-slider__text {
@@ -428,7 +450,7 @@
   }
   .main-slider__pure-slogan {
     width: 4.5em;
-    right: 1.65em;
+    //right: 1.65em;
     //left: auto;
     //top: 1.82em;
 

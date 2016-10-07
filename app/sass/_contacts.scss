@@ -52,10 +52,12 @@
   }
 
   .contacts__map-google {
+    overflow: hidden;
     position: absolute !important;
     z-index: 1;
     width: 100%;
     height: 100%;
+    border-radius: 50% 50% 0% 0% / 17% 17% 0% 0%;
   }
 
 }
@@ -336,6 +338,28 @@
   }
 
 }
+.gmnoprint a, .gmnoprint span {
+  display:none;
+}
+.gmnoprint div {
+  background:none !important;
+}
+img[src="http://maps.gstatic.com/mapfiles/api-3/images/google_white2.png"],
+img[src="https://maps.gstatic.com/mapfiles/api-3/images/google_white5_hdpi.png"],
+a[href^="http://maps.google.com/maps"],
+a[href^="https://maps.google.com/maps?ll=40.60729,-73.976886&z=9&hl=ru&gl=US&mapclient=apiv3"]{
+  display:none !important;
+}
+.pac-container:after {
+  /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
+
+  background-image: none !important;
+  height: 0px;
+}
+.pac-container:after {
+  content: "Powered by Google";
+  font-size: 10px;
+}
 
 @-webkit-keyframes pulsejg1 {
   0% {
@@ -564,6 +588,9 @@
       animation-duration: 4000ms;
       animation-timing-function: ease-in-out;
       animation-iteration-count: infinite;
+    }
+    .contacts__map-google {
+      border-radius: 100%;
     }
 
   }
