@@ -410,6 +410,20 @@
                             _obj.removeClass('fixed');
 
                         }
+                    },
+                    resize: function() {
+
+                        if( _window.width() >= 1024 ) {
+
+                            _setHeaderHeight();
+
+
+                        } else {
+
+                            $('.site__content').attr( 'style', '' );
+
+                        }
+
                     }
 
                 } );
@@ -451,6 +465,16 @@
 
                 }
 
+            },
+            _setHeaderHeight = function() {
+
+                if( _obj.find('.site__header-title').length ) {
+
+                    $('.site__content').css( {
+                        'padding-top': $('.site__header-title').outerHeight(true)
+                    } );
+
+                }
 
             },
             _init = function () {
@@ -467,6 +491,13 @@
                     _obj.removeClass('fixed');
 
                 }
+
+                if( _window.width() >= 1024 ) {
+
+                    _setHeaderHeight();
+
+                }
+
 
             };
 
