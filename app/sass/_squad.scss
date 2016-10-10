@@ -18,6 +18,10 @@
   .site__title {
     margin: 0;
   }
+  .btn {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
 
 }
 .squad__inner {
