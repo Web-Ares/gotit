@@ -82,8 +82,6 @@
 
                         _obj.removeClass('hidden');
 
-                        history.pushState('', '', location.href.split('?success=true')[0]);
-
                         return false;
 
                     }
