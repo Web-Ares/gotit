@@ -27,10 +27,11 @@
                 _pasteHeightDiv();
                 _pasteErrorWrap();
                 _obj[0].obj = _self;
+
             },
             _pasteHeightDiv = function() {
 
-                _textareaWrap.append('<div class="contacts__fields-textarea-height"></div>')
+                _textareaWrap.append('<div class="contacts__fields-textarea-height"></div>');
 
             },
             _pasteErrorWrap = function() {
@@ -80,6 +81,9 @@
                     click: function() {
 
                         _obj.removeClass('hidden');
+
+                        history.pushState('', '', location.href.split('?success=true')[0]);
+
                         return false;
 
                     }
