@@ -258,24 +258,63 @@
 
                             <!-- contacts__form -->
                             <div class="contacts__form">
-                                <form action="#" novalidate data-action="php/form.php">
-                                    <p>You can also drop us a line:</p>
 
-                                    <div class="contacts__fields">
-                                        <div class="contacts__cell">
-                                            <input class="site__input" required type="text" name="your-name" id="name" placeholder="Name *">
-                                            <input class="site__input" required type="text" name="your-phone" id="contact" placeholder="Your Phone or E-mail *">
+                                <p>You can also drop us a line:</p>
 
+                                <!--<form action="#" novalidate data-action="php/form.php">-->
+                                    <!--<div class="contacts__fields">-->
+                                        <!--<div class="contacts__cell">-->
+                                            <!--<input class="site__input" required type="text" name="your-name" id="name" placeholder="Name *">-->
+                                            <!--<input class="site__input" required type="text" name="your-phone" id="contact" placeholder="Your Phone or E-mail *">-->
+
+                                        <!--</div>-->
+                                        <!--<div class="contacts__fields-textarea">-->
+                                            <!--<div class="contacts__fields-textarea-height"></div>-->
+                                            <!--<textarea class="site__input" required name="message" id="input_1_4" cols="30" rows="10" placeholder="Your Message *"></textarea>-->
+                                        <!--</div>-->
+                                        <!--<span class="contacts__fields-error">please add your name</span>-->
+                                    <!--</div>-->
+
+                                    <!--<button class="btn btn_4"><span>SEND MESSAGE</span></button>-->
+                                <!--</form>-->
+
+                                <div>
+                                    <form method="post" enctype="multipart/form-data" target="gform_ajax_frame_1" id="gform_1" action="/contact-us/#gf_1" novalidate>
+                                        <div class="gform_body">
+                                            <ul class="gform_fields">
+                                                <li id="field_1_1" class="gfield gfield_error gfield_half gfield_name">
+                                                    <label class="gfield_label" for="input_1_1">Untitled
+                                                        <span class="gfield_required">*</span>
+                                                    </label>
+                                                    <div class="ginput_container ginput_container_text">
+                                                        <input name="input_1" id="input_1_1" type="text" value="" class="small" aria-required="true" aria-invalid="true" placeholder="Name *">
+                                                    </div>
+                                                    <div class="gfield_description validation_message">This field is required.</div>
+                                                </li>
+                                                <li id="field_1_2" class="gfield gfield_half gfield_email">
+                                                    <label class="gfield_label" for="input_1_2">Untitled
+                                                        <span class="gfield_required">*</span>
+                                                    </label>
+                                                    <div class="ginput_container ginput_container_text">
+                                                        <input name="input_2" id="input_1_2" type="text" value="" class="medium" placeholder="Your Phone or E-mail *">
+                                                    </div>
+                                                    <div class="gfield_description validation_message">This field is required.</div>
+                                                </li>
+                                                <li id="field_1_4" class="gfield gfield_textarea">
+                                                    <label class="gfield_label" for="input_1_4">Untitled
+                                                        <span class="gfield_required">*</span>
+                                                    </label>
+                                                    <div class="ginput_container ginput_container_text">
+                                                        <textarea class="site__input" required name="message" id="input_1_4" cols="30" rows="10" placeholder="Your Message *"></textarea>                                                    </div>
+                                                    <div class="gfield_description validation_message">This field is required.</div>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <div class="contacts__fields-textarea">
-                                            <div class="contacts__fields-textarea-height"></div>
-                                            <textarea class="site__input" required name="message" id="message" cols="30" rows="10" placeholder="Your Message *"></textarea>
+                                        <div class="gform_footer top_label">
+                                            <button class="btn btn_4"><span>SEND MESSAGE</span></button>
                                         </div>
-                                        <span class="contacts__fields-error">please add your name</span>
-                                    </div>
-
-                                    <button class="btn btn_4"><span>SEND MESSAGE</span></button>
-                                </form>
+                                    </form>
+                                </div>
 
                                 <!-- contacts__success -->
                                 <div class="contacts__success">

@@ -35,7 +35,8 @@ var paths = {
             dist: 'contacts.min.js',
             contains: [
                 'app/js/jquery.main.js',
-                'app/js/jquery.form.validator.js'
+                'app/js/jquery.contact-form.js'
+                //'app/js/jquery.form.validator.js'
             ]
         },
         {

@@ -123,7 +123,6 @@
                         _textareaField.css( 'height', _textareaHeight.innerHeight());
 
                         if( e.keyCode == 13 ) {
-                            console.log(00)
                             _textareaField.css( 'height', _textareaHeight.innerHeight());
                         }
 
