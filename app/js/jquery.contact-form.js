@@ -44,6 +44,7 @@
                 if( _obj.find('.gfield').hasClass('gfield_error') ) {
 
                     _formBody.find('.contacts__fields-error').text( _obj.find('.gfield_error:first .validation_message').text() );
+                    _obj.find('.gfield_error:first input, .gfield_error:first textarea').focus();
                     _formBody.find('.contacts__fields-error').addClass('visible');
 
                 } else {
