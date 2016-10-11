@@ -41,37 +41,21 @@
             },
             _addErrorText = function() {
 
+                if( _obj.find('.gfield').hasClass('gfield_error') ) {
+
+                    _formBody.find('.contacts__fields-error').text( _obj.find('.gfield_error:first .validation_message').text() );
+                    _formBody.find('.contacts__fields-error').addClass('visible');
+
+                } else {
+
+                    _formBody.find('.contacts__fields-error').removeClass('visible');
+
+                }
 
 
             },
             _onEvents = function () {
-                //_form.on( {
-                //    submit: function( ) {
-                //
-                //        if( _fields.hasClass('not-touched') ) {
-                //
-                //            _obj.find('.not-touched:first').focus();
-                //            _errorMessage.text( _obj.find('.not-touched:first').data('error') );
-                //            _errorMessage.addClass('visible');
-                //
-                //        } else {
-                //
-                //            _errorMessage.removeClass('visible');
-                //
-                //        }
-                //
-                //    }
-                //
-                //} );
-                //_fields.on( {
-                //    keypress: function() {
-                //
-                //        $(this).removeClass( 'not-touched' );
-                //        _errorMessage.removeClass('visible');
-                //
-                //
-                //    }
-                //} );
+
                 _textareaWrap.on( {
                     keyup: function( e ) {
 
