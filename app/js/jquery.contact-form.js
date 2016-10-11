@@ -18,6 +18,7 @@
         var _self = this,
             _obj = obj,
             _formBody = _obj.find('.gform_body'),
+            _btnSuccess = $('.contacts__success .btn'),
             _textareaWrap = _obj.find('.gfield_textarea');
 
         //private methods
@@ -39,6 +40,7 @@
                 _addErrorText();
 
             },
+
             _addErrorText = function() {
 
                 if( _obj.find('.gfield').hasClass('gfield_error') ) {
@@ -70,6 +72,14 @@
                             _textareaWrap.css( 'height', heightWrap.innerHeight());
                         }
 
+                        return false;
+
+                    }
+                } );
+                _btnSuccess.on( {
+                    click: function() {
+
+                        _obj.removeClass('hidden');
                         return false;
 
                     }
