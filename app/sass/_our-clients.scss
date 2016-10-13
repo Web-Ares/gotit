@@ -41,6 +41,11 @@
     opacity: 1;
   }
 
+  img[src$=".svg"] {
+    width: 100%;
+    height: 70px;
+  }
+
 }
 
 @media (min-width: $tablet-portrait) {

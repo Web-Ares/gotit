@@ -191,13 +191,29 @@
 
                 var height = _window.height();
 
-                _obj.css( {
-                    height: height
-                } );
+                if( height >= 450 ) {
 
-                _obj.parents('.case').css( {
-                    'padding-top': height + 20
-                } );
+                    _obj.css( {
+                        height: height
+                    } );
+
+                    _obj.parents('.case').css( {
+                        'padding-top': height + 20
+                    } );
+
+                } else {
+
+                    _obj.css( {
+                        height: '450px'
+                    } );
+
+                    _obj.parents('.case').css( {
+                        'padding-top': '470px'
+                    } );
+
+                }
+
+
 
             },
             _addPictures = function() {
