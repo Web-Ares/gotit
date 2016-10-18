@@ -19,12 +19,15 @@
             _obj = obj,
             _formBody = _obj.find('.gform_body'),
             _btnSuccess = $('.contacts__success .btn'),
+            _formClone = $('.gform_wrapper'),
+            _contactForm = $('.contacts__form'),
             _textareaWrap = _obj.find('.gfield_textarea');
-
+ 
         //private methods
         var _constructor = function () {
                 _onEvents();
                 _pasteHeightDiv();
+                _getCLoneForm();
                 // _pasteErrorWrap();
                 _obj[0].obj = _self;
 
@@ -40,11 +43,14 @@
                 // _obj.find('.gform_body').append('<span class="contacts__fields-error"></span>');
 
             },
+            _getCLoneForm = function() {
+                _formClone = _formClone.clone(true);
+            },
 
             _addErrorText = function() {
                 _obj.find('.gform_body').append('<span class="contacts__fields-error"></span>');
                 if( _obj.find('.gfield').hasClass('gfield_error') ) {
-                    
+
                     _obj.find('.gform_body').find('.contacts__fields-error').text( _obj.find('.gfield_error:first .validation_message').text() );
                     _obj.find('.gfield_error:first input, .gfield_error:first textarea').focus();
                     _obj.find('.gform_body').find('.contacts__fields-error').addClass('visible');
@@ -59,22 +65,24 @@
             },
             _onEvents = function () {
 
-                $(document).on('gform_confirmation_loaded', function(){
+                $(document).bind('gform_confirmation_loaded', function(){
 
                     _obj.addClass('hidden');
+                    _contactForm.find('div:first').append(_formClone);
+
+                    $('.gform_wrapper').find('form')[0].reset();
                 } );
 
                 $(document).bind('gform_post_render', function(){
                     _pasteErrorWrap();
                     _addErrorText();
-
                 } );
 
 
                 _textareaWrap.on( {
                     keyup: function( e ) {
 
-                        var value = $(this).find('textarea').val(),
+                        var value = $(this).find('textarea').val(''),
                             heightWrap = $('.contacts__fields-textarea-height');
 
                         heightWrap.html(value);
@@ -90,7 +98,8 @@
                 } );
                 _btnSuccess.on( {
                     click: function() {
-
+                        $('.gform_wrapper').find('form')[0].reset();
+                        _getCLoneForm();
                         _obj.removeClass('hidden');
 
                         return false;
