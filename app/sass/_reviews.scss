@@ -64,8 +64,9 @@
   img {
     width: 100%;
     height: auto;
-    -webkit-transform: scale(1.03);
-    transform: scale(1.03);
+    border-radius: 100%;
+    //-webkit-transform: scale(1.03);
+    //transform: scale(1.03);
   }
 
 }
@@ -206,9 +207,9 @@
     height: 0;
 
     img {
-      position: absolute;
-      top: 0;
-      left: 0;
+      //position: absolute;
+      //top: 0;
+      //left: 0;
     }
 
   }
