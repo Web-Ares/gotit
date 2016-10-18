@@ -39,6 +39,11 @@
   font-weight: 700;
   font-style: normal;
 }
+@mixin main-font9() {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
 
 @mixin justify() {
   text-align: justify;
