@@ -286,7 +286,7 @@
             _window = $(window),
             _mainSlider = $('.main-slider'),
             _caseHero = $('.case__hero'),
-            _body = $( 'body' );
+            _body = _obj;
 
         //private methods
         var _onEvents = function () {
@@ -312,6 +312,7 @@
                             _caseHero.css( {
                                 'font-size': '75px'
                             } );
+
 
                         }
 
@@ -339,12 +340,12 @@
 
                 if( _window.height() > 500 ) {
 
-                    newSize = (( 100 * ( window.innerHeight / 900 ) )) + 'px';
+                    newSize = (( 100 * ( window.innerHeight / 800 ) )) + 'px'
 
 
                 } else {
 
-                    newSize = (( 100 * ( 500 / 900 ) )) + 'px';
+                    newSize = (( 100 * ( 500 / 800 ) )) + 'px'
 
                 }
 
@@ -359,6 +360,7 @@
                 _caseHero.css( {
                     'font-size': newSize
                 } );
+
 
             };
 
@@ -1097,7 +1099,7 @@
 
                         map.setCenter( myLatLng );
 
-                        _offsetCenter( map.getCenter(), 0, 50);
+                        //_offsetCenter( map.getCenter(), 0, 0);
 
                     }
 
@@ -1116,9 +1118,9 @@
                             marker.setPosition(myLatLng);
 
                             setTimeout( function() {
-                                google.maps.event.trigger(map, 'resize');
+                                //google.maps.event.trigger(map, 'resize');
                                 map.setCenter(myLatLng);
-                                _offsetCenter( map.getCenter(), 0, 50);
+                                //_offsetCenter( map.getCenter(), 0, 0);
                             }, 300 );
 
                         }
@@ -1302,7 +1304,7 @@
 
                         map.setCenter( myLatLng );
 
-                        _offsetCenter( map.getCenter(), 0, 50);
+                        //_offsetCenter( map.getCenter(), 0, 0);
 
                     }
 
@@ -1317,7 +1319,8 @@
             _setHeight = function() {
 
                 var contentInner = $('.contacts__inner'),
-                    contentInfo = $('.contacts__info');
+                    contentInfo = $('.contacts__info'),
+                    pulse = $('.contacts__pulse');
 
                 if( _window.width() >= 768 ) {
 
@@ -1346,6 +1349,11 @@
                     _obj.attr('style','');
 
                 }
+
+                var pos = pulse.offset().top - _obj.offset().top,
+                    center = pulse.height()/2 + pos;
+
+                _map.height( center * 2 )
 
 
             };

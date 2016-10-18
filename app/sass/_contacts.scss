@@ -57,7 +57,7 @@
     z-index: 1;
     width: 100%;
     height: 100%;
-    border-radius: 50% 50% 0% 0% / 17% 17% 0% 0%;
+    //border-radius: 50% 50% 0% 0% / 17% 17% 0% 0%;
   }
 
 }
@@ -691,7 +691,7 @@ a[href^="https://maps.google.com/maps?ll=40.60729,-73.976886&z=9&hl=ru&gl=US&map
       animation-iteration-count: infinite;
     }
     .contacts__map-google {
-      border-radius: 100%;
+      //border-radius: 100%;
     }
 
   }

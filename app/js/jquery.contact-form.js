@@ -38,8 +38,6 @@
 
                 _formBody.append('<span class="contacts__fields-error"></span>');
 
-                _addErrorText();
-
             },
 
             _addErrorText = function() {
@@ -59,6 +57,18 @@
 
             },
             _onEvents = function () {
+
+                $(document).on('gform_confirmation_loaded', function(){
+
+                    _obj.addClass('hidden');
+                } );
+
+                $(document).bind('gform_post_render', function(){
+
+                    _addErrorText();
+
+                } );
+
 
                 _textareaWrap.on( {
                     keyup: function( e ) {
@@ -81,8 +91,6 @@
                     click: function() {
 
                         _obj.removeClass('hidden');
-
-                        history.pushState('', '', location.href.split('?success=true')[0]);
 
                         return false;
 

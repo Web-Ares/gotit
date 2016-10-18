@@ -34,16 +34,20 @@
   text-align: center;
   margin: 0 0 20px;
 
-  span {
+  >span {
     display: block;
     max-width: 150px;
     margin: 0 auto;
     text-transform: uppercase;
-    font-size: 15px;
-    line-height: 18px;
+    font-size: 13px;
+    line-height: 16px;
     color: #fff;
     @include main-font2();
     letter-spacing: 3px;
+
+    >span {
+      display: block;
+    }
 
   }
 
@@ -66,7 +70,7 @@
 
 }
 .reviews__text {
-  max-height: 375px;
+  //max-height: 375px;
   overflow: hidden;
   text-align: left;
 
@@ -188,7 +192,8 @@
     text-align: left;
     margin: 0;
 
-    span {
+    >span {
+      display: block;
       margin: 0 0 0 0.6em;
     }
 
@@ -211,8 +216,8 @@
     display: inline-block;
     vertical-align: top;
     width: 73%;
-    padding: 0.4em 0 0 1.7em;
-    height: 223px;
+    padding: 0.4em 0 0 3em;
+    //height: 223px;
 
     p {
       font-size: 18px !important;
