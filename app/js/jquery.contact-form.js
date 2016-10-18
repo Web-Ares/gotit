@@ -25,7 +25,7 @@
         var _constructor = function () {
                 _onEvents();
                 _pasteHeightDiv();
-                _pasteErrorWrap();
+                // _pasteErrorWrap();
                 _obj[0].obj = _self;
 
             },
@@ -36,17 +36,18 @@
             },
             _pasteErrorWrap = function() {
 
-                _formBody.append('<span class="contacts__fields-error"></span>');
+
+                // _obj.find('.gform_body').append('<span class="contacts__fields-error"></span>');
 
             },
 
             _addErrorText = function() {
-
+                _obj.find('.gform_body').append('<span class="contacts__fields-error"></span>');
                 if( _obj.find('.gfield').hasClass('gfield_error') ) {
-
-                    _formBody.find('.contacts__fields-error').text( _obj.find('.gfield_error:first .validation_message').text() );
+                    
+                    _obj.find('.gform_body').find('.contacts__fields-error').text( _obj.find('.gfield_error:first .validation_message').text() );
                     _obj.find('.gfield_error:first input, .gfield_error:first textarea').focus();
-                    _formBody.find('.contacts__fields-error').addClass('visible');
+                    _obj.find('.gform_body').find('.contacts__fields-error').addClass('visible');
 
                 } else {
 
@@ -64,7 +65,7 @@
                 } );
 
                 $(document).bind('gform_post_render', function(){
-
+                    _pasteErrorWrap();
                     _addErrorText();
 
                 } );
