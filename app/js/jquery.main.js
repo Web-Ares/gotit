@@ -384,14 +384,18 @@
 
                 _obj.removeClass( 'opened' );
 
-                if( _window.width() < 1024 ) {
+                if( (_window.width() < 1024) && ($('.site__index-page').length) ) {
 
                     _html.css( {
                         'overflow-y': 'auto'
                     } );
-                    _body.css( {
+
+                } else {
+
+                    _html.css( {
                         'overflow-y': 'auto'
                     } );
+
 
                 }
 
@@ -456,14 +460,19 @@
 
                 _obj.addClass( 'opened' );
 
-                if( _window.width() < 1024 ) {
+                if( (_window.width() < 1024) && ($('.site__index-page').length) ) {
 
                     _html.css( {
                         'overflow-y': 'hidden'
                     } );
-                    _body.css( {
+
+
+                } else {
+
+                    _html.css( {
                         'overflow-y': 'hidden'
                     } );
+
 
                 }
 
