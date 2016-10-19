@@ -70,7 +70,6 @@
 }
 .blog__post-pic {
   overflow: hidden;
-  border-radius: 100%;
   margin: 0 auto 30px;
   max-width: 320px;
 
@@ -78,8 +77,6 @@
     display: block;
     width: 100%;
     height: auto;
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
   }
 
 }
@@ -149,7 +146,7 @@
 }
 .blog__content-pic {
   overflow: hidden;
-  border-radius: 100%;
+  //border-radius: 100%;
   margin: 0 auto 41px;
   max-width: 265px;
 
@@ -157,8 +154,6 @@
     display: block;
     width: 100%;
     height: auto;
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
   }
 
 }
@@ -229,7 +224,7 @@
     width: 26.6%;
     margin: 0;
     max-width: 14em;
-    max-height: 14em;
+    //max-height: 14em;
   }
   .blog__content {
     margin: 0 auto 1.9em;

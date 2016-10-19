@@ -40,7 +40,7 @@
                     heightWrap = _obj.find('.gform_body .contacts__fields-textarea-height');
 
                 heightWrap.html(value);
-                _obj.find('.gform_body .gfield_textarea').css( 'height', heightWrap.innerHeight());
+                _obj.find('.gform_body .gfield_textarea').css( 'height', heightWrap.innerHeight()+20);
 
             },
             _pasteErrorWrap = function() {
@@ -91,10 +91,10 @@
                                 heightWrap = _obj.find('.gform_body .contacts__fields-textarea-height');
 
                             heightWrap.html(value);
-                            _obj.find('.gform_body .gfield_textarea').css( 'height', heightWrap.innerHeight());
+                            _obj.find('.gform_body .gfield_textarea').css( 'height', heightWrap.innerHeight()+20);
 
                             if( e.keyCode == 13 ) {
-                                _obj.find('.gform_body .gfield_textarea').css( 'height', heightWrap.innerHeight());
+                                _obj.find('.gform_body .gfield_textarea').css( 'height', heightWrap.innerHeight()+20);
                             }
 
                             return false;
@@ -112,10 +112,10 @@
                             heightWrap = _obj.find('.gform_body .contacts__fields-textarea-height');
 
                         heightWrap.html(value);
-                        _obj.find('.gform_body .gfield_textarea').css( 'height', heightWrap.innerHeight());
+                        _obj.find('.gform_body .gfield_textarea').css( 'height', heightWrap.innerHeight()+20);
 
                         if( e.keyCode == 13 ) {
-                            _obj.find('.gform_body .gfield_textarea').css( 'height', heightWrap.innerHeight());
+                            _obj.find('.gform_body .gfield_textarea').css( 'height', heightWrap.innerHeight()+20);
                         }
 
                         console.log(value)

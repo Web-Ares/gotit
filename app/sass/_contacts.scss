@@ -358,6 +358,7 @@
     margin: 0 0 9px;
     -webkit-transition: height 0.3s ease;
     transition: height 0.3s ease;
+    max-height: 200px;
 
     textarea {
       position: absolute;
@@ -365,11 +366,13 @@
       height: 104%;
       top: 0;
       left: 0;
+      -webkit-transition: height 0.3s ease;
+      transition: height 0.3s ease;
     }
 
     .contacts__fields-textarea-height {
       position: absolute;
-      width: 98%;
+      width: 96%;
       top: 0;
       left: 0;
       font-size: 16px;
@@ -378,7 +381,7 @@
       padding: 8px 5px;
       color: transparent;
       pointer-events: none;
-      white-space: pre-line;
+      white-space: pre-wrap;
     }
 
   }
