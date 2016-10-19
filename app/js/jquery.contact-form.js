@@ -34,7 +34,13 @@
             },
             _pasteHeightDiv = function() {
 
-                _textareaWrap.append('<div class="contacts__fields-textarea-height"></div>');
+                _obj.find('.gform_body .gfield_textarea').append('<div class="contacts__fields-textarea-height"></div>');
+
+                var value = _obj.find('.gform_body .gfield_textarea').find('textarea').val(),
+                    heightWrap = _obj.find('.gform_body .contacts__fields-textarea-height');
+
+                heightWrap.html(value);
+                _obj.find('.gform_body .gfield_textarea').css( 'height', heightWrap.innerHeight());
 
             },
             _pasteErrorWrap = function() {
@@ -57,7 +63,7 @@
 
                 } else {
 
-                    _formBody.find('.contacts__fields-error').removeClass('visible');
+                    _obj.find('.gform_body').find('.contacts__fields-error').removeClass('visible');
 
                 }
 
@@ -75,22 +81,44 @@
 
                 $(document).bind('gform_post_render', function(){
                     _pasteErrorWrap();
+                    _pasteHeightDiv();
                     _addErrorText();
+
+                    _obj.find('.gform_body .gfield_textarea').on( {
+                        keyup: function( e ) {
+
+                            var value = $(this).find('textarea').val(),
+                                heightWrap = _obj.find('.gform_body .contacts__fields-textarea-height');
+
+                            heightWrap.html(value);
+                            _obj.find('.gform_body .gfield_textarea').css( 'height', heightWrap.innerHeight());
+
+                            if( e.keyCode == 13 ) {
+                                _obj.find('.gform_body .gfield_textarea').css( 'height', heightWrap.innerHeight());
+                            }
+
+                            return false;
+
+                        }
+                    } );
+
                 } );
 
 
-                _textareaWrap.on( {
+                _obj.find('.gform_body .gfield_textarea').on( {
                     keyup: function( e ) {
 
-                        var value = $(this).find('textarea').val(''),
-                            heightWrap = $('.contacts__fields-textarea-height');
+                        var value = $(this).find('textarea').val(),
+                            heightWrap = _obj.find('.gform_body .contacts__fields-textarea-height');
 
                         heightWrap.html(value);
-                        _textareaWrap.css( 'height', heightWrap.innerHeight());
+                        _obj.find('.gform_body .gfield_textarea').css( 'height', heightWrap.innerHeight());
 
                         if( e.keyCode == 13 ) {
-                            _textareaWrap.css( 'height', heightWrap.innerHeight());
+                            _obj.find('.gform_body .gfield_textarea').css( 'height', heightWrap.innerHeight());
                         }
+
+                        console.log(value)
 
                         return false;
 
