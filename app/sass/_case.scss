@@ -168,7 +168,9 @@
 
   &:first-of-type {
 
-    p {
+    p,
+    ul,
+    ol{
       max-width: 812px;
     }
   }

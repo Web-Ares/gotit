@@ -803,50 +803,54 @@
                             nextSection = $('.slide__content').eq(sectionIndex+1).find('.slide__content-inner');
 
 
-                        if( _obj.hasClass('main-slider_index') ) {
+                        setTimeout( function(){
 
-                            var height = actSlide.innerHeight();
+                            if( _obj.hasClass('main-slider_index') ) {
 
+                                var height = actSlide.innerHeight();
 
-                            actSlide.find('.move').each(function(){
+                                actSlide.find('.move').each(function(){
 
-                                var vegetable = $(this),
-                                    pos = vegetable.position().top,
-                                    heightVeg = vegetable.height();
+                                    var vegetable = $(this),
+                                        pos = vegetable.position().top,
+                                        heightVeg = vegetable.height();
 
-                                if( pos + heightVeg > height ) {
+                                    if( pos + heightVeg > height ) {
 
-                                    var num = vegetable.attr('class').replace( /(^.+\D)(\d+)(\D.+$)/i,'$2'),
-                                        diff = 0;
+                                        var num = vegetable.attr('class').replace( /(^.+\D)(\d+)(\D.+$)/i,'$2'),
+                                            diff = 0;
 
-                                    var newImg = vegetable.clone(true);
+                                        var newImg = vegetable.clone(true);
 
-                                    newImg.addClass('copy_move copy_'+num+'');
-                                    nextSection.prepend(newImg);
+                                        newImg.addClass('copy_move copy_'+num+'');
+                                        nextSection.prepend(newImg);
 
-                                    if( $('.slide__content').innerHeight() < $('.main-slider').innerHeight() ) {
+                                        if( $('.slide__content').innerHeight() < $('.main-slider').innerHeight() ) {
 
-                                        diff = $('.main-slider').innerHeight()-$('.slide__content').innerHeight()
+                                            diff = $('.main-slider').innerHeight()-$('.slide__content').innerHeight()
+
+                                        }
+
+                                        newImg.offset( {
+                                            top: vegetable.offset().top-diff,
+                                            left: vegetable.offset().left
+                                        } );
+
+                                        newImg.css( {
+                                            bottom: 'auto',
+                                            right: 'auto',
+                                            width: vegetable.width(),
+                                            height: vegetable.height()
+                                        } );
 
                                     }
 
-                                    newImg.offset( {
-                                        top: vegetable.offset().top-diff,
-                                        left: vegetable.offset().left
-                                    } );
+                                } );
 
-                                    newImg.css( {
-                                        bottom: 'auto',
-                                        right: 'auto',
-                                        width: vegetable.width(),
-                                        height: vegetable.height()
-                                    } );
+                            }
 
-                                }
+                        }, 400 );
 
-                            } );
-
-                        }
 
 
                     }

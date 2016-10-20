@@ -211,8 +211,8 @@
   .moves_up {
 
     &.move {
-      -webkit-transform: translateY(-400px) !important;
-      transform: translateY(-400px) !important;
+      -webkit-transform: translateY(-400px) translateZ(0) !important;
+      transform: translateY(-400px) translateZ(0) !important;
     }
 
   }
