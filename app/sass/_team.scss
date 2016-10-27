@@ -1,0 +1,21 @@
+.team {
+
+  .squad ,
+  .squad__inner {
+    overflow: visible;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+}
+@media (min-width: $desktop) {
+
+  .team {
+    .squad {
+      padding: 60px 0 19px;
+    }
+  }
+
+}
