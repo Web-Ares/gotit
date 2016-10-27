@@ -37,7 +37,8 @@ button.btn {
 }
 .btn_2,
 .btn_4,
-.btn_5 {
+.btn_5,
+.btn_8 {
   background: transparent;
   border: 1px solid #fff;
   width: 226px;
@@ -160,6 +161,11 @@ button.btn {
     border-radius: 11.5em;
     font-size: 0.7em;
     line-height: 1em;
+  }
+  .btn_8 {
+    margin-top: 1.6em;
+    width: 13em;
+    height: 3.55em;
   }
 
 }
