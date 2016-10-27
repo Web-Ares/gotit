@@ -361,6 +361,12 @@
 
                 }
 
+                if ( parseInt( newSize ) > 100 ) {
+
+                    newSize = 100 + 'px'
+
+                }
+
                 _body.css( {
                     'font-size': newSize
                 } );
