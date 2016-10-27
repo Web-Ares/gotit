@@ -1572,8 +1572,6 @@
 
                     if ( newSize < _squadDisk.css('max-height') ) {
 
-
-
                         _squadDisk.width( newSize );
                         _squadDisk.height( newSize );
                         _squadDisk.css( {
@@ -1593,9 +1591,6 @@
                             'margin-left': '-' + parseInt( _squadDisk.css('max-height'))/2  + 'px'
 
                         } );
-
-                        console.log(_squadDisk.css('max-height'))
-                        console.log(parseInt( _squadDisk.css('max-height') ))
 
                     }
 

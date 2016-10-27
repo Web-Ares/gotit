@@ -1,6 +1,9 @@
 .team {
   padding-bottom: 70px;
 
+  .squad {
+    padding: 90px 0 90px;
+  }
   .squad ,
   .squad__inner {
     overflow: visible;
@@ -14,6 +17,8 @@
 @media (min-width: $desktop) {
 
   .team {
+    padding: 70px 0;
+
     .squad {
       padding: 60px 0 19px;
     }
