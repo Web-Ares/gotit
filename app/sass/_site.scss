@@ -241,6 +241,8 @@ body {
     .slide__content {
       overflow: hidden;
       position: relative;
+      background-size: cover;
+      background-repeat: no-repeat;
 
       &:first-child {
         z-index: 3;
@@ -251,7 +253,6 @@ body {
       }
 
     }
-
 
 }
 .site__title {
@@ -562,5 +563,18 @@ input:-webkit-autofill{
     }
 
   }
+}
+@media (max-width: $desktop) {
+
+  .site__index-page {
+    position: relative;
+    z-index: 1;
+
+    .slide__content_about {
+      background: none !important;
+    }
+
+  }
+
 }
 

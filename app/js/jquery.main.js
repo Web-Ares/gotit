@@ -227,6 +227,12 @@
 
                         }
 
+                        if( index > 2 ) {
+
+                            $('.about').addClass('visible');
+
+                        }
+
                     }
 
                 } );
@@ -740,7 +746,6 @@
                             sectionIndex = actSlide.parents('.slide__content').index(),
                             nextSection = $('.slide__content').eq(sectionIndex+1);
 
-                        console.log(3)
                         if( _window.width() < 1024  ){
 
                             if( _obj.hasClass('main-slider_index') ) {
@@ -972,8 +977,6 @@
                     slidesPerView: 1.9,
                     centeredSlides: true,
                     onClick: function (swiper, event){
-
-                        console.log('onClick');
 
                         var clicked = swiper.clickedIndex;
                         swiper.activeIndex = clicked;
