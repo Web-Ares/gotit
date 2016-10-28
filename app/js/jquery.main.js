@@ -395,6 +395,8 @@
             _menuBtn = _obj.find('.site__header__btn'),
             _menuItems = _obj.find('.site__header-menu'),
             _html = $('html'),
+            _site = $('.site'),
+            siteScrollTop,
             _body = $('body');
 
         //private methods
@@ -402,18 +404,28 @@
 
                 _obj.removeClass( 'opened' );
 
-                if( (_window.width() < 1024) && ($('.site__index-page').length) ) {
+                if( (_window.width() >= 1024) && ($('.site__index-page').length) ) {
 
-                    _html.css( {
-                        'overflow-y': 'auto'
-                    } );
+                    $.fn.fullpage.setAllowScrolling(true);
 
                 } else {
 
-                    _html.css( {
-                        'overflow-y': 'auto'
-                    } );
+                    setTimeout( function() {
 
+                        if( _site.height() > _window.height() ) {
+
+                            _html.css( {
+                                'overflow-y': ''
+                            } );
+                        }
+
+                        _site.css( {
+                            'height': ''
+                        } );
+
+                        _window.scrollTop( siteScrollTop );
+
+                    }, 10);
 
                 }
 
@@ -478,19 +490,31 @@
 
                 _obj.addClass( 'opened' );
 
-                if( (_window.width() < 1024) && ($('.site__index-page').length) ) {
+                if( (_window.width() >= 1024) && ($('.site__index-page').length) ) {
 
-                    _html.css( {
-                        'overflow-y': 'hidden'
-                    } );
-
+                    $.fn.fullpage.setAllowScrolling(false);
 
                 } else {
 
-                    _html.css( {
-                        'overflow-y': 'hidden'
-                    } );
+                    siteScrollTop = _window.scrollTop();
 
+                    setTimeout( function() {
+
+                        if( _site.height() > _window.height() ) {
+                            _html.css( {
+                                'overflow-y': 'scroll'
+                            } );
+                        }
+
+                        setTimeout( function() {
+
+                            _site.css( {
+                                'height': '100%'
+                            } );
+
+                        }, 10);
+
+                    }, 300);
 
                 }
 
@@ -1596,8 +1620,8 @@
                         _squadDisk.height( _squadDisk.css('max-height') );
                         _squadDisk.css( {
 
-                            'margin-top': '-' + parseInt( _squadDisk.css('max-height'))/2  + 'px',
-                            'margin-left': '-' + parseInt( _squadDisk.css('max-height'))/2  + 'px'
+                            'margin-top': '-' + parseInt( _squadDisk.css('max-height') )/2  + 'px',
+                            'margin-left': '-' + parseInt( _squadDisk.css('max-height') )/2  + 'px'
 
                         } );
 
@@ -1613,13 +1637,20 @@
 
                         } );
 
+                    } else {
+
+                        _squadDisk.width( $('.squad__inner').innerHeight()*1.5 );
+                        _squadDisk.height( $('.squad__inner').innerHeight()*1.5 );
+                        _squadDisk.css( {
+
+                            'margin-top': '-' + parseInt( $('.squad__inner').innerHeight() )*1.5/2  + 'px',
+                            'margin-left': '-' + parseInt( $('.squad__inner').innerHeight() )*1.5/2  + 'px'
+
+                        } );
+
                     }
 
-
-
                 }
-
-
 
             },
             _init = function() {

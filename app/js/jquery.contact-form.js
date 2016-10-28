@@ -118,8 +118,6 @@
                             _obj.find('.gform_body .gfield_textarea').css( 'height', heightWrap.innerHeight()+20);
                         }
 
-                        console.log(value)
-
                         return false;
 
                     }
